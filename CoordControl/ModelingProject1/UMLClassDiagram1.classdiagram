@@ -1,1 +1,44 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="462311a5-fa02-4564-b29b-c085db240d8a" name="UMLClassDiagram1" linkedPackageId="c1ed7143-3dd6-4f33-9a7f-aac2123e07bd" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="657063ea-9f20-4577-9ade-88ccde5954b9">
+      <profileInstance Id="cbab7860-f698-4c96-99ab-969e66bfa690" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="364f792f-77a1-4017-9bdf-e85f38696aab">
+      <profileInstance Id="67668576-54fc-471f-81a3-e6a4ba766509" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="40b3ab52-1db6-41d5-b0fb-d0178162689f" name="CoordControl">
+        <elementDefinition Id="00aa57f1-12ca-4c82-8197-61daf6dfdf3b" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="06ae0d4b-c36d-4ce9-aaed-1077e391e8ce" name="Route" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="8462332a-63c4-487a-a3b2-d709c94b90c9" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="a35ba525-62a8-4293-b78c-153f74ef10df" name="Cross" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="71897670-67d3-482e-adc9-e19bffb61d39" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="387df32c-ed47-43dd-9dc9-e52bfeb92c50" name="Road" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="7f571761-9bef-444d-9dde-484417d7bda7" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="c1ed7143-3dd6-4f33-9a7f-aac2123e07bd" name="ModelingProject1">
+    <elementDefinition Id="db18075a-fafb-4c1a-b425-0ec994ae762a" />
+  </package>
+</logicalClassDesignerModel>

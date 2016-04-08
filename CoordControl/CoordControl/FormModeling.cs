@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CoordControl
 {
-    public partial class Form1 : Form
+    public partial class FormModeling : Form
     {
-        public Form1()
+        public FormModeling()
         {
             InitializeComponent();
         }
