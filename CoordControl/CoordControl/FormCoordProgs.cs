@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CoordControl
 {
-    public partial class FormResult : Form
+    public partial class FormCoordProgs : Form
     {
-        public FormResult()
+        public FormCoordProgs()
         {
             InitializeComponent();
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

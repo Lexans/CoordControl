@@ -77,5 +77,10 @@ namespace CoordControl
 
         }
 
+        private void userControlPassUp_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

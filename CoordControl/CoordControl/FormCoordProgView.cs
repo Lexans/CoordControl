@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CoordControl
 {
-    public partial class FormModeling : Form
+    public partial class FormCoordProgView : Form
     {
-        public FormModeling()
+        public FormCoordProgView()
         {
             InitializeComponent();
         }
 
-        private void FormModeling_Load(object sender, EventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

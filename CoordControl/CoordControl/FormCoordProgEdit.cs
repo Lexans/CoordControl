@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CoordControl
 {
-    public partial class FormModeling : Form
+    public partial class FormCoordProgEdit : Form
     {
-        public FormModeling()
+        public FormCoordProgEdit()
         {
             InitializeComponent();
-        }
-
-        private void FormModeling_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
