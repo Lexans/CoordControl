@@ -70,7 +70,9 @@ namespace CoordControl
             }
             set
             {
+                numericUpDownLeftPart.ValueChanged -= numericUpDownDirectPart_ValueChanged;
                 numericUpDownLeftPart.Value = value;
+                numericUpDownLeftPart.ValueChanged += numericUpDownDirectPart_ValueChanged;
             }
         }
 
@@ -82,7 +84,9 @@ namespace CoordControl
             }
             set
             {
+                numericUpDownDirectPart.ValueChanged -= numericUpDownDirectPart_ValueChanged;
                 numericUpDownDirectPart.Value = value;
+                numericUpDownDirectPart.ValueChanged += numericUpDownDirectPart_ValueChanged;
             }
         }
 
@@ -94,18 +98,29 @@ namespace CoordControl
             }
             set
             {
+                numericUpDownRightPart.ValueChanged -= numericUpDownRightPart_ValueChanged;
                 numericUpDownRightPart.Value = value;
+                numericUpDownRightPart.ValueChanged += numericUpDownRightPart_ValueChanged;
             }
         }
 
 
-        public bool IsReadOnly
+        public bool IsIntensityReadOnly
         {
             set
             {
-                numericUpDownIntensity.ReadOnly = value;
-                numericUpDownLinesN.ReadOnly = value;
-                numericUpDownLineWidth.ReadOnly = value;
+                numericUpDownIntensity.Enabled = !value;
+                if (value)
+                {
+                    numericUpDownIntensity.Maximum = 10000;
+                    numericUpDownIntensity.Minimum = 0;
+                }
+                else
+                {
+                    numericUpDownIntensity.Maximum = 700;
+                    numericUpDownIntensity.Minimum = 300;
+                }
+
             }
             get
             {
@@ -120,6 +135,48 @@ namespace CoordControl
 
         private void label10_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void numericUpDownLeftPart_ValueChanged(object sender, EventArgs e)
+        {
+            decimal rightValue = 100 - numericUpDownDirectPart.Value - numericUpDownLeftPart.Value;
+
+            if (rightValue < 0)
+            {
+                MessageBox.Show("Сумма частей должна равняться 100", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                numericUpDownLeftPart.Value += rightValue; 
+            }
+            else
+                numericUpDownRightPart.Value = rightValue;
+        }
+
+        private void numericUpDownRightPart_ValueChanged(object sender, EventArgs e)
+        {
+
+            decimal leftValue = 100 - numericUpDownDirectPart.Value - numericUpDownRightPart.Value;
+
+            if (leftValue < 0)
+            {
+                MessageBox.Show("Сумма частей должна равняться 100", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                numericUpDownRightPart.Value += leftValue; 
+            }
+            else
+                numericUpDownLeftPart.Value = leftValue;
+        }
+
+        private void numericUpDownDirectPart_ValueChanged(object sender, EventArgs e)
+        {
+            decimal rightValue = (100 - numericUpDownDirectPart.Value -
+                numericUpDownLeftPart.Value);
+
+            if (rightValue < 0)
+            {
+                MessageBox.Show("Сумма частей должна равняться 100", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                numericUpDownDirectPart.Value += rightValue; 
+            }
+            else
+                numericUpDownRightPart.Value = rightValue;
 
         }
     }

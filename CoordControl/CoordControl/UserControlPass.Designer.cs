@@ -190,6 +190,7 @@
             0,
             0,
             0});
+            this.numericUpDownRightPart.ValueChanged += new System.EventHandler(this.numericUpDownRightPart_ValueChanged);
             // 
             // numericUpDownDirectPart
             // 
@@ -203,10 +204,11 @@
             this.numericUpDownDirectPart.Size = new System.Drawing.Size(45, 22);
             this.numericUpDownDirectPart.TabIndex = 1;
             this.numericUpDownDirectPart.Value = new decimal(new int[] {
-            100,
+            80,
             0,
             0,
             0});
+            this.numericUpDownDirectPart.ValueChanged += new System.EventHandler(this.numericUpDownDirectPart_ValueChanged);
             // 
             // numericUpDownLeftPart
             // 
@@ -224,6 +226,7 @@
             0,
             0,
             0});
+            this.numericUpDownLeftPart.ValueChanged += new System.EventHandler(this.numericUpDownLeftPart_ValueChanged);
             // 
             // numericUpDownIntensity
             // 

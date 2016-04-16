@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="CoordControl.Core.Domains.Cross, CoordControl.Core" table="cross" lazy="false">
+		<id name="ID" column="id_cross" type="long" unsaved-value="0">
+			<generator class="hilo">
+			</generator>
+		</id>
+    
+		<property name="StreetName" column="street_name" type="String" not-null="false"/>
+		<many-to-one name="RoadLeft" column="road_left" class="CoordControl.Core.Domains.Road, CoordControl.Core" cascade="save-update" unique="true" not-null="false" lazy="false">
+		</many-to-one>
+		<many-to-one name="RoadRight" column="road_right" class="CoordControl.Core.Domains.Road, CoordControl.Core" cascade="save-update" unique="true" not-null="false" lazy="false">
+		</many-to-one>
+		<many-to-one name="PassLeft" column="pass_left" class="CoordControl.Core.Domains.Pass, CoordControl.Core" cascade="save-update" unique="true" not-null="false" lazy="false">
+		</many-to-one>
+		<many-to-one name="PassRight" column="pass_right" class="CoordControl.Core.Domains.Pass, CoordControl.Core" cascade="save-update" unique="true" not-null="false" lazy="false">
+		</many-to-one>
+		<many-to-one name="PassTop" column="pass_top" class="CoordControl.Core.Domains.Pass, CoordControl.Core" cascade="save-update" unique="true" not-null="false" lazy="false">
+		</many-to-one>
+		<many-to-one name="PassBottom" column="pass_bottom" class="CoordControl.Core.Domains.Pass, CoordControl.Core" cascade="save-update" unique="true" not-null="false" lazy="false">
+		</many-to-one>
+		<many-to-one name="Route" column="route" class="CoordControl.Core.Domains.Route, CoordControl" not-null="false" lazy="false">
+		</many-to-one>
+		<set name="PlanOfCrosses" lazy="false" cascade="save-update" inverse="true">
+			<key column="cross"/>
+			<one-to-many class="CoordControl.Core.Domains.CrossPlan, CoordControl.Core"/>
+		</set>
+	</class>
+</hibernate-mapping>

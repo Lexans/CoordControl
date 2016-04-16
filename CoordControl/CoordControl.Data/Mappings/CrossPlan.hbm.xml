@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="CoordControl.Core.Domains.CrossPlan, CoordControl.Core" table="cross_plan" lazy="false">
+		<composite-id>
+			<key-many-to-one name="Plan" column="plan" class="CoordControl.Core.Domains.Plan, CoordControl.Core">
+			</key-many-to-one>
+			<key-many-to-one name="Cross" column="cross" class="CoordControl.Core.Domains.Cross, CoordControl.Core">
+			</key-many-to-one>
+		</composite-id>
+		<property name="P1MainInterval" column="p1_main_interval" type="Int32" not-null="false"/>
+		<property name="P1MediateInterval" column="p1_mediate_interval" type="Int32" not-null="false"/>
+		<property name="P2MainInterval" column="p2_main_interval" type="Int32" not-null="false"/>
+		<property name="P2MediateInterval" column="p2_mediate_interval" type="Int32" not-null="false"/>
+		<property name="PhaseOffset" column="phase_offset" type="Int32" not-null="false"/>
+	</class>
+</hibernate-mapping>

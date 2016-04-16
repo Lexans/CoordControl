@@ -4,6 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+using CoordControl.Forms;
+using CoordControl.Models;
+using CoordControl.Presenters;
+
 namespace CoordControl
 {
     static class Program
@@ -16,7 +21,17 @@ namespace CoordControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormRoutes());
+            //Application.Run(new FormRoutes());
+
+            Data.NHibernateSessionManager.SessionFactoryConfigPath = "NHibernate.SQLite.config";
+
+            //Data.NHibernateDao<int>.UpdateSchema();
+
+            FormRoutes form = new FormRoutes();
+            RoutesModel model = new RoutesModel();
+            RoutesPresenter presenter = new RoutesPresenter(form, model);
+
+            Application.Run(form);
         }
     }
 }

@@ -1,0 +1,16 @@
+BEGIN TRANSACTION;
+INSERT INTO `route` (id_route,street_name,cross_count) VALUES (1,'Гагарина',3);
+INSERT INTO `road` (id_road,length,speed) VALUES (1,770,60);
+INSERT INTO `road` (id_road,length,speed) VALUES (2,1600,60);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (1,400,3,'3,5',5,80,15);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (2,400,3,'3,5',10,80,10);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (3,300,2,'3,5',10,80,10);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (4,300,2,'3,5',10,80,10);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (5,400,3,'3,5',7,85,8);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (6,500,2,'3,5',5,80,15);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (7,600,1,'3,5',10,80,10);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (8,300,1,'3,5',5,90,5);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (9,400,2,'3,5',5,90,5);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (10,450,2,'3,5',6,90,4);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (11,500,2,'3,5',5,90,5);
+INSERT INTO `pass` (id_pass,intensity,lines_count,line_width,left_part,direct_part,right_part) VALUES (12,300,2,'3,5',5,90,5);
