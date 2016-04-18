@@ -110,21 +110,10 @@ namespace CoordControl
             set
             {
                 numericUpDownIntensity.Enabled = !value;
-                if (value)
-                {
-                    numericUpDownIntensity.Maximum = 10000;
-                    numericUpDownIntensity.Minimum = 0;
-                }
-                else
-                {
-                    numericUpDownIntensity.Maximum = 700;
-                    numericUpDownIntensity.Minimum = 300;
-                }
-
             }
             get
             {
-                return numericUpDownIntensity.ReadOnly;
+                return !numericUpDownIntensity.Enabled;
             }
         }
 
@@ -178,6 +167,21 @@ namespace CoordControl
             else
                 numericUpDownRightPart.Value = rightValue;
 
+        }
+
+        private void numericUpDownLinesN_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownIntensity.Enabled)
+            {
+                numericUpDownIntensity.Minimum = 300 * numericUpDownLinesN.Value;
+                numericUpDownIntensity.Maximum = 700 * numericUpDownLinesN.Value;
+            }
+            else
+            {
+                numericUpDownIntensity.Maximum = 10000;
+                numericUpDownIntensity.Minimum = 0;
+            }
+            
         }
     }
 }

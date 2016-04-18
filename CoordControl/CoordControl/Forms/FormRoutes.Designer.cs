@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRoutes));
             this.dataGridViewRoutes = new System.Windows.Forms.DataGridView();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crossCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.routeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -42,12 +46,10 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonPlans = new System.Windows.Forms.Button();
-            this.crossCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.routeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoutes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewRoutes
@@ -58,11 +60,27 @@
             this.dataGridViewRoutes.AllowUserToResizeRows = false;
             this.dataGridViewRoutes.AutoGenerateColumns = false;
             this.dataGridViewRoutes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRoutes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewRoutes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRoutes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Title,
             this.crossCountDataGridViewTextBoxColumn});
             this.dataGridViewRoutes.DataSource = this.routeBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRoutes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewRoutes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRoutes.Location = new System.Drawing.Point(2, 18);
             this.dataGridViewRoutes.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -85,6 +103,19 @@
             this.Title.MinimumWidth = 100;
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;
+            // 
+            // crossCountDataGridViewTextBoxColumn
+            // 
+            this.crossCountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.crossCountDataGridViewTextBoxColumn.DataPropertyName = "CrossCount";
+            this.crossCountDataGridViewTextBoxColumn.HeaderText = "Перекрестков";
+            this.crossCountDataGridViewTextBoxColumn.Name = "crossCountDataGridViewTextBoxColumn";
+            this.crossCountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.crossCountDataGridViewTextBoxColumn.Width = 126;
+            // 
+            // routeBindingSource
+            // 
+            this.routeBindingSource.DataSource = typeof(CoordControl.Core.Domains.Route);
             // 
             // groupBox1
             // 
@@ -129,21 +160,21 @@
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
@@ -185,19 +216,6 @@
             this.buttonPlans.UseVisualStyleBackColor = true;
             this.buttonPlans.Click += new System.EventHandler(this.buttonPlans_Click);
             // 
-            // crossCountDataGridViewTextBoxColumn
-            // 
-            this.crossCountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.crossCountDataGridViewTextBoxColumn.DataPropertyName = "CrossCount";
-            this.crossCountDataGridViewTextBoxColumn.HeaderText = "Перекрестков";
-            this.crossCountDataGridViewTextBoxColumn.Name = "crossCountDataGridViewTextBoxColumn";
-            this.crossCountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.crossCountDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // routeBindingSource
-            // 
-            this.routeBindingSource.DataSource = typeof(CoordControl.Core.Domains.Route);
-            // 
             // FormRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -209,12 +227,14 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "FormRoutes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список магистралей";
+            this.Load += new System.EventHandler(this.FormRoutes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoutes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

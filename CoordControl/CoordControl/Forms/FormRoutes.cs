@@ -68,7 +68,12 @@ namespace CoordControl.Forms
 
         private void buttonPlans_Click(object sender, EventArgs e)
         {
-            if (PlansButtonClick != null) PlansButtonClick(this, EventArgs.Empty);
+            if (PlansButtonClick != null)
+            {
+                Hide();
+                PlansButtonClick(this, EventArgs.Empty);
+                Show();
+            }
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,15 +106,24 @@ namespace CoordControl.Forms
         #region логика формы
         private void dataGridViewRoutes_CurrentCellChanged(object sender, EventArgs e)
         {
+            CheckElementsState();
+        }
+
+        #endregion
+
+        private void FormRoutes_Load(object sender, EventArgs e)
+        {
+            CheckElementsState();
+        }
+
+        private void CheckElementsState()
+        {
             bool isSelected = (SelectedRoute != null);
 
             buttonPlans.Enabled = isSelected;
             изменитьToolStripMenuItem.Enabled = isSelected;
             удалитьToolStripMenuItem.Enabled = isSelected;
-            добавитьToolStripMenuItem.Enabled = isSelected;
         }
-
-        #endregion
 
     }
 }

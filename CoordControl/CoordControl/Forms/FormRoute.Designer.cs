@@ -65,6 +65,7 @@
             // textBoxStreetNameMagistral
             // 
             this.textBoxStreetNameMagistral.Location = new System.Drawing.Point(12, 48);
+            this.textBoxStreetNameMagistral.MaxLength = 256;
             this.textBoxStreetNameMagistral.Name = "textBoxStreetNameMagistral";
             this.textBoxStreetNameMagistral.Size = new System.Drawing.Size(296, 22);
             this.textBoxStreetNameMagistral.TabIndex = 0;
@@ -292,6 +293,7 @@
             // textBoxStreetNameCross
             // 
             this.textBoxStreetNameCross.Location = new System.Drawing.Point(31, 106);
+            this.textBoxStreetNameCross.MaxLength = 256;
             this.textBoxStreetNameCross.Name = "textBoxStreetNameCross";
             this.textBoxStreetNameCross.Size = new System.Drawing.Size(245, 22);
             this.textBoxStreetNameCross.TabIndex = 20;
@@ -360,6 +362,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormRoute";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Магистраль";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrossCount)).EndInit();
             this.groupBox1.ResumeLayout(false);

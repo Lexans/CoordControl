@@ -21,15 +21,16 @@ namespace CoordControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormRoutes());
+
 
             Data.NHibernateSessionManager.SessionFactoryConfigPath = "NHibernate.SQLite.config";
 
             //Data.NHibernateDao<int>.UpdateSchema();
 
+
             FormRoutes form = new FormRoutes();
             RoutesModel model = new RoutesModel();
-            RoutesPresenter presenter = new RoutesPresenter(form, model);
+            RoutesPresenter presenter = new RoutesPresenter(form, model);            
 
             Application.Run(form);
         }

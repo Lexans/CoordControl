@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="a087d0ea-edd2-4007-9d7c-9123adb8ad89"
+  name="CoordControl.Presenters" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="c2715c0f-74a1-4fb0-a7ec-d0920259e737"
+        name="ModelingPresenter"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="8783528f-26ba-4c7d-a5ba-eb36a1387a7c"
+            name="RegionsView"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="66eeaf82-b2c8-46f9-b5fe-22667e04b421"
+                LastKnownName="Dictionary&lt;Region,Rectangle&gt;"
+                LastKnownLocation="Package_1607.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6206c733-d484-4970-b76d-c1d957873895"
+            name="_view"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="da79d3de-07b3-43e4-b7a4-f9b2991cd9e9"
+                LastKnownName="IFormModeling"
+                LastKnownLocation="Package_1607.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ea658dbb-3a48-4a77-89fc-84f2ef595140"
+            name="CrossLights1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d69a6cb9-b952-4718-a21e-b49b7412ef08"
+                LastKnownName="Dictionary&lt;NodeCross,List&lt;Point,Point&gt;&gt;"
+                LastKnownLocation="Package_1607.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="119183ab-79e4-4d26-b1c6-ebd1c2c877f9"
+            name="CrossLights2"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d69a6cb9-b952-4718-a21e-b49b7412ef08"
+                LastKnownName="Dictionary&lt;NodeCross,List&lt;Point,Point&gt;&gt;"
+                LastKnownLocation="Package_1607.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="38adcd8c-7178-4ba9-98e4-b78b7de92ec6"
+            name="_selectedRegion"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="47241ad6-ca5b-4733-91d8-8937a2ac2497"
+                LastKnownName="Region"
+                LastKnownLocation="Package_1607.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="163adfcb-94dc-4abc-bd6a-6a528fa8d0cf"
+            name="СalcScaleX"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Вычисление масштаба по горизонтали
+по общей длине магистрали и ширине полотна</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5fca9b52-d1b7-4505-a128-5c7cc04c7ef9"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                      LastKnownName="double"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b050f5e7-52ac-4f42-97a8-e074db822cb0"
+        name="Dictionary" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="66eeaf82-b2c8-46f9-b5fe-22667e04b421"
+        name="Dictionary&lt;Region,Rectangle&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="da79d3de-07b3-43e4-b7a4-f9b2991cd9e9"
+        name="IFormModeling" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d69a6cb9-b952-4718-a21e-b49b7412ef08"
+        name="Dictionary&lt;NodeCross,List&lt;Point,Point&gt;&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="47241ad6-ca5b-4733-91d8-8937a2ac2497"
+        name="Region" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

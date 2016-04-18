@@ -11,7 +11,6 @@ namespace CoordControl.Core.Domains
         public string StreetName { get; set; }
 
         public ISet<CrossPlan> PlanOfCrosses { get; set; }
-
         public Route Route { get; set; }
         public Pass PassLeft { get; set; }
         public Pass PassRight { get; set; }
@@ -19,6 +18,7 @@ namespace CoordControl.Core.Domains
         public Pass PassBottom { get; set; }
         public Road RoadLeft { get; set; }
         public Road RoadRight { get; set; }
+        public int Position { get; protected set; }
 
         public override string ToString()
         {

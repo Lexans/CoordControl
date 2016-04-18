@@ -16,6 +16,7 @@ namespace CoordControl.Forms
     {
         string StreetName { get; set; }
         int CrossCount { get; set; }
+        bool CrossCountReadOnly { get; set; }
         IList<Cross> CrossList { set; }
         Cross Cross { get; set; }
         Cross SelectedCross { get; }
@@ -69,6 +70,25 @@ namespace CoordControl.Forms
             }
         }
 
+        public string FormTitle
+        {
+            set { this.Text = value; }
+
+        }
+
+
+        public bool CrossCountReadOnly
+        {
+            get
+            {
+                return numericUpDownCrossCount.ReadOnly;
+            }
+            set
+            {
+                numericUpDownCrossCount.ReadOnly = value;
+            }
+        }
+
 
         public IList<Cross> CrossList
         {
@@ -97,15 +117,16 @@ namespace CoordControl.Forms
                 cross.StreetName = CrossStreetName;
                 if (cross.RoadRight != null)
                 {
-                    cross.RoadRight.Length = (int) numericUpDownRoadLength.Value;
-                    cross.RoadRight.Speed = (int)numericUpDownRoadSpeed.Value;
+                    RightRoad = cross.RoadRight;
                 }
 
-                return (Cross) comboBoxCrosses.SelectedItem;
+                return cross;
             }
             set
             {
                 cross = value;
+                SetIntensityReadonly();
+
                 BottomPass = value.PassBottom;
                 TopPass = value.PassTop;
                 LeftPass = value.PassLeft;
@@ -130,6 +151,8 @@ namespace CoordControl.Forms
                 textBoxStreetNameCross.Text = value;
             }
         }
+
+
 
         #region подходы
         private Pass leftPass;
@@ -216,7 +239,7 @@ namespace CoordControl.Forms
             ucp.Intensity = ps.Intensity;
         }
         #endregion
-        #region перегоны
+
         private Road rightRoad;
         public Road RightRoad
         {
@@ -233,7 +256,6 @@ namespace CoordControl.Forms
                 numericUpDownRoadSpeed.Value = rightRoad.Speed;
             }
         }
-        #endregion
         #endregion
 
         #region проброс событий
@@ -273,10 +295,14 @@ namespace CoordControl.Forms
 
         private void SetIntensityReadonly()
         {
-            userControlPassLeft.IsIntensityReadOnly = (comboBoxCrosses.SelectedIndex != 0);
-            userControlPassRight.IsIntensityReadOnly = (comboBoxCrosses.SelectedIndex != (comboBoxCrosses.Items.Count-1));
+            
+            int pos = comboBoxCrosses.Items.IndexOf(cross);
+            int count = comboBoxCrosses.Items.Count;
 
-            groupBoxRoad.Visible = (comboBoxCrosses.SelectedIndex != (comboBoxCrosses.Items.Count - 1));
+            userControlPassLeft.IsIntensityReadOnly = (pos != 0);
+            userControlPassRight.IsIntensityReadOnly = (pos != (count - 1));
+
+            groupBoxRoad.Visible = (pos != (count - 1));
         }
 
         private void textBoxStreetNameCross_TextChanged(object sender, EventArgs e)
@@ -319,10 +345,5 @@ namespace CoordControl.Forms
             }
         }
 
-        public string FormTitle
-        {
-            set { this.Text = value; }
-
-        }
     }
 }

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///D:/PROGRAM FILES/OFFICE/VISUALSTUDIOULTIMATE2013/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Журнал создания кода/преобразования текста">
+  <MessageClass Name="Message" Label="Сообщение" Option="Показывать информационные сообщения" />
+  <MessageClass Name="Warning" Label="Предупреждение" Option="Показывать предупреждения" />
+  <MessageClass Name="Error" Label="Ошибка" Option="Показывать ошибки" />
+  <MessageClass Name="Property" Label="Свойство" Option="Показывать метаданные" />
+  <MessageClass Name="Diagnostic" Label="Сообщение" Option="Показывать диагностические сообщения" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="High" Text="Запущено создание кода или преобразование текста." />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Diagnostic" Text="Имя = ClassTemplate" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Diagnostic" Text="Перезаписать = True" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-04-17T22:20:50" Importance="Medium" Text="Привязка шаблона текста, принадлежащая ModelingProject1: &quot;ClassTemplate&quot; применит ClassTemplate.t4 к: &quot;ModelingProject1::CoordControl.Core::PlanCalculator&quot; -  (Class), &quot;ModelingProject1::CoordControl.Core::PlanCalculatorSimple&quot; -  (Class), &quot;ModelingProject1::CoordControl.Core::PlanCalculatorAnalytic&quot; -  (Class), &quot;ModelingProject1::CoordControl.Core::PlanCalculatorImit&quot; -  (Class) " />
+  <Message Timestamp="2016-04-17T22:20:57" Importance="Medium" Text="Добавленный проект: D:\AppDocs\GitHub\CoordControl\CoordControl\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+  <Message Timestamp="2016-04-17T22:20:57" Importance="Medium" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculator&quot; -  (Class) : успешно (файл создан) - D:\AppDocs\GitHub\CoordControl\CoordControl\ModelingProject1Lib\GeneratedCode\CoordControl.Core\PlanCalculator.cs" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Medium" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculatorSimple&quot; -  (Class) : успешно (файл создан) - D:\AppDocs\GitHub\CoordControl\CoordControl\ModelingProject1Lib\GeneratedCode\CoordControl.Core\PlanCalculatorSimple.cs" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Medium" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculatorAnalytic&quot; -  (Class) : успешно (файл создан) - D:\AppDocs\GitHub\CoordControl\CoordControl\ModelingProject1Lib\GeneratedCode\CoordControl.Core\PlanCalculatorAnalytic.cs" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Medium" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculatorImit&quot; -  (Class) : успешно (файл создан) - D:\AppDocs\GitHub\CoordControl\CoordControl\ModelingProject1Lib\GeneratedCode\CoordControl.Core\PlanCalculatorImit.cs" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Diagnostic" Text="Имя = StructTemplate" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Diagnostic" Text="Перезаписать = True" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-04-17T22:20:58" Importance="Medium" Text="Привязка шаблона текста, принадлежащая ModelingProject1: &quot;StructTemplate&quot; применит StructTemplate.t4 к: &quot;ModelingProject1::CoordControl.Core::PlanCalculator&quot; -  (Class), &quot;ModelingProject1::CoordControl.Core::PlanCalculatorSimple&quot; -  (Class), &quot;ModelingProject1::CoordControl.Core::PlanCalculatorAnalytic&quot; -  (Class), &quot;ModelingProject1::CoordControl.Core::PlanCalculatorImit&quot; -  (Class) " />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculator&quot; -  (Class): файлы не созданы, поскольку метод AppliesToElement шаблона &quot;StructTemplate.t4&quot; возвратил значение false." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculatorSimple&quot; -  (Class): файлы не созданы, поскольку метод AppliesToElement шаблона &quot;StructTemplate.t4&quot; возвратил значение false." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculatorAnalytic&quot; -  (Class): файлы не созданы, поскольку метод AppliesToElement шаблона &quot;StructTemplate.t4&quot; возвратил значение false." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;ModelingProject1::CoordControl.Core::PlanCalculatorImit&quot; -  (Class): файлы не созданы, поскольку метод AppliesToElement шаблона &quot;StructTemplate.t4&quot; возвратил значение false." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="Выбрано 4 элементов, не связанных с шаблоном." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;ModelingProject1::CoordControl.Core&quot; -  (Package): нет привязанных шаблонов." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;acd51690-3d7e-4a40-9d33-e6c98b5c34e9&quot; -  (Generalization): нет привязанных шаблонов." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;7b589cf1-6e7f-4e5e-bf3f-713ad82a0c08&quot; -  (Generalization): нет привязанных шаблонов." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="Diagnostic" Text="&quot;254b505d-e969-47ff-8b0b-df704fc1bc77&quot; -  (Generalization): нет привязанных шаблонов." />
+  <Message Timestamp="2016-04-17T22:20:59" Importance="High" Text="Создание кода завершено. Ошибок: 0. Предупреждений: 0." />
+</Log>

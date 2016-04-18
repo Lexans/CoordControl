@@ -21,5 +21,10 @@ namespace CoordControl.Forms
         {
 
         }
+
+        private void стартToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -3,6 +3,88 @@
   dslVersion="1.0.0.0"
   Id="db18075a-fafb-4c1a-b425-0ec994ae762a"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <appliedStereotypesInternal>
+    <stereotypeInstance
+      Id="8872eedd-570c-4c44-b4ca-438a36703cf4"
+      name="namespace"
+      profile="CSharpProfile">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="5e50a3d4-9fd3-402f-8c4f-aaedce918b84">
+          <propertyInstance
+            Id="d1e396f4-979c-49dc-974c-2a794e62dbec"
+            name="BaseName" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="ea89ed46-1567-4e36-8086-2a1715bbfbbb">
+          <propertyInstance
+            Id="98e4019a-5ca2-498c-b507-0bc268410e61"
+            name="ClrAttributes" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="3bb40006-a32f-41b5-b196-b287dbc8eb4e">
+          <propertyInstance
+            Id="8b170571-a9e5-441b-a583-b09b170af80b"
+            name="Usings" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance
+      Id="bcf81610-de20-4602-ae8a-fefbf283f272"
+      name="TextTemplateBindings"
+      profile="TextTemplateBindings">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="06aee831-7117-4279-b5ce-965cfb393809">
+          <propertyInstance
+            Id="ba9b9699-7280-49eb-8ec6-81756c28dcd5"
+            name="Alias"
+            value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="b7006122-9f21-45e8-8b12-a0e5fb39e5aa">
+          <propertyInstance
+            Id="737218a9-66ed-47cc-8523-ec4f10b168f1"
+            name="TemplateFilePath"
+            value="ClassTemplate=D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=D:\PROGRAM FILES\OFFICE\VISUALSTUDIOULTIMATE2013\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="43a81c36-c7e0-431c-b8a7-2cfdda3956d1">
+          <propertyInstance
+            Id="3f15a27b-5a03-4a1a-92ae-42cdc91c842d"
+            name="ProjectPath"
+            value="ClassTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|EnumTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|InterfaceTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|StructTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="800e2906-3895-455e-a970-5b725966d705">
+          <propertyInstance
+            Id="72da7bc8-dd29-492c-b24e-822988baad50"
+            name="TargetDirectory"
+            value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="f54bd9f6-4a09-4034-a2a5-7e41da8e6a30">
+          <propertyInstance
+            Id="2e663134-2f32-4a14-8304-48d1bf13059b"
+            name="TargetName"
+            value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="80f83e25-3333-4824-b056-55db10c6efb0">
+          <propertyInstance
+            Id="24064a80-3159-4ab0-a940-5fbbfc3a2748"
+            name="Overwrite"
+            value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="ccd584a1-3611-495d-b320-03f06c935aa8">
+          <propertyInstance
+            Id="ceb06be3-3539-41c6-96a7-12c1893d0ff7"
+            name="Parameters" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -16,13 +98,55 @@
         Id="532ea607-fb19-44b8-8502-3351b05452be"
         name="StandardProfileL3" />
     </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="6dd7c70f-8bae-458b-ae05-826a54ea6a65">
+      <profileInstance
+        Id="1ec81b15-c77b-4879-8a80-000fd93dcce0"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="431e6c9f-6c21-4959-b2f7-2cd0d488c714">
+      <profileInstance
+        Id="6d4bdcf6-8c7c-4cac-a33a-39944c6fc34c"
+        name="TextTemplateBindings" />
+    </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
       <packageMoniker
         Id="00aa57f1-12ca-4c82-8197-61daf6dfdf3b"
-        LastKnownName="CoordControl"
+        LastKnownName="CoordControl.Core"
         LastKnownLocation="Package_1843.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ceb358a1-feb8-458d-a603-73947a05d42e"
+        LastKnownName="CoordControl.Core"
+        LastKnownLocation="Package_1604.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="760b3fc9-623e-4c9f-a940-cb6e246b807c"
+        LastKnownName="CoordControl.Core.Domains"
+        LastKnownLocation="Package_1605.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8ab8acc4-97e9-4259-b247-75707f36aa9a"
+        LastKnownName="CoordControl.Models"
+        LastKnownLocation="Package_1606.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a087d0ea-edd2-4007-9d7c-9123adb8ad89"
+        LastKnownName="CoordControl.Presenters"
+        LastKnownLocation="Package_1607.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b4e227ac-446a-4845-b555-352337e0f842"
+        LastKnownName="CoordControl.Forms"
+        LastKnownLocation="Package1_1607.uml" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

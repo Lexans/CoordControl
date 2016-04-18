@@ -53,6 +53,9 @@ namespace CoordControl.Presenters
 
             _view.CrossCountChanged += _view_CrossCountChanged;
             _view.CrossListSelected += _view_CrossListSelected;
+
+            if (_route.Plans != null && _route.Plans.Count > 0)
+                _view.CrossCountReadOnly = true;
         }
 
         void _view_SaveButtonClick(object sender, EventArgs e)
@@ -78,9 +81,20 @@ namespace CoordControl.Presenters
 
         void _view_CrossCountChanged(object sender, EventArgs e)
         {
-            _route.CrossCount = _view.CrossCount;
-
-            _model.FixCrossCount(_route);
+            if (_route.Plans != null && _route.Plans.Count > 0)
+            {
+                _view.CrossCountChanged -= _view_CrossCountChanged;
+                _view.CrossCount = _route.CrossCount;
+                _view.CrossCountChanged += _view_CrossCountChanged;
+                Messages.ShowExclamation("Невозможно изменить количество перекрестков, так как уже имеются рассчитанные для данной магистрали программы координации");
+            }
+            else
+            {
+                _route.CrossCount = _view.CrossCount;
+                _model.FixCrossCount(_route);
+            }
+                
+            
             _view.ComboBoxRefreshItems();
         }
 

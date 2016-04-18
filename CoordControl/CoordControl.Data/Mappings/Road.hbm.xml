@@ -3,12 +3,12 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 	<class name="CoordControl.Core.Domains.Road, CoordControl.Core" table="road" lazy="false">
 		<id name="ID" column="id_road" type="long" unsaved-value="0">
-			<generator class="hilo">
+			<generator class="native">
 			</generator>
 		</id>
 		<property name="Length" column="length" type="Int32" not-null="false"/>
 		<property name="Speed" column="speed" type="Int32" not-null="false"/>
-		<one-to-one name="CrossLeft" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="save-update" property-ref="RoadLeft" lazy="false"/>
-		<one-to-one name="CrossRight" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="save-update" property-ref="RoadRight" lazy="false"/>
+		<one-to-one name="CrossLeft" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="RoadLeft" lazy="false"/>
+		<one-to-one name="CrossRight" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="RoadRight" lazy="false"/>
 	</class>
 </hibernate-mapping>

@@ -3,14 +3,14 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 	<class name="CoordControl.Core.Domains.Plan, CoordControl.Core" table="plan" lazy="false">
 		<id name="ID" column="id_plan" type="long" unsaved-value="0">
-			<generator class="hilo">
+			<generator class="native">
 			</generator>
 		</id>
     <property name="Title" column="title" type="String" not-null="false"/>
 		<property name="Cycle" column="cycle" type="Int32" not-null="false"/>
     <many-to-one name="Route" column="route" class="CoordControl.Core.Domains.Route, CoordControl.Core" not-null="true" lazy="false">
 		</many-to-one>
-		<set name="CrossPlans" lazy="false" cascade="save-update" inverse="true">
+		<set name="CrossPlans" lazy="false" cascade="all" inverse="true">
 			<key column="plan"/>
 			<one-to-many class="CoordControl.Core.Domains.CrossPlan, CoordControl.Core"/>
 		</set>

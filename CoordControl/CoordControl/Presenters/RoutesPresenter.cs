@@ -25,6 +25,24 @@ namespace CoordControl.Presenters
             _view.AddClick += _view_AddClick;
             _view.EditClick += _view_EditClick;
             _view.DeleteClick += _view_DeleteClick;
+            _view.AboutClick += _view_AboutClick;
+
+            _view.PlansButtonClick += _view_PlansButtonClick;
+        }
+
+        void _view_AboutClick(object sender, EventArgs e)
+        {
+            FormAbout form = new FormAbout();
+            form.ShowDialog();
+        }
+
+        void _view_PlansButtonClick(object sender, EventArgs e)
+        {
+            FormPlans form = new FormPlans();
+            PlansModel model = new PlansModel();
+            PlansPresenter presenter = new PlansPresenter(form, model, _view.SelectedRoute);
+
+            form.ShowDialog();
         }
 
         void _view_DeleteClick(object sender, EventArgs e)
@@ -37,7 +55,8 @@ namespace CoordControl.Presenters
         {
             FormRoute form = new FormRoute();
             RouteModel model = new RouteModel();
-            RoutePresenter presenter = new RoutePresenter(form, model, _view.SelectedRoute);
+            RoutePresenter presenter =
+                new RoutePresenter(form, model, _model.GetById(_view.SelectedRoute.ID));
 
             if (form.ShowDialog() == DialogResult.OK)
                 _view.RouteList = _model.GetRoutes();

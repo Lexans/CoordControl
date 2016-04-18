@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculators\PlanCalculator.cs" />
+    <Compile Include="Calculators\PlanCalculatorAnalytic.cs" />
+    <Compile Include="Calculators\PlanCalculatorImit.cs" />
+    <Compile Include="Calculators\PlanCalculatorSimple.cs" />
     <Compile Include="Domains\Cross.cs" />
     <Compile Include="Domains\CrossPlan.cs" />
     <Compile Include="Domains\DomainObject.cs" />

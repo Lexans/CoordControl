@@ -28,162 +28,125 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModeling));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelCanvas = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.начатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.паузаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сбросToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.плотностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.скоростьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.интенсивностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.частьТПToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonReset = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelCurrentTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownStopCount = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownDelay = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRegionIntensity = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRegionVelocity = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRegionDensity = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownRegionFlowPart = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.trackBarModelingSpeed = new System.Windows.Forms.TrackBar();
+            this.comboBoxViewParam = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStopCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDelay)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionIntensity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionVelocity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionDensity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionFlowPart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarModelingSpeed)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelCanvas
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelCanvas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(12, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(757, 554);
-            this.panel1.TabIndex = 0;
+            this.panelCanvas.Location = new System.Drawing.Point(12, 29);
+            this.panelCanvas.Name = "panelCanvas";
+            this.panelCanvas.Size = new System.Drawing.Size(794, 595);
+            this.panelCanvas.TabIndex = 0;
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton2,
-            this.toolStripDropDownButton1});
+            this.toolStripButtonStart,
+            this.toolStripButtonPause,
+            this.toolStripButtonReset});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(992, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1029, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripDropDownButton2
+            // toolStripButtonStart
             // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.начатьToolStripMenuItem,
-            this.паузаToolStripMenuItem,
-            this.сбросToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(137, 24);
-            this.toolStripDropDownButton2.Text = "Моделирование";
+            this.toolStripButtonStart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonStart.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStart.Image")));
+            this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonStart.Name = "toolStripButtonStart";
+            this.toolStripButtonStart.Size = new System.Drawing.Size(51, 24);
+            this.toolStripButtonStart.Text = "Старт";
             // 
-            // начатьToolStripMenuItem
+            // toolStripButtonPause
             // 
-            this.начатьToolStripMenuItem.Name = "начатьToolStripMenuItem";
-            this.начатьToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.начатьToolStripMenuItem.Text = "Начать";
+            this.toolStripButtonPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonPause.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPause.Image")));
+            this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPause.Name = "toolStripButtonPause";
+            this.toolStripButtonPause.Size = new System.Drawing.Size(54, 24);
+            this.toolStripButtonPause.Text = "Пауза";
             // 
-            // паузаToolStripMenuItem
+            // toolStripButtonReset
             // 
-            this.паузаToolStripMenuItem.Name = "паузаToolStripMenuItem";
-            this.паузаToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.паузаToolStripMenuItem.Text = "Пауза";
-            // 
-            // сбросToolStripMenuItem
-            // 
-            this.сбросToolStripMenuItem.Name = "сбросToolStripMenuItem";
-            this.сбросToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.сбросToolStripMenuItem.Text = "Сброс";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.плотностьToolStripMenuItem,
-            this.скоростьToolStripMenuItem,
-            this.интенсивностьToolStripMenuItem,
-            this.частьТПToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(48, 24);
-            this.toolStripDropDownButton1.Text = "Вид";
-            // 
-            // плотностьToolStripMenuItem
-            // 
-            this.плотностьToolStripMenuItem.Name = "плотностьToolStripMenuItem";
-            this.плотностьToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
-            this.плотностьToolStripMenuItem.Text = "Плотность";
-            // 
-            // скоростьToolStripMenuItem
-            // 
-            this.скоростьToolStripMenuItem.Name = "скоростьToolStripMenuItem";
-            this.скоростьToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
-            this.скоростьToolStripMenuItem.Text = "Скорость";
-            // 
-            // интенсивностьToolStripMenuItem
-            // 
-            this.интенсивностьToolStripMenuItem.Name = "интенсивностьToolStripMenuItem";
-            this.интенсивностьToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
-            this.интенсивностьToolStripMenuItem.Text = "Интенсивность";
-            // 
-            // частьТПToolStripMenuItem
-            // 
-            this.частьТПToolStripMenuItem.Name = "частьТПToolStripMenuItem";
-            this.частьТПToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
-            this.частьТПToolStripMenuItem.Text = "Часть ТП";
+            this.toolStripButtonReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonReset.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReset.Image")));
+            this.toolStripButtonReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonReset.Name = "toolStripButtonReset";
+            this.toolStripButtonReset.Size = new System.Drawing.Size(56, 24);
+            this.toolStripButtonReset.Text = "Сброс";
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
+            this.toolStripStatusLabelCurrentTime,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 602);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 643);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(992, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(1029, 25);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(184, 20);
-            this.toolStripStatusLabel1.Text = "Текущее время в модели";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(197, 20);
+            this.toolStripStatusLabel1.Text = "Текущее модельное время";
             // 
-            // toolStripStatusLabel2
+            // toolStripStatusLabelCurrentTime
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(17, 20);
-            this.toolStripStatusLabel2.Text = "0";
+            this.toolStripStatusLabelCurrentTime.Name = "toolStripStatusLabelCurrentTime";
+            this.toolStripStatusLabelCurrentTime.Size = new System.Drawing.Size(17, 20);
+            this.toolStripStatusLabelCurrentTime.Text = "0";
             // 
             // toolStripStatusLabel3
             // 
@@ -194,41 +157,41 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.numericUpDownStopCount);
+            this.groupBox1.Controls.Add(this.numericUpDownDelay);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(783, 29);
+            this.groupBox1.Location = new System.Drawing.Point(820, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(190, 137);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистика";
             // 
-            // numericUpDown2
+            // numericUpDownStopCount
             // 
-            this.numericUpDown2.DecimalPlaces = 2;
-            this.numericUpDown2.InterceptArrowKeys = false;
-            this.numericUpDown2.Location = new System.Drawing.Point(19, 104);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.ReadOnly = true;
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown2.TabIndex = 3;
+            this.numericUpDownStopCount.DecimalPlaces = 2;
+            this.numericUpDownStopCount.InterceptArrowKeys = false;
+            this.numericUpDownStopCount.Location = new System.Drawing.Point(19, 104);
+            this.numericUpDownStopCount.Name = "numericUpDownStopCount";
+            this.numericUpDownStopCount.ReadOnly = true;
+            this.numericUpDownStopCount.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownStopCount.TabIndex = 3;
             // 
-            // numericUpDown1
+            // numericUpDownDelay
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.InterceptArrowKeys = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(18, 50);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDownDelay.DecimalPlaces = 2;
+            this.numericUpDownDelay.InterceptArrowKeys = false;
+            this.numericUpDownDelay.Location = new System.Drawing.Point(18, 50);
+            this.numericUpDownDelay.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDownDelay.Name = "numericUpDownDelay";
+            this.numericUpDownDelay.ReadOnly = true;
+            this.numericUpDownDelay.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownDelay.TabIndex = 2;
             // 
             // label2
             // 
@@ -252,17 +215,18 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.numericUpDown6);
-            this.groupBox2.Controls.Add(this.numericUpDown5);
-            this.groupBox2.Controls.Add(this.numericUpDown4);
-            this.groupBox2.Controls.Add(this.numericUpDown3);
+            this.groupBox2.Controls.Add(this.numericUpDownRegionIntensity);
+            this.groupBox2.Controls.Add(this.numericUpDownRegionVelocity);
+            this.groupBox2.Controls.Add(this.numericUpDownRegionDensity);
+            this.groupBox2.Controls.Add(this.comboBoxViewParam);
+            this.groupBox2.Controls.Add(this.numericUpDownRegionFlowPart);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(783, 187);
+            this.groupBox2.Location = new System.Drawing.Point(820, 187);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(190, 275);
+            this.groupBox2.Size = new System.Drawing.Size(190, 325);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Характеристики участка";
@@ -277,45 +241,45 @@
             this.label3.Text = "(необходимо выбрать\r\nучасток на схеме)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown6
+            // numericUpDownRegionIntensity
             // 
-            this.numericUpDown6.DecimalPlaces = 2;
-            this.numericUpDown6.InterceptArrowKeys = false;
-            this.numericUpDown6.Location = new System.Drawing.Point(26, 235);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.ReadOnly = true;
-            this.numericUpDown6.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown6.TabIndex = 7;
+            this.numericUpDownRegionIntensity.DecimalPlaces = 2;
+            this.numericUpDownRegionIntensity.InterceptArrowKeys = false;
+            this.numericUpDownRegionIntensity.Location = new System.Drawing.Point(26, 235);
+            this.numericUpDownRegionIntensity.Name = "numericUpDownRegionIntensity";
+            this.numericUpDownRegionIntensity.ReadOnly = true;
+            this.numericUpDownRegionIntensity.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownRegionIntensity.TabIndex = 7;
             // 
-            // numericUpDown5
+            // numericUpDownRegionVelocity
             // 
-            this.numericUpDown5.DecimalPlaces = 2;
-            this.numericUpDown5.InterceptArrowKeys = false;
-            this.numericUpDown5.Location = new System.Drawing.Point(26, 187);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.ReadOnly = true;
-            this.numericUpDown5.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown5.TabIndex = 6;
+            this.numericUpDownRegionVelocity.DecimalPlaces = 2;
+            this.numericUpDownRegionVelocity.InterceptArrowKeys = false;
+            this.numericUpDownRegionVelocity.Location = new System.Drawing.Point(26, 187);
+            this.numericUpDownRegionVelocity.Name = "numericUpDownRegionVelocity";
+            this.numericUpDownRegionVelocity.ReadOnly = true;
+            this.numericUpDownRegionVelocity.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownRegionVelocity.TabIndex = 6;
             // 
-            // numericUpDown4
+            // numericUpDownRegionDensity
             // 
-            this.numericUpDown4.DecimalPlaces = 2;
-            this.numericUpDown4.InterceptArrowKeys = false;
-            this.numericUpDown4.Location = new System.Drawing.Point(26, 139);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.ReadOnly = true;
-            this.numericUpDown4.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown4.TabIndex = 5;
+            this.numericUpDownRegionDensity.DecimalPlaces = 2;
+            this.numericUpDownRegionDensity.InterceptArrowKeys = false;
+            this.numericUpDownRegionDensity.Location = new System.Drawing.Point(26, 139);
+            this.numericUpDownRegionDensity.Name = "numericUpDownRegionDensity";
+            this.numericUpDownRegionDensity.ReadOnly = true;
+            this.numericUpDownRegionDensity.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownRegionDensity.TabIndex = 5;
             // 
-            // numericUpDown3
+            // numericUpDownRegionFlowPart
             // 
-            this.numericUpDown3.DecimalPlaces = 2;
-            this.numericUpDown3.InterceptArrowKeys = false;
-            this.numericUpDown3.Location = new System.Drawing.Point(26, 90);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.ReadOnly = true;
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown3.TabIndex = 4;
+            this.numericUpDownRegionFlowPart.DecimalPlaces = 2;
+            this.numericUpDownRegionFlowPart.InterceptArrowKeys = false;
+            this.numericUpDownRegionFlowPart.Location = new System.Drawing.Point(26, 90);
+            this.numericUpDownRegionFlowPart.Name = "numericUpDownRegionFlowPart";
+            this.numericUpDownRegionFlowPart.ReadOnly = true;
+            this.numericUpDownRegionFlowPart.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownRegionFlowPart.TabIndex = 4;
             // 
             // label8
             // 
@@ -353,18 +317,86 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "часть ТП, авт";
             // 
+            // trackBarModelingSpeed
+            // 
+            this.trackBarModelingSpeed.Location = new System.Drawing.Point(7, 28);
+            this.trackBarModelingSpeed.Maximum = 999;
+            this.trackBarModelingSpeed.Name = "trackBarModelingSpeed";
+            this.trackBarModelingSpeed.Size = new System.Drawing.Size(171, 56);
+            this.trackBarModelingSpeed.TabIndex = 5;
+            this.trackBarModelingSpeed.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarModelingSpeed.Value = 1;
+            // 
+            // comboBoxViewParam
+            // 
+            this.comboBoxViewParam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxViewParam.FormattingEnabled = true;
+            this.comboBoxViewParam.Items.AddRange(new object[] {
+            "Интенсивность",
+            "Плотность",
+            "Скорость",
+            "Часть потока"});
+            this.comboBoxViewParam.Location = new System.Drawing.Point(26, 294);
+            this.comboBoxViewParam.Name = "comboBoxViewParam";
+            this.comboBoxViewParam.Size = new System.Drawing.Size(159, 24);
+            this.comboBoxViewParam.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(838, 455);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "отображение цветом:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(122, 57);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 17);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "быстро";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 57);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 17);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "медленно";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.trackBarModelingSpeed);
+            this.groupBox3.Location = new System.Drawing.Point(816, 516);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(194, 98);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Скорость моделирования";
+            // 
             // FormModeling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 627);
+            this.ClientSize = new System.Drawing.Size(1029, 668);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelCanvas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FormModeling";
             this.Text = "Моделирование";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormModeling_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -372,14 +404,17 @@
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStopCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDelay)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionIntensity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionVelocity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionDensity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegionFlowPart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarModelingSpeed)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,11 +422,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelCanvas;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCurrentTime;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
@@ -401,21 +436,22 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem начатьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem паузаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сбросToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem плотностьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem скоростьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem интенсивностьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem частьТПToolStripMenuItem;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDownStopCount;
+        private System.Windows.Forms.NumericUpDown numericUpDownDelay;
+        private System.Windows.Forms.NumericUpDown numericUpDownRegionIntensity;
+        private System.Windows.Forms.NumericUpDown numericUpDownRegionVelocity;
+        private System.Windows.Forms.NumericUpDown numericUpDownRegionDensity;
+        private System.Windows.Forms.NumericUpDown numericUpDownRegionFlowPart;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonStart;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPause;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReset;
+        private System.Windows.Forms.TrackBar trackBarModelingSpeed;
+        private System.Windows.Forms.ComboBox comboBoxViewParam;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Timer timer;
     }
 }

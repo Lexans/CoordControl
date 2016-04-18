@@ -3,7 +3,7 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 	<class name="CoordControl.Core.Domains.Pass, CoordControl.Core" table="pass" lazy="false">
 		<id name="ID" column="id_pass" type="long" unsaved-value="0">
-			<generator class="hilo">
+			<generator class="native">
 			</generator>
 		</id>
 		<property name="Intensity" column="intensity" type="Int32" not-null="false"/>
@@ -12,9 +12,9 @@
 		<property name="LeftPart" column="left_part" type="Int32" not-null="false"/>
 		<property name="DirectPart" column="direct_part" type="Int32" not-null="false"/>
 		<property name="RightPart" column="right_part" type="Int32" not-null="false"/>
-		<one-to-one name="CrossLeftPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="save-update" property-ref="PassLeft" lazy="false"/>
-    <one-to-one name="CrossRightPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="save-update" property-ref="PassRight" lazy="false"/>
-    <one-to-one name="CrossTopPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="save-update" property-ref="PassTop" lazy="false"/>
-    <one-to-one name="CrossBottomPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="save-update" property-ref="PassBottom" lazy="false"/>
+		<one-to-one name="CrossLeftPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="PassLeft" lazy="false"/>
+    <one-to-one name="CrossRightPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="PassRight" lazy="false"/>
+    <one-to-one name="CrossTopPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="PassTop" lazy="false"/>
+    <one-to-one name="CrossBottomPass" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="PassBottom" lazy="false"/>
   </class>
 </hibernate-mapping>

@@ -1,0 +1,3127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ceb358a1-feb8-458d-a603-73947a05d42e"
+  name="CoordControl.Core" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="f3b80ee2-0eed-4f49-a7d8-1bf2b3c19484"
+        name="RouteEnvir"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <description>Среда имитационного моделирования
+движения ТП на магистрали.
+Паттерн Одиночка</description>
+        <ownedAttributesInternal>
+          <property
+            Id="fb8fbda5-11cc-4710-a50e-de4aa45d9522"
+            name="Route"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Магистраль, на которой происходит моделирование</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5a9550eb-7bdc-44fd-99aa-be2d63e809ac"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a886304-196c-4cfb-b467-0ded1d7689b8">
+                    <propertyInstance
+                      Id="4b9a1c9c-d521-4eb6-9dbd-354e9c5ad28a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86bed0b4-adc2-43f8-a67f-1180c0c8581c">
+                    <propertyInstance
+                      Id="52afa9b4-ba23-4d1b-a9c9-30275f41f9e5"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac087e52-371a-4817-9fc6-abc315a478ee">
+                    <propertyInstance
+                      Id="a68b4036-a424-44c6-8dab-5916f92f2cef"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7690dc28-2165-483d-9134-687e2f3d7f3d">
+                    <propertyInstance
+                      Id="7ff3a135-4981-4fc0-99a1-04023dea6f4f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f27c18a-001f-499b-b8fe-132f78f88d52">
+                    <propertyInstance
+                      Id="d7cb2e7b-2f1a-4f9b-8adb-e9237b609ef7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1fdafa9c-14a7-4659-bfe6-5af4aa0dfe63">
+                    <propertyInstance
+                      Id="6a4428f9-c605-41e5-a184-a72be6277292"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94c005a5-f590-473d-847b-78793f12fd2c">
+                    <propertyInstance
+                      Id="e1929cf3-6caa-41fb-b52d-bb482cc2576c"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="df601f49-56cc-4081-b351-4bbcf99494bf"
+                LastKnownName="Route"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8fddaaa6-e6a0-414a-8826-d49f749e5741"
+            name="TimeCurrent"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Текущее модельное время</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f0c0d803-a1f5-47fa-9b95-f3435e502a2a"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c28693c-c51e-424e-9459-57c89ecf914f">
+                    <propertyInstance
+                      Id="9fe70ea7-1e56-433e-8e4a-eaa071a97050"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a5b836cf-aa6d-4a59-9ecf-4a5cbecaa9f5">
+                    <propertyInstance
+                      Id="b0a3a877-9f4c-4081-af35-64c70f3f2e12"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e173b75-67d0-409d-9e1b-1a56661132db">
+                    <propertyInstance
+                      Id="36b39f7a-27e1-4f7f-bf23-c0a6494e100f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a8f522f-b697-4fd3-a12f-906c67094e2d">
+                    <propertyInstance
+                      Id="ecf744ab-8167-4b99-8c30-a12cd3ddeef8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5acc3e05-6a9e-47b9-8428-a77b3dd8947e">
+                    <propertyInstance
+                      Id="ef9b7fa6-8ccc-411d-a2c6-3829a8e10a72"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75c4e7e2-2c17-4972-a692-23b1dd83b3f9">
+                    <propertyInstance
+                      Id="e855203c-b42c-4582-a5fb-04434dcb550e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80067235-def3-43bd-9dad-20f50e301180">
+                    <propertyInstance
+                      Id="6393e781-f653-43a6-a899-207277c4de42"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0487dfac-4719-4550-b2c1-0e2f22fd9e1d"
+            name="TimeScan"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Интервал сканирования</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="030db6d3-185a-4f44-9808-e0b03ec602b9"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44f51a27-bcec-4510-805c-409fabe5c49e">
+                    <propertyInstance
+                      Id="cfe1dfa5-0483-4240-b1f3-be6e0a9ce297"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="985f07f0-1270-412f-bf5f-47ee158183b4">
+                    <propertyInstance
+                      Id="7d0a37c4-2090-4e00-a61b-f576a3f9c4c1"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57c6f52a-b528-4358-b1cb-30afb708d7a5">
+                    <propertyInstance
+                      Id="ca6d1faa-3841-4ff3-814b-fae9472e0e11"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30aa0885-d782-4518-a249-cbeaca80f9d5">
+                    <propertyInstance
+                      Id="56234b79-fb93-417b-8b88-359eef6b6ec6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7976418a-b8af-49be-a816-ac11e16df569">
+                    <propertyInstance
+                      Id="949f6243-f162-480c-9f6c-e3cf53830646"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08a9f0ee-071e-476b-a61e-9ddb539095e4">
+                    <propertyInstance
+                      Id="067530f2-d57e-4f97-9292-9c4ff4964a73"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d92c010d-c1d5-40eb-8c98-733822cd9772">
+                    <propertyInstance
+                      Id="c95f4d01-bd43-4a66-a3aa-b0ad199d99bb"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ad6f8243-b60c-4812-a8dd-8a40d1924842"
+            name="PlanEntity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>моделируемая программа коориднации</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="02eeab01-2025-4383-9bac-fc608738f181"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="de687452-023c-44cd-9aa4-77ef6f396bee">
+                    <propertyInstance
+                      Id="169e3c52-2fde-44c3-9502-1a77a29a5838"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd3a5454-9804-46c0-91bb-90407cd08cf8">
+                    <propertyInstance
+                      Id="86312afd-604e-41e0-8a76-b5ea91e4b25f"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8662dae5-5c0c-47bb-820f-601a8f25374e">
+                    <propertyInstance
+                      Id="64b44581-1cbb-4567-8986-8052d32889d9"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6fe112c6-6064-4e0f-b01d-b44e64376fc9">
+                    <propertyInstance
+                      Id="f06c824d-7e25-4d9e-acd7-c3c19ea9a9b2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1ae4ea7-a29a-495a-b5dc-944b7fd0822c">
+                    <propertyInstance
+                      Id="46e7bd02-4678-48d2-a769-2f364a102b02"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d27069ab-4842-4668-bd2b-57a3a3f79c4b">
+                    <propertyInstance
+                      Id="64df3688-9fec-4d32-b85c-3066edc74e88"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="acde8233-9792-4ade-9245-35a7198c9fa1">
+                    <propertyInstance
+                      Id="2f12fc9c-8cbc-4483-8722-3950034d9c15"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ac9da2d7-9c16-4017-bebe-25ba55708a27"
+                LastKnownName="Plan"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7f3e98bd-ae3b-4b0b-9057-4e78ac4ffbc5"
+            name="ListWays"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>список перегонов УДС</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="098df5ac-fd8e-447b-aadc-4d74922ae800"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d25f6621-4691-4205-8a61-07a76370b0d1">
+                    <propertyInstance
+                      Id="e6ecd4cf-5d07-49ac-9aa4-9246f203c30b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e180b950-4b13-4590-81fc-f9f712ff6ec6">
+                    <propertyInstance
+                      Id="2a4c68fe-7127-4205-90e4-a5bc2fbe558b"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f86b2b8-e5f3-4340-a3ea-85fadc7aa3b6">
+                    <propertyInstance
+                      Id="b1d43fac-902a-4d59-8415-3603640fc3dc"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bdaabbd9-4310-41f2-8e31-da18df3996b2">
+                    <propertyInstance
+                      Id="a8a380a3-a5a6-416a-b06e-0a86b79066c6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f1e6ad2-87e9-4a85-9cb8-3fc1c504fdd3">
+                    <propertyInstance
+                      Id="405ceab4-9115-4c7f-a65e-ab6a57dd1349"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="496d5972-65c6-440c-878c-937e3d245b11">
+                    <propertyInstance
+                      Id="2931a41c-1738-4f94-9036-cbf0898428b7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dffad99a-c656-44f5-a478-64a7b666714e">
+                    <propertyInstance
+                      Id="7c837f2a-6403-4dac-a1fe-88f835875a9a"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c49d8744-73dc-4ff7-8a15-cdc571a04a6b"
+                LastKnownName="List&lt;IWay&gt;"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f3ca6d95-d0e0-49e5-9371-b841a2770161"
+            name="ListCross"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Список перекрестков-узлов УДС</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e3e832ef-403e-42c8-a2ca-4ac8beb5715e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66f5f892-f9eb-4bae-a61c-f0a621660c70">
+                    <propertyInstance
+                      Id="d25ba0fc-7a1b-40cd-af8d-12fe68e292cb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f53ed0d-bd39-41c1-a8da-aaffab467b1f">
+                    <propertyInstance
+                      Id="4e211681-4c2a-47f6-8444-0d5e4ed32e19"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="759a6183-c2e5-4e7e-8507-852857a5ea82">
+                    <propertyInstance
+                      Id="730c2efa-91b5-439f-99ef-75c3e3e79a7b"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e071ebb5-60dd-4652-89e9-11bd3b37ba15">
+                    <propertyInstance
+                      Id="291096d7-2c63-4c78-bf83-56e0b6dae3ea"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3a8f735-1af0-4082-ac2a-aa2556e94fbf">
+                    <propertyInstance
+                      Id="f526e677-4180-424b-8ed2-c79f619820e8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b3d5be5e-51a1-4fa4-8564-3cf13d994869">
+                    <propertyInstance
+                      Id="67dece37-e693-48e6-9506-47042db16a07"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12cc1758-caed-4753-8970-d793bd1cb7f3">
+                    <propertyInstance
+                      Id="4d6e66fe-cfcc-4ad8-9e8a-6622e9dd16fd"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="4eb23af9-94ec-4de6-a885-eb4d2432da4d"
+                LastKnownName="List&lt;NodeCross&gt;"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="27d9952d-3951-4c42-a231-6c326affe8b3"
+            name="Instance"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Объект-одиночка</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c8ecd5cd-3766-4085-95c2-e6befd9f5157"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7efb7dc0-2c0b-4748-b6c7-59d7feb2117b">
+                    <propertyInstance
+                      Id="1c82a5d7-3555-40c5-b41c-03c6b2b78b23"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff67cbdb-73d5-41c9-bdc2-883a20461c0c">
+                    <propertyInstance
+                      Id="cd5f6a67-7e7f-45c4-bc7a-a65bd2dad740"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d04bba04-af4e-4a53-bd10-bb37cebe7571">
+                    <propertyInstance
+                      Id="ee31fa05-1e59-493d-aba6-408b34893056"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15f1d05a-0464-4bc9-89f0-822a984611b0">
+                    <propertyInstance
+                      Id="3ce4b351-e381-4216-aab3-aa618f5aefd0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0b16fb3-1086-47bc-9c04-cbafd681d999">
+                    <propertyInstance
+                      Id="fc6796d0-e509-433e-8c92-88263b8ddf0f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b260f63-f994-4bcf-be67-b3ffe8b9b2e9">
+                    <propertyInstance
+                      Id="25b082a5-683e-4bf4-bae8-a781dc903066"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dbc3893c-9d92-41a8-b098-6993d85b9db9">
+                    <propertyInstance
+                      Id="da393da7-a5ac-45e4-8c40-5a410c19da41"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="f3b80ee2-0eed-4f49-a7d8-1bf2b3c19484"
+                LastKnownName="RouteEnvir"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6bd63bbb-fce5-493c-a836-bd1c69d061ec"
+            name="StatisticDelay"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Средняя задержка</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7dbc8f0d-e417-43db-9e1b-a4ec0eae8e7b"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cee3aee1-f556-4f5c-99ea-1145bfeb7c83">
+                    <propertyInstance
+                      Id="4ddabc3c-8a68-45d7-8a17-d1ae9176a91b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80eaa365-e138-460b-8be6-a47c3cd30cec">
+                    <propertyInstance
+                      Id="5433a2ad-7af8-4388-8e23-408cf3192b70"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="041a8aab-1f8e-48df-ac7c-4b404664e7e6">
+                    <propertyInstance
+                      Id="b99e3e73-de2b-4ac3-82ea-14f342dd42f6"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91a410c8-ab27-4711-abde-dd3362d51b0e">
+                    <propertyInstance
+                      Id="e527de5f-2990-4b24-8e4b-99eedadf93ac"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed38b352-8b15-4812-88e0-8b11c27c2e19">
+                    <propertyInstance
+                      Id="eb362d40-13d5-432c-aeac-05c8c0b4920c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5160ea5f-1501-4064-bd42-634c172121cc">
+                    <propertyInstance
+                      Id="0a82468e-79da-4484-bfe3-e3a8fd682d9e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f06a30c-5a9f-4872-8106-67cf37b748b9">
+                    <propertyInstance
+                      Id="7465a4f5-0ae6-409e-b496-7ac68e7fb8af"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="86d1f902-2b28-4b8c-9a10-41762d6552f4"
+            name="StatisticStops"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Количества остановок</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8bd809c0-d51b-4705-b970-50493e8625c6"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="709b6ac7-fe16-4953-bb49-d44b640df5bd">
+                    <propertyInstance
+                      Id="66ae68ce-f6e7-43de-860e-6323c16a6b09"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="41a74773-d105-494d-82b4-6b73e12736ed">
+                    <propertyInstance
+                      Id="4def641f-fc3c-47e0-8467-65173ee3ff06"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1fb255a1-8ba7-4aee-94cd-c1b75b3aa280">
+                    <propertyInstance
+                      Id="e33f316f-06cd-4c48-8882-6d44a084d4a0"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4dd40bee-e56d-4198-a334-cb697ecf8ec1">
+                    <propertyInstance
+                      Id="a5c73597-eb4e-4dd4-8878-249ef17b3cf6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2c980fc7-2515-4a06-ad14-0f03cda65c97">
+                    <propertyInstance
+                      Id="ab4afed5-b78f-4d83-bdd4-bb6abdfbf596"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d34e0f3d-ef40-4ed1-8905-fc063cb34240">
+                    <propertyInstance
+                      Id="2cef5414-ba46-4609-b77c-02e21039a13f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="183d87f0-53fe-4d0a-9a1e-840cc88c609d">
+                    <propertyInstance
+                      Id="00b7bb0d-6749-44a6-ba11-446c710bc7ae"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7310bdde-a48f-4224-addc-84b23311c43f"
+            name="RunSimulationStep"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Перемещение ТП за интервал сканирования</description>
+          </operation>
+          <operation
+            Id="beee3d84-09e1-4e7e-a657-ff3adffad3b3"
+            name="ResetInstance"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Сброс состояния класса-одиночки</description>
+          </operation>
+          <operation
+            Id="08e25fa9-c9c4-4f20-8f5f-d4e2eab937de"
+            name="RouteEnvir"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="df601f49-56cc-4081-b351-4bbcf99494bf"
+        name="Route" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0cc93f7e-2b25-4304-ad3e-dfa2c48c9a77"
+        name="Way"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <description>Внутренний перегон в одном направлении движения</description>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="fb400e59-7899-4766-9cd8-1ab57159d4c8">
+            <interfaceMoniker
+              Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+              LastKnownName="IWay"
+              LastKnownLocation="Package_1604.uml" />
+          </interfaceRealization>
+          <dependency
+            Id="d4493e70-cdd4-449f-bd9b-2b1ec6695223">
+            <classMoniker
+              Id="f3b80ee2-0eed-4f49-a7d8-1bf2b3c19484"
+              LastKnownName="RouteEnvir"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="b5d1c1ab-425d-497e-998b-babff8399eee"
+            name="Regions"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Участки перегона</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d92aea21-4f56-48b0-9cbb-8181d284c589"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ec6e53fa-3ec0-4434-826a-8e6f9c58954d">
+                    <propertyInstance
+                      Id="72c5604a-1cde-498b-8403-5a9d77d53eeb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85e1e636-8b02-48a2-bc37-563d7c3b20ef">
+                    <propertyInstance
+                      Id="6875fc75-8faf-4731-8cfb-a8c539c0b266"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9574a13d-66e2-47e8-98f0-e9492c2c5794">
+                    <propertyInstance
+                      Id="1b0f785b-03d4-43f9-914e-771f6f06904d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ecae7c63-9c21-46d0-bc8f-61606553c1ff">
+                    <propertyInstance
+                      Id="b745d8e2-022d-457d-a398-0c6f03bb30c0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b08eb1a-1860-49d7-a9d7-f04c8df350cf">
+                    <propertyInstance
+                      Id="521371d5-4911-4c78-aaca-3e0a64e367ce"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44fcd5f8-1ddd-4a77-aa01-834d34d1e05a">
+                    <propertyInstance
+                      Id="63fef7cd-791d-42ea-a43d-c1c0d51142fe"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d6320e1-0415-43e6-9850-3edd8fda92bc">
+                    <propertyInstance
+                      Id="1cb7e9c4-3a4d-4977-a57b-e5a394b8164c"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="15c56130-544e-4195-8d4d-dd6417d74490"
+                LastKnownName="LinkedList&lt;Region&gt;"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="45ec0e6a-be83-4c6b-a300-e62099397e85"
+            name="RoadEntity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Информация о перегоне</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="96945bd1-1d1d-4947-bdf0-147d496648bf"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0e37eea-794c-4a76-828f-a4ebc93cc7c1">
+                    <propertyInstance
+                      Id="62f132f0-8509-4b5b-8a1f-e07bb4a506e1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="00e40ff0-57b9-42f2-b4b8-9d0cdab55de5">
+                    <propertyInstance
+                      Id="9263f4c3-cf00-4c48-b98b-ce10f966bcf5"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89df8c3c-ce07-4303-8bfa-1d7b32866158">
+                    <propertyInstance
+                      Id="9ea7a301-7ae0-403d-a9f1-c2ec48f0c5a5"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b086dd6-160e-43f9-918d-9d2c201c7bf3">
+                    <propertyInstance
+                      Id="500fe37b-08b0-4959-b8b2-bd5bbd3cd5ab"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb5422a2-5e71-40df-be9a-0f57a44b21ce">
+                    <propertyInstance
+                      Id="039ba6d8-3ce6-4300-8ee6-cf0e0104fc5c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e52a09d8-919a-4c60-bb3f-72704b984f52">
+                    <propertyInstance
+                      Id="e92df38d-8935-42c1-8632-ba5fc2e0fd19"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="77916f1e-0c55-4e49-ab5d-695599246245">
+                    <propertyInstance
+                      Id="e260e66d-ff55-4f81-8117-c1fc715665b2"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="e1bc9cc2-3ebc-41c3-b248-60887bcf0a5f"
+                LastKnownName="Road"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c66395cd-12f8-4c50-9716-a943b17e4e78"
+            name="IsRightDirection"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Равен истине если направление движения слева направо</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f0288e78-4a34-424e-a5a9-51d122d1cfb2"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6337d942-74ad-4eae-a870-c3404348da32">
+                    <propertyInstance
+                      Id="b69af343-c4e5-451c-86e9-596ffd1cb792"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc3fa5d5-58ae-4e67-9d41-2d7c2654a751">
+                    <propertyInstance
+                      Id="30ab4dee-a296-4c6a-b172-462048805a60"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbd1db77-b67f-4b35-a6b3-2f24bd5f44b5">
+                    <propertyInstance
+                      Id="2a05649f-3796-425b-adde-f997836f4556"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9261625-4aee-4605-b790-3b6fe3ed3fa5">
+                    <propertyInstance
+                      Id="5d4bdf9b-ecdd-46f2-992e-5a77824ff702"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e04b9eb-1161-46cf-b82c-622a2e48a7cb">
+                    <propertyInstance
+                      Id="64cad8e2-b185-41a6-b86c-0848c2da90f9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ce5c233-7f69-47d7-9e91-ffc41ec3f84f">
+                    <propertyInstance
+                      Id="77ce13b7-d440-4aea-9aa5-0f148797b2b0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d6dd7f0-22d9-4be7-8666-2881814c8714">
+                    <propertyInstance
+                      Id="f3143b85-408f-4171-a5bf-9595050c78f5"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="aea845f2-2625-45f2-9f72-417ba5446c88"
+                LastKnownName="bool"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="27ab95c9-7546-404f-b8e7-ebbb774746ef"
+            name="GetNextNodeCross"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение узла перекерестка,
+следующего после последнего участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7995e228-8c47-4fc3-8f75-dab53d03d256"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6e68a553-bba0-4b6d-ba59-8e496bdd3448"
+                      LastKnownName="NodeCross"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bfdc7747-3e66-4529-853c-6a7682e46589"
+            name="GetRegionFirst"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение первого участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5f32684a-548a-431b-b501-c2088c416bb1"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="40bc9ac8-7097-4010-9b24-d032e18fcec3"
+            name="GetRegionLast"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение последнего участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="16ca9a2f-a7a3-4bcd-9628-bab458a1e9a5"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b770663a-e23c-412c-bc9a-99014a4d20ea"
+            name="RunSimulationStep"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Перемещение ТП за интервал сканирования
+в районе внутреннего перегона</description>
+          </operation>
+          <operation
+            Id="04fdaa89-3240-4282-b272-9f030856b2a3"
+            name="GetLinesCount"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Количество линий в данном направлении</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="33bd7e4f-14f4-45f6-a2dc-a24765a8a93e"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="77333560-63b2-475b-8be4-75cb1ffd567f"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8b655d31-0771-4280-bca5-6bcc7b6e111f"
+            name="Way"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c8a487a0-c495-4297-89ac-19977c521903"
+                  name="road"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e1bc9cc2-3ebc-41c3-b248-60887bcf0a5f"
+                      LastKnownName="Road"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+        name="Region"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <description>Участок дискретизации</description>
+        <suppliersInternal>
+          <dependency
+            Id="77a01a9a-fafd-43bc-8b1a-eeb7fc552fb0">
+            <classMoniker
+              Id="0cc93f7e-2b25-4304-ad3e-dfa2c48c9a77"
+              LastKnownName="Way"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+          <dependency
+            Id="79cf28bd-836b-4d4d-b5a8-473698f6e145">
+            <classMoniker
+              Id="6e68a553-bba0-4b6d-ba59-8e496bdd3448"
+              LastKnownName="NodeCross"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+          <dependency
+            Id="52bba816-319f-447a-b087-c5fba96d570b">
+            <classMoniker
+              Id="ad80c4f3-5548-4a64-ab1a-63b95e6a0295"
+              LastKnownName="WayExit"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+          <dependency
+            Id="10cbb64d-00d8-4b51-a4af-6774f4d66d0a">
+            <classMoniker
+              Id="9c9610b4-a9d4-421d-846e-33e96480653c"
+              LastKnownName="WayEntry"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="c4d69ac8-df7a-4528-b74f-8c2900eb7770"
+            name="Lenght"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Длина участка</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9b066249-92fe-4ac0-b05d-cc02e5b60fcc"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9c3c00a9-9a24-4294-a304-6e079fa49fda">
+                    <propertyInstance
+                      Id="8df94929-ea82-4a73-99bd-66a7716a9cec"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a89a6ea1-6360-4f70-8ba0-c6ad73293aea">
+                    <propertyInstance
+                      Id="65a3c168-4a80-42ff-b9c9-c0699f39b08d"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f8345cf-40f5-44b2-bd93-97af17d0b8fb">
+                    <propertyInstance
+                      Id="1d8be525-d484-4d2d-9696-a0307270cbb9"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="42aac147-02b8-4c41-99ad-b92fe95e20c6">
+                    <propertyInstance
+                      Id="cfa25184-6674-49af-bdc8-2f053449b77a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07014cc0-9cf4-41bd-9e24-62f6f7736a0b">
+                    <propertyInstance
+                      Id="543ffebc-2d60-4163-9c99-c6fe3ed125bc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="173bb676-06da-4400-99ba-d601e3230c2c">
+                    <propertyInstance
+                      Id="afede991-848e-417b-963c-0c59be5fdd56"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5bf722a9-5737-40c5-8c8e-8ff191747497">
+                    <propertyInstance
+                      Id="ce67eb0f-03f1-4cea-983d-20539bf36cdf"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="659111ed-356d-4203-92ad-71a44a370c51"
+            name="FlowPart"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Часть потока, находящаяся на данном
+участке</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7a125e52-fbdb-4bef-865d-cfb964d09347"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb560034-91a9-4992-8359-3df948216fa3">
+                    <propertyInstance
+                      Id="4908f54d-d56e-4600-a130-24b897a3f120"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66dda00a-c992-4418-a596-9a552a4c7d1e">
+                    <propertyInstance
+                      Id="f6b2ace6-abc1-4f57-983c-383c43645fc6"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04a26a52-796d-4762-9320-b78bb309aaf2">
+                    <propertyInstance
+                      Id="10593972-7ff5-459f-b6f9-f79da7551e73"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5f725446-742d-4f99-987f-6efbfbd2dc28">
+                    <propertyInstance
+                      Id="fb0597ae-c619-4c3d-bb37-b00c8999bec6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2a36874-99fa-4122-868f-78be415ba0bf">
+                    <propertyInstance
+                      Id="0df70fbb-e4bd-4c6c-a105-327bd039ad0a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d2f5a4e-b344-4f7f-94c5-14f4f0e4e5d5">
+                    <propertyInstance
+                      Id="617ecc19-c8bb-4191-80cd-8536b9ed0c9d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c09898a0-f213-48e3-b608-03cc572ef429">
+                    <propertyInstance
+                      Id="e378bbff-083b-441d-8055-6bf8335b8c41"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8d706c12-ae8a-4041-9c7c-789d64836e75"
+            name="FlowTransitPart"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Транзитная часть потока</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6d7c88a6-df19-4337-b261-92ab22530d8a"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="10fd5b48-eb90-4380-9ff9-f09a23c01cf0">
+                    <propertyInstance
+                      Id="0686b222-909f-48cf-b3bb-b17bc0f22135"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="173718b7-f660-4969-961e-d789b42f3d8d">
+                    <propertyInstance
+                      Id="4a7f1c6e-087e-48ca-9e75-0f805b237e03"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9b58326-4e76-4589-b571-4b701e9ee3c3">
+                    <propertyInstance
+                      Id="6f68054b-57b6-421d-99b3-324bc8e57407"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ba5cab6b-b4f5-4cc4-857c-48e839778363">
+                    <propertyInstance
+                      Id="1a68b7d5-0975-4d99-ac0d-5c8c0b658469"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1bbf5c97-9185-4d21-a3ad-f5b8d27ce613">
+                    <propertyInstance
+                      Id="46ad9d3b-bc15-499d-9a0b-8f4ef3567c50"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5429c4cb-8876-4c76-b22b-47d4cc414f59">
+                    <propertyInstance
+                      Id="25d8e889-3c0b-4095-bec4-86af1eda004b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08658e3d-0c1a-46fe-8435-55c8de532ced">
+                    <propertyInstance
+                      Id="1165f845-e638-4807-9592-9f8948bf04c8"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a3e7a921-9c0c-4d0a-9df2-b822075ca1ae"
+            name="GetDensity"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение плотности
+потока на данном участке</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="42cd18c2-51db-4bb1-90d7-ce87b2ce0d2d"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                      LastKnownName="double"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="900646dd-cf89-4f94-b307-40945bf9032e"
+            name="GetVelocity"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение скорости
+потока на данном участке
+</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="712c66ee-f19b-4588-a9e6-222513a513e7"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                      LastKnownName="double"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1ba8546e-5b91-4222-baab-054d22ce7dde"
+            name="GetIntensity"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение интенсивности
+потока на данном участке
+</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1bcea722-bc51-4a29-bf3d-c0a7e64a7d28"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                      LastKnownName="double"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5e9b6750-aa17-428f-8f5a-069d8d03a363"
+            name="Region"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d39d31e2-415f-4808-84bf-20a59766d9d5"
+                  name="lenght"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                      LastKnownName="double"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4bf65cf9-7c07-466b-ad90-8b85f0a43a2f"
+            name="Move"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Перемещение части потока
+с текущего региона не следующий</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c015a78a-170f-4035-b18f-dddb58780fe2"
+                  name="nextRegion"
+                  direction="In">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d5edc5c1-c37e-434a-9f42-bae0c1c389d7"
+                  name="deltaFlowPart"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                      LastKnownName="double"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b72b3f39-b7db-4f09-8946-7badff420c96"
+            name="Region"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fbf27f3e-a0c7-4343-927c-305ce2157f54"
+                  name="velocityMax"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                      LastKnownName="double"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6e68a553-bba0-4b6d-ba59-8e496bdd3448"
+        name="NodeCross"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <description>Перекресток как узел УДС</description>
+        <suppliersInternal>
+          <dependency
+            Id="5c530fb9-e736-4f4c-82e3-21c90bd632fd">
+            <classMoniker
+              Id="f3b80ee2-0eed-4f49-a7d8-1bf2b3c19484"
+              LastKnownName="RouteEnvir"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+          <dependency
+            Id="f106b154-393e-496c-947c-b5a6f4963c4b">
+            <enumerationMoniker
+              Id="fa119ce3-7ea1-4594-a3dd-230e51981c7b"
+              LastKnownName="LightState"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="b276f35f-0ea0-4cb0-9253-6ea9674410bd"
+            name="CrossRegion"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Участок перекрестка</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7157c267-7557-4cc0-8336-cc4eb17ad65f"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b7cc3889-afe2-4660-875d-b9ada594c4d8">
+                    <propertyInstance
+                      Id="e90084cf-9250-470e-ae00-dc5d33e71439"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed563fd0-5c3c-47c8-b57c-29c77e312277">
+                    <propertyInstance
+                      Id="fedbb603-2b6e-4296-af8d-fa47f513bc98"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="278a0f4c-2ccb-4698-a3e6-00405f357985">
+                    <propertyInstance
+                      Id="44157093-faac-4352-a17a-d13ad2f2a063"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7a904f6-4735-4fd5-924a-15733720cd3a">
+                    <propertyInstance
+                      Id="362ee8c9-5d5a-4f8c-96e1-dfc82feb3320"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b81dc90-e04f-42d4-8c48-d6a747774951">
+                    <propertyInstance
+                      Id="1dc7af71-969a-44fe-aca1-9c7e4c854da1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b52c203-1cc8-448e-b0b0-264de70fec57">
+                    <propertyInstance
+                      Id="6e251313-1227-42f4-9045-7ba55e87a746"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb502e33-73c1-4f1c-b0f6-f861bb8a67f9">
+                    <propertyInstance
+                      Id="ad58c318-76a8-40e2-b8ef-09144cb2fd1d"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="60dfc6f2-30dd-46f4-a5cb-59310c255cf1"
+                LastKnownName="RegionCross"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="69722731-3fdf-4d38-b23e-c37228055bd6"
+            name="CrossEntity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Перекресток узла</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1805b80e-557c-4a14-9a77-37a47b3702a0"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7a7d09fe-c3ed-41f0-98a5-b6ad40ec288f">
+                    <propertyInstance
+                      Id="2b4f5dd4-4139-41de-a698-ef9ca526e140"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0b2e0b2-b9b3-4815-8f29-fd46caca5194">
+                    <propertyInstance
+                      Id="d05ccbc1-dd91-4d1b-8ae2-dd6a2ae1129f"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d874d36f-cb36-4227-8570-6db587398d01">
+                    <propertyInstance
+                      Id="22d1857e-9e79-4201-a9fe-ec67d4c4c12a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54a286cd-e191-45a5-a73f-5742fdf53770">
+                    <propertyInstance
+                      Id="ba6f77ca-5c5e-4621-8f17-f6bf08ec6cba"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93138df9-aefc-44de-af13-87aa854289fe">
+                    <propertyInstance
+                      Id="dbebab36-8dae-42ce-a26e-0ee02338ee4f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6250ca9-9e12-433e-aba9-225cc6a7aa94">
+                    <propertyInstance
+                      Id="3ea8040f-b5a5-44a2-8673-df9d693c9129"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="daa44ca6-c92e-4fd6-80f9-5629a0824175">
+                    <propertyInstance
+                      Id="aec414c0-f5c3-41e2-a948-f37588b373f0"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="745a317e-5cc1-4176-9d81-274fc2cbc716"
+                LastKnownName="Cross"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="243e8787-fcdf-4b22-ae72-c571b6c8043e"
+            name="GetLeftEntryWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение левого входного перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="73414b3b-bbc9-43fb-aac8-dd90cba898bf"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="105e5db7-b16e-4975-b10a-bdf5ea53c07a"
+            name="GetLeftExitWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение левого выходного перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="92633190-5156-4387-9c95-e3f7186027d4"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e8a85d51-5cef-4b3d-ada9-52974003c35a"
+            name="GetRightEntryWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение правого входного перегона
+</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa4ba160-cf08-4bb3-8652-3df7073635fb"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="64341949-f42d-4b9c-bd58-ab0fd1314f09"
+            name="GetRightExitWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение правого выходного перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="970bca75-1f62-4f19-9ae5-b7c78e11b52b"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="691738f9-8dba-44a4-9466-4b60d071a5e3"
+            name="GetTopEntryWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение верхнего входного перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="51172394-3507-4bb8-8e8b-468959a292c8"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="25b2dea7-cee3-4be1-aebf-b661f88efc22"
+            name="GetTopExitWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение верхнего выходного перегона
+</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1afdd83e-ae52-4e35-8ac4-5bfecec002b4"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="edd8f23d-57c6-436b-8cbe-85427b17fee0"
+            name="GetBottomEntryWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение нижнего входного перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ed6e20e3-19ef-410c-9982-3b8fa6c24c86"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ecf27acd-b8ed-472a-91be-273c7fa39ae1"
+            name="GetBottomExitWay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение нижнего выходного перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2feaac2b-965e-49b2-b80a-9a17fc2f4385"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+                      LastKnownName="IWay"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e679f003-baab-4021-a5cd-5952437e8275"
+            name="GetCrossPlan"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение плана текущего перекрестка</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9190475e-4247-4406-9f9d-5aadfe17d2e2"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="6a4b5c23-c90d-46ee-8723-e79ca6edf678"
+                      LastKnownName="CrossPlan"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4c9051f3-bc43-430b-a346-7b539d05796b"
+            name="GetLightStateFirst"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение состояния светофоров первой группы
+(разрешает движение по магистральной улице во время первого такта)</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="72ac104e-232d-4035-bacd-08c61b60a33d"
+                  direction="Return">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="fa119ce3-7ea1-4594-a3dd-230e51981c7b"
+                      LastKnownName="LightState"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="472f582f-561b-4a61-a6f5-11345a5f260e"
+            name="GetLightStateSecond"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение состояния светофоров второй группы
+(запрщает движение по второстепенной улице во время второго такта)</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="391f132b-5948-4649-b752-0371a1301a98"
+                  direction="Return">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="fa119ce3-7ea1-4594-a3dd-230e51981c7b"
+                      LastKnownName="LightState"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2f77212e-c919-4200-9f50-d75c7157b8c2"
+            name="NodeCross"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7ba2857f-b77a-4ead-8336-9d449dd15486"
+                  name="cross"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="745a317e-5cc1-4176-9d81-274fc2cbc716"
+                      LastKnownName="Cross"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9c9610b4-a9d4-421d-846e-33e96480653c"
+        name="WayEntry"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <description>Входной перегон</description>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="94246097-bde0-4465-b67a-096f9b201d33">
+            <interfaceMoniker
+              Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+              LastKnownName="IWay"
+              LastKnownLocation="Package_1604.uml" />
+          </interfaceRealization>
+          <dependency
+            Id="a36f6aaa-70bf-4657-8112-2db088146cfd">
+            <classMoniker
+              Id="f3b80ee2-0eed-4f49-a7d8-1bf2b3c19484"
+              LastKnownName="RouteEnvir"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="01d69269-b275-44e4-b5a7-d28a472a18b4"
+            name="RegionBoundary"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Граничный участок, на котором
+происход появление новых ТС</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="09e0dcc0-0fcc-49cd-a815-4b19aa1de872"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac87bc8b-144b-41c3-b1c9-77097effad46">
+                    <propertyInstance
+                      Id="e3dab85b-2edd-4bd1-9e1b-909659f93341"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d42f7a8b-d632-40c1-a8a5-3e668c3970b5">
+                    <propertyInstance
+                      Id="661b076d-2c1f-4d52-b3f0-d43b24c71955"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60c28682-0339-4870-b729-fdfe1432c0c1">
+                    <propertyInstance
+                      Id="b362b7df-078b-4cb0-ac96-8ca5f7221806"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91400606-7bb0-4d75-8cb9-4ab6658014c8">
+                    <propertyInstance
+                      Id="46a04a85-7513-45b9-8620-a1bfc9eb8e73"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6538ff31-64f7-4f5c-8b48-45b9c05500a9">
+                    <propertyInstance
+                      Id="90c09451-2fb9-40b1-b30f-14d44c53b6eb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a00d6fee-28cf-4410-8d9f-4326ea1524eb">
+                    <propertyInstance
+                      Id="6a1c3deb-b82a-481f-94f1-a3cba91724f1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44aebcf8-f55a-48e3-a625-e09f16932bc8">
+                    <propertyInstance
+                      Id="ca00cf63-a703-4bc0-86f7-d67b3eaa72a9"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                LastKnownName="Region"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="68f05452-a2b4-4054-8d12-dfa2ece6ac8a"
+            name="RegionLast"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Участок входного перегона</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ab87dd3a-1d9f-45c0-a9ce-d33113f5d92d"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6731f352-b4c9-4d6c-8e62-bab50c04f9cb">
+                    <propertyInstance
+                      Id="6cdcd7b1-fa05-46fc-b2f4-56c2a49f0713"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55e0f5e6-0649-4fa0-8fc2-c1cc90feb678">
+                    <propertyInstance
+                      Id="2e9ab833-9dc4-4f97-81db-080552b2771b"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b1d8d8f-3392-4a9c-97f7-43003345bbc6">
+                    <propertyInstance
+                      Id="65d5f34d-72be-44bd-adae-5da600e88b86"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ede8205-814d-41ea-b7af-1c31c8b0e620">
+                    <propertyInstance
+                      Id="0b55c32e-78c2-4aed-9f71-38566a4736fc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a78d3764-b3e2-4a72-8457-94bef242ffb7">
+                    <propertyInstance
+                      Id="b0eb17e7-19fa-4169-851b-292612a4576a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7d37bb6-5658-44ad-865b-a46cad4af7d6">
+                    <propertyInstance
+                      Id="cb8ff3c3-7db8-45d1-8773-9598a17f433c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e98e8fc-f538-4dd7-81ba-3ac1b2a6c2d1">
+                    <propertyInstance
+                      Id="cbd23525-4a93-437d-b0cb-82899c8c6e4b"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                LastKnownName="Region"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="923e3127-1490-43df-ac3a-9be69aeb9ea4"
+            name="PassEntity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Параметры подхода перекрестка
+входного перегона</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a33dc8b0-4cac-473a-afc5-0eb96d1ad530"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f317b90-99c3-498b-9b80-66c5ea858d5d">
+                    <propertyInstance
+                      Id="80623839-22e9-4523-9794-809c5864b0d3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="18e30b4b-af26-4af0-8ef7-0e006c8b1db5">
+                    <propertyInstance
+                      Id="0030f5c2-5649-4139-bbe4-eead359d42e5"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4da96ba9-29b6-4c9e-8724-fcecb79a23cb">
+                    <propertyInstance
+                      Id="ef47e5c9-8470-435e-8472-dbbc2342b661"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a04c20a-6c1c-48a8-8141-6dfc469105f3">
+                    <propertyInstance
+                      Id="46031a56-a946-44dc-b9c9-a56213fa7b38"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09536a74-b35e-4b68-b253-dbdf5b868fe8">
+                    <propertyInstance
+                      Id="61547647-fbcd-47d9-ad0e-d48895df5caf"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="606def19-df8b-4147-a23d-9433ff761e17">
+                    <propertyInstance
+                      Id="1850badb-c24a-4ef8-83ef-52950e5bd1d2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3a37d0e-7486-4f56-a978-dc30feae06ce">
+                    <propertyInstance
+                      Id="bc706915-f059-4829-9f50-fcd7447dc7dc"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="71fc437d-053e-4ec7-aaf5-ccbba57e54fb"
+                LastKnownName="Pass"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9eb27048-c2b0-4d38-87d6-49dcbb63871f"
+            name="_random"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="42e75bb9-05b2-414f-96e5-b224fab9cf9a"
+                LastKnownName="Random"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="505c986d-b05d-4f4d-9e42-cfe9e9150ce1"
+            name="GetNextNodeCross"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение узла перекрестка, в
+который впадает данный входной перегон</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8f9f7bd2-f9b0-4275-9ed5-7390bda37d7d"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6e68a553-bba0-4b6d-ba59-8e496bdd3448"
+                      LastKnownName="NodeCross"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="fd873e30-86c9-435e-9674-2657310b2e6c"
+            name="GetRegionFirst"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение первого участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2f4212ab-dd5e-419d-aefc-f9b78afed378"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d73a13d7-5fdb-41da-8269-f89b29c9bf9a"
+            name="GetRegionLast"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение последнего участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e2006cd6-4908-438d-a590-719eb8cd665c"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7a944dbf-4f79-4dfa-a85a-a456e19421ec"
+            name="RunSimulationStep"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Перемещение ТП за интервал сканирования
+в районе входного перегона</description>
+          </operation>
+          <operation
+            Id="c2527e9a-10e7-44f0-9023-6c7ec0a6ca36"
+            name="GetLinesCount"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Количество линий</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="072d976e-0dfe-456b-926d-109480f0a826"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="77333560-63b2-475b-8be4-75cb1ffd567f"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3694d15a-2fb4-49bd-b5e6-d98d80a5e515"
+            name="WayEntry"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a7350c62-8e39-471f-ba12-dc8c812e4623"
+                  name="pass"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="71fc437d-053e-4ec7-aaf5-ccbba57e54fb"
+                      LastKnownName="Pass"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a870281b-6233-4cfc-a614-c1daf3c7b8fd"
+            name="GetPuassonSample"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение реализации случайной величины, распределенной по закону Пуассона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="17360da1-a60c-4792-b57d-3dab45e61385"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="77333560-63b2-475b-8be4-75cb1ffd567f"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3c77216b-faa8-47be-8fc0-17062b624b7c"
+                  name="lambda"
+                  direction="In">
+                  <description>Параметр распределения Пуассона</description>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ad80c4f3-5548-4a64-ab1a-63b95e6a0295"
+        name="WayExit"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <description>Выходной перегон</description>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="006628e6-8bcb-4e95-9127-eabad18224a0">
+            <interfaceMoniker
+              Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+              LastKnownName="IWay"
+              LastKnownLocation="Package_1604.uml" />
+          </interfaceRealization>
+          <dependency
+            Id="343852cf-76fa-41a1-a491-18a232412101">
+            <classMoniker
+              Id="f3b80ee2-0eed-4f49-a7d8-1bf2b3c19484"
+              LastKnownName="RouteEnvir"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="1e2b1ea7-8cf0-4b3c-812b-145e115d305b"
+            name="RegionLast"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Участок выходного перегона</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f85a739b-6f0c-4d7f-8bee-d9a0ec5b9b94"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="672f4377-21e6-443a-aad2-a3d537642df0">
+                    <propertyInstance
+                      Id="6e69c49f-4523-4c14-a0a6-9785a344ef57"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71eb12e5-deb1-4393-8845-6737ad159466">
+                    <propertyInstance
+                      Id="33574b70-241d-490f-8f90-52c7b91e6359"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b6c2c474-c245-4588-85df-34885c04cf91">
+                    <propertyInstance
+                      Id="5f0e62cf-07d8-47af-b3d8-435da68f04df"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85a3f9b4-d9fa-47e7-bcf8-fc9b0b60d91c">
+                    <propertyInstance
+                      Id="9ea7bb2a-727f-454e-8c92-3c8a9f96a702"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94ed77b4-768d-4c0f-b627-061e9148a4c4">
+                    <propertyInstance
+                      Id="e57e37bd-87d1-4c83-8867-377d351648dd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cfd0b98e-195e-47da-b3c8-02f9b8178f27">
+                    <propertyInstance
+                      Id="77d7f188-a01e-4e5e-9c17-001eab45900c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ba94307-2ee5-4ff1-baf0-a48164caeb71">
+                    <propertyInstance
+                      Id="a3420cfe-2139-4dbc-b5f8-7e36bdf301c2"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                LastKnownName="Region"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6418dff1-1ab1-4e1d-b1ab-556517d17c6e"
+            name="RegionBoundary"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Граничный участок, на котором
+происходит 'исчезание' ТС</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6894417b-7f2a-42ec-8ad9-e40d14270d89"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b20b7903-59e7-4e83-a274-2f88670cd525">
+                    <propertyInstance
+                      Id="7f042ac4-50c1-44f9-980e-5ef4b2518db0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8af8daa7-578a-47a0-8d6c-6ea3d44d8fa5">
+                    <propertyInstance
+                      Id="222a7d99-dd98-4a86-a6cb-d2a9a5f6d1fa"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="354885dd-bfc4-45a0-add3-9fa19f48f523">
+                    <propertyInstance
+                      Id="cfd24157-aa96-45e5-a8c5-330efeb354a4"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a0aec18-cddc-4a2c-ba0a-add3f983b0db">
+                    <propertyInstance
+                      Id="7afc26b2-70ce-4202-b6e3-88de0bee4abd"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61a0c685-b786-4462-83da-8a39515b4b96">
+                    <propertyInstance
+                      Id="71cd19a2-afe9-4ea2-85c0-3baa2c77304d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17a08746-4b04-4e0f-9f34-aa15f8d0795a">
+                    <propertyInstance
+                      Id="36b78336-98ac-4038-a656-94e6a5f7d5dd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4a804123-de36-49e4-b950-1bf8cd7748fa">
+                    <propertyInstance
+                      Id="1bb948ce-535f-4428-86df-52d2dc645f78"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                LastKnownName="Region"
+                LastKnownLocation="Package_1604.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ae2002c1-8bca-4985-8619-3ce2efeca972"
+            name="PassEntity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Параметры подхода перекрестка
+данного выходного перегона
+</description>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="61a68d02-4909-482c-9e6f-6f834dd3249d"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79647a57-3e13-4e5e-969c-ab36b7705c5a">
+                    <propertyInstance
+                      Id="e4fc479e-851b-4e88-aa47-93697baf8b30"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4eb57ca-17d8-499c-840e-20ae638b6fdc">
+                    <propertyInstance
+                      Id="8420ef8d-6100-42de-957c-25cae4e0b6cd"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b7d1a43-1e91-426a-9c3c-b33ce98cc542">
+                    <propertyInstance
+                      Id="cbcfa5c4-8efd-40e0-840c-21784b015fa4"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="050ba90b-10c0-4214-8963-f2e2d808f2cc">
+                    <propertyInstance
+                      Id="c51ae822-6342-44e4-99a1-c3f47bbb438c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="781a95c2-f0b7-415c-a887-b2ed4e3da730">
+                    <propertyInstance
+                      Id="89ace305-cba8-4338-aeb7-0747fb1c3030"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94b8983e-a27e-44d4-bec4-7041eea4d758">
+                    <propertyInstance
+                      Id="b26e30f6-4c00-44f5-976b-5866582b86b6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d08ffea-a9a9-4055-bc3e-96dd2b8cd482">
+                    <propertyInstance
+                      Id="6d5871e0-9c51-48cd-85bc-4d163fd4b678"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="71fc437d-053e-4ec7-aaf5-ccbba57e54fb"
+                LastKnownName="Pass"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="660d55d4-c124-4008-9678-9a7255201c06"
+            name="GetRegionFirst"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение первого участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="875e09ea-3ba1-48ba-b6a3-2b63a1be9244"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="371c042d-559a-45f5-9ba9-2fbad25d5c33"
+            name="GetRegionLast"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение последнего участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a7227b88-e083-41ae-8e8b-1befd1a16db8"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5726f598-0db3-4ffc-8f72-d3e4159744e0"
+            name="RunSimulationStep"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Перемещение ТП за интервал сканирования</description>
+          </operation>
+          <operation
+            Id="9f8374f1-79b1-4c1c-bf78-7fbce25fc7d7"
+            name="GetLinesCount"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Количество линий</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f2d75c0c-203c-4a4f-8e44-f0cbf5c51894"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="77333560-63b2-475b-8be4-75cb1ffd567f"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="43bacc11-a85e-4f73-b241-e0bab4ec88af"
+            name="WayExit"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b77942d4-33f6-4e79-b331-2ef2cfd3147e"
+                  name="pass"
+                  direction="In">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="71fc437d-053e-4ec7-aaf5-ccbba57e54fb"
+                      LastKnownName="Pass"
+                      LastKnownLocation="Package_1843.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="15c56130-544e-4195-8d4d-dd6417d74490"
+        name="LinkedList&lt;Region&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="50b04786-c23e-46a3-a61c-dd34e1d8203b"
+        name="REgion" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e1bc9cc2-3ebc-41c3-b248-60887bcf0a5f"
+        name="Road" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="eb82bbf2-0a79-482f-a832-9790a12e5363"
+        name="PassEntity" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="745a317e-5cc1-4176-9d81-274fc2cbc716"
+        name="Cross" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2627d7f0-a3bd-4a37-82cd-1f648b193975"
+        name="List&lt;Way&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="4a5077b5-0f59-4e2a-a95a-e66e73ab1602"
+        name="ListEntry" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="bb735007-7ffa-4d67-a940-1fe03303dbf4"
+        name="List&lt;Entry&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="aca86ce5-c9a1-4407-9caa-ca0801f965f6"
+        name="List&lt;Exit&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="4eb23af9-94ec-4de6-a885-eb4d2432da4d"
+        name="List&lt;NodeCross&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="aea845f2-2625-45f2-9f72-417ba5446c88"
+        name="bool" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="b014e655-e52d-4edf-8f30-c4be3f15b2df"
+        name="IWay"
+        isAbstract="false"
+        isLeaf="false">
+        <description>Интерфейс для всех видов перегонов</description>
+        <ownedOperations>
+          <operation
+            Id="227c4cb9-fc8d-453a-93a1-de26e54d46c8"
+            name="GetRegionFirst"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение первого участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="98f7303b-d691-4e95-b3f1-ddd9b78a5942"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="042d105e-e3cf-4fa2-adf3-3bcd383fe6e9"
+            name="GetRegionLast"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Получение последнего участка перегона</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="75d443e1-d51f-4fbe-b575-3edb0e53dd64"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+                      LastKnownName="Region"
+                      LastKnownLocation="Package_1604.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="89542c26-b015-4b76-8974-fd1aa5fd200b"
+            name="RunSimulationStep"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>Перемещение ТП за интервал сканирования</description>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="fa119ce3-7ea1-4594-a3dd-230e51981c7b"
+        name="LightState"
+        isAbstract="false"
+        isLeaf="false">
+        <description>Состояние светофора</description>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="171ab3e0-391e-4f10-adf3-ce3912b6010a"
+            name="Green" />
+          <enumerationLiteral
+            Id="47876191-00fd-4e93-b024-a0f6f3a6e71f"
+            name="Yellow" />
+          <enumerationLiteral
+            Id="2b07d0cf-eeda-4a4b-8b5e-273cc6fc8ad1"
+            name="Red" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ae652ba6-b058-43fc-b2f5-1f65f4b91377"
+        name="List&lt;WayEntry&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="981bf67c-4f75-478d-b8a2-5713afb5bbc2"
+        name="List&lt;WayExit&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="c49d8744-73dc-4ff7-8a15-cdc571a04a6b"
+        name="List&lt;IWay&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="60dfc6f2-30dd-46f4-a5cb-59310c255cf1"
+        name="RegionCross"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <description>Участок перекрестка</description>
+        <suppliersInternal>
+          <dependency
+            Id="7fd9b9e7-c6d6-467e-90b7-856d59d2711e">
+            <classMoniker
+              Id="6e68a553-bba0-4b6d-ba59-8e496bdd3448"
+              LastKnownName="NodeCross"
+              LastKnownLocation="Package_1604.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="9986c2dd-725a-4567-ab53-ff19a8a1364a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b1b4128e-7500-4d7a-91c3-1032629f6f16"
+              LastKnownName="Region"
+              LastKnownLocation="Package_1604.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="3a199570-bbc0-40fe-b1b9-1e04ffeacd60"
+            name="ToLeftFlowPart"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Часть потока, которая едет
+к левому выходу</description>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5ff1927e-b1f2-4d22-8cf7-cecb9007fff1"
+            name="ToRightFlowPart"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Часть потока, которая едет
+к правому выходу</description>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d6c248fe-d013-4642-8e4b-f31d83a96371"
+            name="ToTopFlowPart"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Часть потока, которая едет
+к верхнему выходу</description>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="59c7a807-5342-4f3b-bfbe-539fc4039177"
+            name="ToBottomFlowPart"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <description>Часть потока, которая едет к нижнему выходу
+</description>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="c68067ab-986f-4684-b03e-ca1a94c9fc15"
+                LastKnownName="double"
+                LastKnownLocation="Package_1843.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="42e75bb9-05b2-414f-96e5-b224fab9cf9a"
+        name="Random" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

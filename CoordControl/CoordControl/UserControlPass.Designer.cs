@@ -89,6 +89,7 @@
             0,
             0,
             0});
+            this.numericUpDownLinesN.ValueChanged += new System.EventHandler(this.numericUpDownLinesN_ValueChanged);
             // 
             // numericUpDownLineWidth
             // 
@@ -232,7 +233,7 @@
             // 
             this.numericUpDownIntensity.Location = new System.Drawing.Point(12, 38);
             this.numericUpDownIntensity.Maximum = new decimal(new int[] {
-            700,
+            2800,
             0,
             0,
             0});

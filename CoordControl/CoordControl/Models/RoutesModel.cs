@@ -25,7 +25,12 @@ namespace CoordControl.Models
 
         public void DeleteRoute(Route r)
         {
-            dao.Delete(r);
+            dao.Delete(dao.GetByID(r.ID));
+        }
+
+        public Route GetById(long id)
+        {
+            return dao.GetByID(id);
         }
 
     }

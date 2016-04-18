@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoordControl.Core.Domains
 {
-    public class CrossPlan : DomainObject
+    public class CrossPlan
     {
         public int P1MainInterval { get; set; }
         public int P1MediateInterval { get; set; }
@@ -16,6 +16,22 @@ namespace CoordControl.Core.Domains
 
         public Plan Plan { get; set; }
         public Cross Cross { get; set; }
+
+        public String CrossName
+        {
+            get
+            {
+                if (Cross != null)
+                    return Cross.StreetName;
+                else
+                    return "";
+            }
+        }
+
+        public override string ToString()
+        {
+            return CrossName;
+        }
 
         public override int GetHashCode()
         {
@@ -32,6 +48,6 @@ namespace CoordControl.Core.Domains
                 return false;
             }
             return (this.GetHashCode() != toCompare.GetHashCode());
-        }   
+        }
     }
 }

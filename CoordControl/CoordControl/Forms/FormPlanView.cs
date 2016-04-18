@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CoordControl.Forms
 {
-    public partial class FormCoordProgView : Form
+    public partial class FormPlanView : Form
     {
-        public FormCoordProgView()
+        public FormPlanView()
         {
             InitializeComponent();
         }
