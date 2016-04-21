@@ -55,8 +55,17 @@
     <Compile Include="Domains\Plan.cs" />
     <Compile Include="Domains\Road.cs" />
     <Compile Include="Domains\Route.cs" />
+    <Compile Include="IWay.cs" />
+    <Compile Include="LightState.cs" />
+    <Compile Include="NodeCross.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="RegionCross.cs" />
+    <Compile Include="RouteEnvir.cs" />
+    <Compile Include="Way.cs" />
+    <Compile Include="WayEntry.cs" />
+    <Compile Include="WayExit.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

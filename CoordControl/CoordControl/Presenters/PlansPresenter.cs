@@ -31,6 +31,17 @@ namespace CoordControl.Presenters
             _view.DeleteClick += _view_DeleteClick;
 
             _view.CalcSimpleClick += _view_CalcSimpleClick;
+
+            _view.ModelingButtonClick += _view_ModelingButtonClick;
+        }
+
+        void _view_ModelingButtonClick(object sender, EventArgs e)
+        {
+            FormModeling form = new FormModeling();
+            ModelingPresenter presenter = new ModelingPresenter(form, _model.GetById(_view.SelectedPlan.ID));
+
+             form.ShowDialog();
+
         }
 
         void _view_CalcSimpleClick(object sender, EventArgs e)

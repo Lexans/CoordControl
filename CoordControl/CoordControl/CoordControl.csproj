@@ -107,7 +107,14 @@
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\PlansModel.cs" />
     <Compile Include="Models\RoutesModel.cs" />
+    <Compile Include="PanelImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelImage.Designer.cs">
+      <DependentUpon>PanelImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presenters\Messages.cs" />
+    <Compile Include="Presenters\ModelingPresenter.cs" />
     <Compile Include="Presenters\PlanEditPresenter.cs" />
     <Compile Include="Presenters\RoutePresenter.cs" />
     <Compile Include="Presenters\PlansPresenter.cs" />

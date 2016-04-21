@@ -76,11 +76,21 @@ namespace CoordControl.Models
                         road.Length = _rand.Next(100, 1000);
                         road.Speed = 80;
                         road.CrossLeft = cr;
+                        cr.RoadRight = road;
 
-                        if (i == crCountReal && crCountReal > 0)
-                            r.Crosses[i - 1].RoadRight = road;
-                        else
-                            cr.RoadRight = road;
+                        if (crCountReal > 0)
+                        {
+                            if(r.Crosses[i - 1].RoadRight == null) {
+                                Road road2 = new Road();
+                                road2.Length = _rand.Next(100, 1000);
+                                road2.Speed = 80;
+                                road2.CrossLeft = r.Crosses[i - 1];
+                                r.Crosses[i - 1].RoadRight = road2;
+                            }
+                            r.Crosses[i - 1].RoadRight.CrossRight = cr;
+                        }
+
+                        cr.RoadRight = road;
                     }
                     else
                         cr.RoadRight = null;
@@ -140,6 +150,7 @@ namespace CoordControl.Models
                     #endregion
 
                     r.Crosses.Add(cr);
+                    crCountReal++;
                 }
 
                 IntensityCalc(r);

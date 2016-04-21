@@ -8,7 +8,7 @@
 		</id>
 		<property name="Length" column="length" type="Int32" not-null="false"/>
 		<property name="Speed" column="speed" type="Int32" not-null="false"/>
-		<one-to-one name="CrossLeft" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="RoadLeft" lazy="false"/>
-		<one-to-one name="CrossRight" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="RoadRight" lazy="false"/>
+		<one-to-one name="CrossLeft" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="RoadRight" lazy="false"/>
+		<one-to-one name="CrossRight" class="CoordControl.Core.Domains.Cross, CoordControl.Core" cascade="all" property-ref="RoadLeft" lazy="false"/>
 	</class>
 </hibernate-mapping>

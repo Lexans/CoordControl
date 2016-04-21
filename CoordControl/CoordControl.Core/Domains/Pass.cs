@@ -30,9 +30,9 @@ namespace CoordControl.Core.Domains
             }
         }
 
-        public Cross CrossLeftPass { private get; set; }
-        public Cross CrossRightPass { private get; set; }
-        public Cross CrossTopPass { private get; set; }
-        public Cross CrossBottomPass { private get; set; }
+        public Cross CrossLeftPass { get; set; }
+        public Cross CrossRightPass { get; set; }
+        public Cross CrossTopPass { get; set; }
+        public Cross CrossBottomPass { get; set; }
     }
 }
