@@ -58,11 +58,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.panelCanvas = new System.Windows.Forms.Panel();
             this.trackBarScale = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panelCanvas = new CoordControl.Forms.Controls.UserControlPanelImage();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -381,19 +381,6 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // panelCanvas
-            // 
-            this.panelCanvas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelCanvas.Location = new System.Drawing.Point(13, 31);
-            this.panelCanvas.Name = "panelCanvas";
-            this.panelCanvas.Size = new System.Drawing.Size(879, 681);
-            this.panelCanvas.TabIndex = 5;
-            this.panelCanvas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelCanvas_Scroll);
-            this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint_1);
-            this.panelCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelCanvas_MouseClick_1);
-            // 
             // trackBarScale
             // 
             this.trackBarScale.Location = new System.Drawing.Point(10, 21);
@@ -439,6 +426,19 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Масштаб схемы";
+            // 
+            // panelCanvas
+            // 
+            this.panelCanvas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCanvas.Location = new System.Drawing.Point(13, 31);
+            this.panelCanvas.Name = "panelCanvas";
+            this.panelCanvas.Size = new System.Drawing.Size(879, 681);
+            this.panelCanvas.TabIndex = 5;
+            this.panelCanvas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelCanvas_Scroll);
+            this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint_1);
+            this.panelCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelCanvas_MouseClick_1);
             // 
             // FormModeling
             // 
@@ -512,7 +512,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Panel panelCanvas;
+        private CoordControl.Forms.Controls.UserControlPanelImage panelCanvas;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;

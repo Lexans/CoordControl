@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CoordControl
+namespace CoordControl.Forms.Controls
 {
-    class PanelImage : Panel
+    class UserControlPanelImage : Panel
     {
-        public PanelImage()
+        public UserControlPanelImage()
         {
             this.DoubleBuffered = true;
         }

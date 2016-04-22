@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CoordControl
+namespace CoordControl.Forms.Controls
 {
     public partial class UserControlPass : UserControl
     {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CoordControl.Core.Domains;
+using CoordControl.Forms.Controls;
 
 namespace CoordControl.Forms
 {

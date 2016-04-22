@@ -34,10 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDownCrossCount = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.userControlPassRight = new CoordControl.UserControlPass();
-            this.userControlPassDown = new CoordControl.UserControlPass();
+            this.userControlPassRight = new CoordControl.Forms.Controls.UserControlPass();
+            this.userControlPassDown = new CoordControl.Forms.Controls.UserControlPass();
             this.label7 = new System.Windows.Forms.Label();
-            this.userControlPassUp = new CoordControl.UserControlPass();
+            this.userControlPassUp = new CoordControl.Forms.Controls.UserControlPass();
             this.groupBoxRoad = new System.Windows.Forms.GroupBox();
             this.numericUpDownRoadSpeed = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.numericUpDownRoadLength = new System.Windows.Forms.NumericUpDown();
             this.comboBoxCrosses = new System.Windows.Forms.ComboBox();
             this.crossBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userControlPassLeft = new CoordControl.UserControlPass();
+            this.userControlPassLeft = new CoordControl.Forms.Controls.UserControlPass();
             this.textBoxStreetNameCross = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -395,10 +395,10 @@
         private System.Windows.Forms.TextBox textBoxStreetNameCross;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
-        private UserControlPass userControlPassLeft;
-        private UserControlPass userControlPassRight;
-        private UserControlPass userControlPassDown;
-        private UserControlPass userControlPassUp;
+        private CoordControl.Forms.Controls.UserControlPass userControlPassLeft;
+        private CoordControl.Forms.Controls.UserControlPass userControlPassRight;
+        private CoordControl.Forms.Controls.UserControlPass userControlPassDown;
+        private CoordControl.Forms.Controls.UserControlPass userControlPassUp;
         private System.Windows.Forms.NumericUpDown numericUpDownRoadSpeed;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox4;

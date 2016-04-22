@@ -1,4 +1,4 @@
-﻿namespace CoordControl
+﻿namespace CoordControl.Forms.Controls
 {
     partial class UserControlPass
     {
