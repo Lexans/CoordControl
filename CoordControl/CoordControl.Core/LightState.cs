@@ -14,5 +14,6 @@ namespace CoordControl.Core
 		Green,
 		Yellow,
 		Red,
+        YellowRed
 	}
 }

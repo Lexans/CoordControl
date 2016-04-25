@@ -74,7 +74,13 @@ namespace CoordControl.Core
 		/// </summary>
 		public void RunSimulationStep()
 		{
-			throw new System.NotImplementedException();
+			foreach(NodeCross nc in ListCross)
+                nc.RunSimulationStep();
+
+            foreach (IWay w in ListWays)
+                w.RunSimulationStep();
+
+            TimeCurrent += TimeScan;
 		}
 
 		/// <summary>

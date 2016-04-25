@@ -46,6 +46,13 @@ namespace CoordControl.Presenters
              _view.ScaleChanged += _view_ScaleChanged;
              _view.CanvasClick += _view_CanvasClick;
              _view.FormSizeChanged += _view_FormSizeChanged;
+
+             _view.ModelingStartClick += _view_ModelingStartClick;
+         }
+
+         void _view_ModelingStartClick(object sender, EventArgs e)
+         {
+             RouteEnvir.Instance.RunSimulationStep();
          }
 
          void _view_FormSizeChanged(object sender, EventArgs e)
@@ -81,8 +88,8 @@ namespace CoordControl.Presenters
              if(_selectedRegion != null)
              {
                  _view.RegionDensity = _selectedRegion.GetDensity();
-                 _view.RegionIntensity = _selectedRegion.GetIntensity();
-                 _view.RegionVelocity = _selectedRegion.GetVelocity();
+                 _view.RegionIntensity = _selectedRegion.Intensity;
+                 _view.RegionVelocity = _selectedRegion.Velocity;
                  _view.RegionFlowPart = _selectedRegion.FlowPart;
              }
 
@@ -99,6 +106,7 @@ namespace CoordControl.Presenters
              DrawGeometries();
          }
 
+         //TODO: реализовать цвета участков в зависимости от значения выбранного параметра
 
          //отрисовка всех объектов
          double lengthReal;

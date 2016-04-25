@@ -26,35 +26,115 @@ namespace CoordControl.Core
         /// </summary>
         public double WidthTop; 
 
+
+
 		/// <summary>
 		/// Часть потока, которая едет
 		/// к левому выходу
 		/// </summary>
-		public double ToLeftFlowPart { get; set; }
+        public double ToLeftFlowPart;
 
 		/// <summary>
 		/// Часть потока, которая едет
 		/// к правому выходу
 		/// </summary>
-		public double ToRightFlowPart { get; set; }
+        public double ToRightFlowPart;
 
 		/// <summary>
 		/// Часть потока, которая едет
 		/// к верхнему выходу
 		/// </summary>
-		public double ToTopFlowPart { get; set; }
+        public double ToTopFlowPart;
 
 		/// <summary>
 		/// Часть потока, которая едет к нижнему выходу
 		/// 
 		/// </summary>
-		public double ToBottomFlowPart { get; set; }
+        public double ToBottomFlowPart;
 
         public RegionCross(NodeCross nc)
         {
             CrossNode = nc;
             CalcSizes();
         }
+
+
+        /// <summary>
+        /// Перемещение части ТП с последнего региона
+        /// на перекресток
+        /// </summary>
+        /// <param name="regionFrom">последний регион перегона</param>
+        /// <param name="deltaFlowPart">часть ТП, которую необходимо переместить</param>
+        /// <returns>реально перемещенную часть ТП с учетом ограничений</returns>
+        public double MoveToCross(Region regionFrom, double deltaFlowPart)
+        {
+            double resultDeltaFP = deltaFlowPart;
+
+            //ограничение на количество имеющихся ТС
+            if (regionFrom.FlowPart < deltaFlowPart)
+                resultDeltaFP = regionFrom.FlowPart;
+
+            //ограничение на максимальное количество ТС на участке перекрестка
+            double FpNextMax = Lenght *
+                (Width / 3.5) /
+                6.0;
+            double FpNext = FlowPart + resultDeltaFP;
+            if (FpNext > FpNextMax)
+                resultDeltaFP -= (FpNext - FpNextMax);
+
+
+            //"остатки" ТС перемещаются на следующий регион
+            if ((regionFrom.FlowPart - resultDeltaFP) < 0.5 &&
+                (regionFrom.FlowPart + FlowPart) < FpNextMax)
+                resultDeltaFP = FlowPart;
+
+
+            //перемещение части ТП
+            FlowPart += resultDeltaFP;
+            regionFrom.FlowPart -= resultDeltaFP;
+
+            return resultDeltaFP;
+        }
+
+
+
+        /// <summary>
+        /// Перемещение части ТП с перекрестка
+        /// на некоторый перегон
+        /// </summary>
+        /// <param name="regionTo">Регион, на который перемещается</param>
+        /// <param name="flowPartSource">Часть ТП перекрестка</param>
+        /// <param name="deltaFlowPart">часть ТП для перемещения</param>
+        /// <returns>Фактически перемещенная часть ТП</returns>
+        public double MoveFromCross(Region regionTo, ref double flowPartSource, double deltaFlowPart)
+        {
+            double resultDeltaFP = deltaFlowPart;
+
+            //ограничение на количество имеющихся ТС
+            if (flowPartSource < deltaFlowPart)
+                resultDeltaFP = flowPartSource;
+
+            //ограничение на максимальное количество ТС на следующем участке
+            double FpNextMax = regionTo.Lenght * regionTo.Way.GetInfo().LinesCount / 6.0;
+            double FpNext = regionTo.FlowPart + resultDeltaFP;
+            if (FpNext > FpNextMax)
+                resultDeltaFP -= (FpNext - FpNextMax);
+
+
+            //"остатки" ТС перемещаются на следующий регион
+            if ((flowPartSource - resultDeltaFP) < 0.5 &&
+                (flowPartSource + regionTo.FlowPart) < FpNextMax)
+                resultDeltaFP = flowPartSource;
+
+
+            //перемещение части ТП
+            regionTo.FlowPart += resultDeltaFP;
+            FlowPart -= resultDeltaFP;
+            flowPartSource -= resultDeltaFP;
+
+            return resultDeltaFP;
+        }
+
 
         /// <summary>
         /// вычисление ширины и длины участка перекрестка

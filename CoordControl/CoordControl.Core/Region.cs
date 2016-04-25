@@ -44,33 +44,30 @@ namespace CoordControl.Core
 		}
 
 		/// <summary>
-		/// Получение скорости
+		/// скорость
 		/// потока на данном участке
 		/// 
 		/// </summary>
-		public virtual double GetVelocity()
-		{
-            return 81;
-        }
+        public double Velocity { get; set; }
 
+        //TODO: настроить расчет интенсивности по времени моделировния, а не мгновенной
 		/// <summary>
-		/// Получение интенсивности
+		/// интенсивность
 		/// потока на данном участке
 		/// 
 		/// </summary>
-		public virtual double GetIntensity()
-		{
-            return 1050;
-        }
+        public double Intensity { get; set; }
 
-		public Region(IWay way, double lenght)
+		public Region(IWay way, double lenght):
+            this()
 		{
             Way = way;
             Lenght = lenght;
 		}
 
         protected Region() {
-        
+            FlowPart = 0d;
+            IsStopMode = false;
         }
 
 		/// <summary>
@@ -81,7 +78,32 @@ namespace CoordControl.Core
 		/// </summary>
 		public virtual double Move(Region nextRegion, double deltaFlowPart)
 		{
-			throw new System.NotImplementedException();
+            double resultDeltaFP = deltaFlowPart;
+
+            //ограничение на количество имеющихся ТС
+            if (FlowPart < deltaFlowPart)
+                resultDeltaFP = FlowPart;
+
+            //ограничение на максимальное количество ТС на следюущем участке
+            double FpNextMax = nextRegion.Lenght *
+                nextRegion.Way.GetInfo().LinesCount /
+                6.0;
+            double FpNext = nextRegion.FlowPart + resultDeltaFP;
+            if (FpNext > FpNextMax)
+                resultDeltaFP -= (FpNext - FpNextMax);
+
+
+            //"остатки" ТС перемещаются на следующий регион
+            if ((FlowPart - resultDeltaFP) < 0.5 &&
+                (nextRegion.FlowPart + FlowPart) < FpNextMax)
+                resultDeltaFP = FlowPart;
+
+
+            //перемещение части ТП
+            nextRegion.FlowPart += resultDeltaFP;
+            FlowPart -= resultDeltaFP;
+
+            return resultDeltaFP;
 		}
 
 	}

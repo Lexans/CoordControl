@@ -86,7 +86,7 @@
             this.toolStripButtonReset});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1119, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1127, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -126,9 +126,9 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabelCurrentTime,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 723);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 711);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1119, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(1127, 25);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -155,7 +155,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.numericUpDownDelay);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(894, 29);
+            this.groupBox1.Location = new System.Drawing.Point(902, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(208, 93);
             this.groupBox1.TabIndex = 3;
@@ -200,7 +200,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(898, 128);
+            this.groupBox2.Location = new System.Drawing.Point(906, 128);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(204, 328);
             this.groupBox2.TabIndex = 4;
@@ -370,7 +370,7 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.trackBarModelingSpeed);
-            this.groupBox3.Location = new System.Drawing.Point(898, 462);
+            this.groupBox3.Location = new System.Drawing.Point(906, 462);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(204, 86);
             this.groupBox3.TabIndex = 0;
@@ -420,7 +420,7 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.trackBarScale);
-            this.groupBox4.Location = new System.Drawing.Point(898, 554);
+            this.groupBox4.Location = new System.Drawing.Point(906, 554);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(204, 92);
             this.groupBox4.TabIndex = 6;
@@ -434,7 +434,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCanvas.Location = new System.Drawing.Point(13, 31);
             this.panelCanvas.Name = "panelCanvas";
-            this.panelCanvas.Size = new System.Drawing.Size(879, 681);
+            this.panelCanvas.Size = new System.Drawing.Size(887, 669);
             this.panelCanvas.TabIndex = 5;
             this.panelCanvas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelCanvas_Scroll);
             this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint_1);
@@ -444,7 +444,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 748);
+            this.ClientSize = new System.Drawing.Size(1127, 736);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.panelCanvas);
             this.Controls.Add(this.groupBox3);

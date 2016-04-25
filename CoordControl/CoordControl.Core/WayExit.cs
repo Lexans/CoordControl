@@ -49,7 +49,22 @@ namespace CoordControl.Core
 		/// </summary>
 		public void RunSimulationStep()
 		{
-			throw new System.NotImplementedException();
+            //перемещение с граниченого участка на поледний
+            double avgDensity = RegionFirst.GetDensity();
+
+            double densityCoef = Way.CalcDensityCoef(GetInfo().LinesCount, GetInternalRoad().Speed);
+            double velocity = (GetInternalRoad().Speed / 3.6) - densityCoef * avgDensity;
+
+            double deltaFP = RegionFirst.FlowPart / RegionBoundary.Lenght
+                * velocity * RouteEnvir.Instance.TimeScan;
+
+            RegionFirst.Move(RegionBoundary, deltaFP);
+
+            RegionFirst.Velocity = velocity;
+            RegionBoundary.Intensity = (deltaFP / RouteEnvir.Instance.TimeScan) * 3600.0;
+
+            //появление ТП на граничном участке
+            RegionBoundary.FlowPart = 0;
 		}
 
 
@@ -64,7 +79,7 @@ namespace CoordControl.Core
         /// Получение перегона
         /// связанного с текущим входом
         /// </summary>
-        private Road GetInternalRoad()
+        public Road GetInternalRoad()
         {
             Cross cr = EntityPass.Cross;
             Road result;

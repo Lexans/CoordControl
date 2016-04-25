@@ -389,6 +389,9 @@ namespace CoordControl.Forms
                 case LightState.Yellow:
                     brush = new SolidBrush(Color.Yellow);
                     break;
+                case LightState.YellowRed:
+                    brush = new SolidBrush(Color.Orange);
+                    break;
                 default:
                     brush = new SolidBrush(Color.White);
                     break;
