@@ -15,6 +15,7 @@ namespace CoordControl.Presenters
 	{
 
 		private IFormModeling _view { get; set; }
+        private Plan _plan;
 
         /// <summary>
         /// позиции отображения регионов
@@ -27,7 +28,7 @@ namespace CoordControl.Presenters
 
         public Dictionary<NodeCross, List<RectangleF>> CrossLights2 { get; set; }
 
-        private CoordControl.Core.Region _selectedRegion { get; set; }
+        private CoordControl.Core.Region _selectedRegion;
 
 		/// <summary>
 		/// Вычисление масштаба (пикс/метр)
@@ -40,19 +41,49 @@ namespace CoordControl.Presenters
          public ModelingPresenter(IFormModeling view, Plan plan)
          {
              _view = view;
-             RouteEnvir.Instance.EntityPlan = plan;
+             _plan = plan;
+             ResetModel();
+
+             _view.TitleForm += " (улица «" + _plan.Route.StreetName +
+                 "», программа координации «" + _plan.Title + "»)";
 
              _view.PanelNeedPaint += _view_PanelNeedPaint;
              _view.ScaleChanged += _view_ScaleChanged;
              _view.CanvasClick += _view_CanvasClick;
              _view.FormSizeChanged += _view_FormSizeChanged;
 
-             _view.ModelingStartClick += _view_ModelingStartClick;
+             _view.ModelingTimerTick += _view_ModelingTimerTick;
+             _view.ModelingResetClick += _view_ModelingResetClick;
          }
 
-         void _view_ModelingStartClick(object sender, EventArgs e)
+         void _view_ModelingResetClick(object sender, EventArgs e)
+         {
+
+             ResetModel();
+         }
+
+
+         void ResetModel()
+         {
+             RouteEnvir.Instance.ResetInstance();
+             RouteEnvir.Instance.EntityPlan = _plan;
+             CalcGeometries();
+             _view.RedrawCanvas();
+             _view.ModelingTime = RouteEnvir.Instance.TimeCurrent;
+             _view.StatDelay = RouteEnvir.Instance.GetStatAvgDelayCurrent();
+             _selectedRegion = null;
+         }
+
+         void _view_ModelingTimerTick(object sender, EventArgs e)
          {
              RouteEnvir.Instance.RunSimulationStep();
+             SelectedRegionShow();
+             _view.RedrawCanvas();
+             _view.ModelingTime = RouteEnvir.Instance.TimeCurrent;
+             _view.StatDelay = RouteEnvir.Instance.GetStatAvgDelayCurrent();
+
+             //if (((int)RouteEnvir.Instance.TimeCurrent) % RouteEnvir.Instance.CalcMeasureInterval() == 0)
+             //    _view.TimerStop();
          }
 
          void _view_FormSizeChanged(object sender, EventArgs e)
@@ -64,7 +95,7 @@ namespace CoordControl.Presenters
          {
              Point p = _view.CanvasClickPoint;
 
-             CoordControl.Core.Region _selectedRegion = null;
+             _selectedRegion = null;
 
              KeyValuePair<CoordControl.Core.Region, RectangleF> entry = 
                  (KeyValuePair<CoordControl.Core.Region, RectangleF>)
@@ -85,14 +116,7 @@ namespace CoordControl.Presenters
                  _selectedRegion = (CoordControl.Core.Region) entryCross.Key;
              }
 
-             if(_selectedRegion != null)
-             {
-                 _view.RegionDensity = _selectedRegion.GetDensity();
-                 _view.RegionIntensity = _selectedRegion.Intensity;
-                 _view.RegionVelocity = _selectedRegion.Velocity;
-                 _view.RegionFlowPart = _selectedRegion.FlowPart;
-             }
-
+             SelectedRegionShow();
          }
 
          void _view_ScaleChanged(object sender, EventArgs e)
@@ -101,12 +125,21 @@ namespace CoordControl.Presenters
          }
 
 
+         void SelectedRegionShow()
+         {
+             if (_selectedRegion != null)
+             {
+                 _view.RegionDensity = _selectedRegion.GetDensity();
+                 _view.RegionIntensity = _selectedRegion.GetIntensity();
+                 _view.RegionVelocity = _selectedRegion.Velocity * 3.6;
+                 _view.RegionFlowPart = _selectedRegion.FlowPart;
+             }
+         }
+
          void _view_PanelNeedPaint(object sender, EventArgs e)
          {
              DrawGeometries();
          }
-
-         //TODO: реализовать цвета участков в зависимости от значения выбранного параметра
 
          //отрисовка всех объектов
          double lengthReal;
@@ -130,7 +163,6 @@ namespace CoordControl.Presenters
                  _view.DrawLight(entry.Value[1], LightPosition.Bottom, entry.Key.GetLightStateSecond());
              }
 
-             Color colDefault = Color.Gray;
              foreach (KeyValuePair<CoordControl.Core.Region, RectangleF> entry in RegionsView)
              {
                  ArrowDirection direct = ArrowDirection.Right;
@@ -181,14 +213,94 @@ namespace CoordControl.Presenters
                          direct = ArrowDirection.Left;
                  }
 
-                 _view.DrawRegion(colDefault, entry.Value, direct);
+                 _view.DrawRegion(CalcColor(entry.Key), entry.Value, direct);
              }
+
+             
 
              foreach (KeyValuePair<CoordControl.Core.RegionCross, RectangleF> entry in RegionsCrossView)
              {
-                 _view.DrawRectangle(colDefault, entry.Value);
+                 _view.DrawRectangle(CalcColor(entry.Key), entry.Value);
              }
 
+         }
+
+
+        /// <summary>
+        /// вычисление цвета региона
+        /// </summary>
+        /// <param name="reg"></param>
+        /// <returns></returns>
+         private Color CalcColor(CoordControl.Core.Region reg)
+         {
+            double minValue, maxValue, value;
+
+            switch (_view.RegionViewParam)
+            {
+                case RegionViewParam.FlowPart:
+                    minValue = 0;
+                    if (!(reg is RegionCross))
+                        maxValue = reg.Lenght / 6.0 * reg.Way.GetInfo().LinesCount;
+                    else {
+                        RegionCross regCross = (RegionCross)reg;
+                        maxValue = regCross.Lenght * (regCross.Width / 3.5) /6.0;
+                    }
+                    value = reg.FlowPart;
+                    break;
+                case RegionViewParam.Density:
+                    minValue = 0;
+                    if (!(reg is RegionCross))
+                        maxValue = reg.Way.GetInfo().LinesCount / 6.0;
+                    else
+                    {
+                        RegionCross regCross = (RegionCross)reg;
+                        maxValue = (regCross.Width / 3.5) / 6.0;
+                    }
+                    value = reg.GetDensity();
+                    break;
+                case RegionViewParam.Intensity:
+                    minValue = 0;
+                    if (!(reg is RegionCross))
+                        maxValue = PlanCalculator.CalcMaxFlow(reg.Way.GetInfo());
+                    else
+                    {
+                        RegionCross regCross = (RegionCross)reg;
+                        maxValue = PlanCalculator.CalcMaxFlow(regCross.CrossNode.EntityCross.PassTop) +
+                            PlanCalculator.CalcMaxFlow(regCross.CrossNode.EntityCross.PassBottom) +
+                            PlanCalculator.CalcMaxFlow(regCross.CrossNode.EntityCross.PassLeft) +
+                            PlanCalculator.CalcMaxFlow(regCross.CrossNode.EntityCross.PassRight);
+                    }
+                    value = reg.GetIntensity();
+                    break;
+                case RegionViewParam.Velocity:
+                    minValue = 0;
+                    maxValue = 100;
+                    if (reg.Way is Way)
+                        maxValue = ((Way)reg.Way).EntityRoad.Speed;
+                    else if (reg.Way is WayEntry)
+                        maxValue = ((WayEntry)reg.Way).GetInternalRoad().Speed;
+                    else if (reg.Way is WayExit)
+                        maxValue = ((WayExit)reg.Way).GetInternalRoad().Speed;
+                    else if (reg is RegionCross)
+                        maxValue = ((RegionCross)reg).CrossNode.CalcVerticalSpeed();
+
+                    value = reg.Velocity;
+                    break;
+                default:
+                    minValue = 0;
+                    maxValue = 255;
+                    value = 0;
+                    break;
+            }
+
+
+            int colorCode = (int) (255.0 - 255.0 * (value - minValue) / (maxValue - minValue));
+            if (colorCode > 255)
+                colorCode = 255;
+            else if (colorCode < 0)
+                colorCode = 0;
+
+            return Color.FromArgb(colorCode, colorCode, colorCode);
          }
 
         /// <summary>
@@ -299,7 +411,7 @@ namespace CoordControl.Presenters
                 rectTopExit.Width = (float)(topExit.GetInfo().LinesCount * topExit.GetInfo().LineWidth * scaleX);
                 rectTopExit.Y = (float)(rectCrossRegion.Top - rectTopExit.Height);
                 rectTopExit.X = rectCrossRegion.Right - rectTopExit.Width;
-                RegionsView[topExit.GetRegionLast()] = rectTopExit;
+                RegionsView[topExit.GetRegionFirst()] = rectTopExit;
 
 
                 //отрисовка нижнего подхода
@@ -318,7 +430,7 @@ namespace CoordControl.Presenters
                 rectBotExit.Width = (float)(botExit.GetInfo().LinesCount * botExit.GetInfo().LineWidth * scaleX);
                 rectBotExit.Y = (float)(rectCrossRegion.Bottom);
                 rectBotExit.X = rectCrossRegion.Left;
-                RegionsView[botExit.GetRegionLast()] = rectBotExit;
+                RegionsView[botExit.GetRegionFirst()] = rectBotExit;
 
                 if (currentNc.GetRightExitWay() is WayExit)
                     break;

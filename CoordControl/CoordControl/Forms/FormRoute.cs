@@ -118,7 +118,7 @@ namespace CoordControl.Forms
                 cross.StreetName = CrossStreetName;
                 if (cross.RoadRight != null)
                 {
-                    RightRoad = cross.RoadRight;
+                    cross.RoadRight = RightRoad;
                 }
 
                 return cross;
@@ -135,8 +135,7 @@ namespace CoordControl.Forms
                 CrossStreetName = value.StreetName;
                 if (value.RoadRight != null)
                 {
-                    numericUpDownRoadLength.Value = cross.RoadRight.Length;
-                    numericUpDownRoadSpeed.Value = cross.RoadRight.Speed;
+                    RightRoad = value.RoadRight;
                 }
             }
         }

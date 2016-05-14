@@ -31,8 +31,34 @@ namespace CoordControl.Presenters
             _view.DeleteClick += _view_DeleteClick;
 
             _view.CalcSimpleClick += _view_CalcSimpleClick;
+            _view.CalcMoveTimeClick += _view_CalcMoveTimeClick;
+            _view.CalcWithoutShiftsClick += _view_CalcWithoutShiftsClick;
 
             _view.ModelingButtonClick += _view_ModelingButtonClick;
+        }
+
+        void _view_CalcWithoutShiftsClick(object sender, EventArgs e)
+        {
+            PlanCalculator pc = new PlanCalculatorWithoutShifts();
+            Plan p = pc.CalcFullPlan(currentRoute);
+            currentRoute.Plans.Add(p);
+
+            p.Title = "Без сдвигов фаз";
+            _model.SavePlan(p);
+
+            _view.PlanList = _model.GetPlansByRoute(currentRoute);
+        }
+
+        void _view_CalcMoveTimeClick(object sender, EventArgs e)
+        {
+            PlanCalculator pc = new PlanCalculatorMoveTime();
+            Plan p = pc.CalcFullPlan(currentRoute);
+            currentRoute.Plans.Add(p);
+
+            p.Title = "По времени проезда";
+            _model.SavePlan(p);
+
+            _view.PlanList = _model.GetPlansByRoute(currentRoute);
         }
 
         void _view_ModelingButtonClick(object sender, EventArgs e)

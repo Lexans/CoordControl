@@ -56,17 +56,15 @@ namespace CoordControl.Forms
 
         double DrawScale { get; }
 
+        string TitleForm { get; set; }
+
         RegionViewParam RegionViewParam { get; set; }
 
         double StatDelay { set; }
 
         event EventHandler CanvasClick;
 
-        event EventHandler ModelingPauseClick;
-
         event EventHandler ModelingResetClick;
-
-        event EventHandler ModelingStartClick;
 
         event EventHandler ModelingTimerTick;
 
@@ -87,11 +85,11 @@ namespace CoordControl.Forms
 
         void DrawLight(RectangleF p, LightPosition pos, LightState state);
 
-        void TimerStart();
-
-        void TimerPause();
+        void RedrawCanvas();
 
         void DrawStreetName(PointF p, String text);
+
+        void TimerStop();
     }
 
 
@@ -101,6 +99,7 @@ namespace CoordControl.Forms
         {
             InitializeComponent();
             comboBoxViewParam.SelectedIndex = 0;
+            timer.Interval = 1000-trackBarModelingSpeed.Value;
         }
 
 
@@ -125,6 +124,12 @@ namespace CoordControl.Forms
             {
                 panelCanvas.AutoScrollMinSize = new Size((int)value, panelCanvas.AutoScrollMinSize.Height);
             }
+        }
+
+        public string TitleForm
+        {
+            set { this.Text = value; }
+            get { return this.Text; }
         }
 
 
@@ -236,11 +241,7 @@ namespace CoordControl.Forms
         #region проброс событий
         public event EventHandler CanvasClick;
 
-        public event EventHandler ModelingPauseClick;
-
         public event EventHandler ModelingResetClick;
-
-        public event EventHandler ModelingStartClick;
 
         public event EventHandler ModelingTimerTick;
 
@@ -267,20 +268,24 @@ namespace CoordControl.Forms
             if (CanvasClick != null) CanvasClick(this, EventArgs.Empty);
         }
 
-        private void toolStripButtonPause_Click(object sender, EventArgs e)
-        {
-            if (ModelingPauseClick != null) ModelingPauseClick(this, EventArgs.Empty);
-        }
-
         private void toolStripButtonReset_Click(object sender, EventArgs e)
         {
+            TimerStop();
             if (ModelingResetClick != null) ModelingResetClick(this, EventArgs.Empty);
 
         }
 
         private void toolStripButtonStart_Click(object sender, EventArgs e)
         {
-            if (ModelingStartClick != null) ModelingStartClick(this, EventArgs.Empty);
+            if (timer.Enabled)
+            {
+                TimerStop();
+            }
+            else
+            {
+                toolStripButtonStart.Text = "Пауза";
+                timer.Start();
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -288,6 +293,10 @@ namespace CoordControl.Forms
             if (ModelingTimerTick != null) ModelingTimerTick(this, EventArgs.Empty);
         }
 
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            if (ModelingTimerTick != null) ModelingTimerTick(this, EventArgs.Empty);
+        }
 
         Graphics gr;
         private void panelCanvas_Paint_1(object sender, PaintEventArgs e)
@@ -429,15 +438,6 @@ namespace CoordControl.Forms
             gr.DrawString(text, drawFont, drawBrush, p.X, p.Y, drawFormat);
         }
 
-        public void TimerStart()
-        {
-            timer.Start();
-        }
-
-        public void TimerPause()
-        {
-            timer.Stop();
-        }
         #endregion
 
 
@@ -447,5 +447,26 @@ namespace CoordControl.Forms
         }
 
 
+        public void RedrawCanvas()
+        {
+            panelCanvas.Refresh();
+        }
+
+        private void trackBarModelingSpeed_ValueChanged(object sender, EventArgs e)
+        {
+            timer.Interval = 1000 - trackBarModelingSpeed.Value;
+        }
+
+        private void FormModeling_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
+        }
+
+
+        public void TimerStop()
+        {
+            timer.Stop();
+            toolStripButtonStart.Text = "Старт";
+        }
     }
 }

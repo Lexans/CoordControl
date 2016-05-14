@@ -20,7 +20,29 @@ namespace CoordControl.Core
 		/// Часть потока, находящаяся на данном
 		/// участке
 		/// </summary>
-		public double FlowPart { get; set; }
+        private double _flowPart;
+        public double DeltaFlowPartLast;
+        public double FlowPartGeneral;
+        public double FlowPart {
+            get {
+                return _flowPart; 
+            }
+
+            set {
+                double val = (value > -0.01 && value < 0) ? 0 : value;
+
+                DeltaFlowPartLast = val - _flowPart;
+                _flowPart = val;
+
+                if (DeltaFlowPartLast > 0)
+                    FlowPartGeneral += DeltaFlowPartLast;
+
+                if (DeltaFlowPartLast == 0)
+                    IsStopMode = true;
+                else
+                    IsStopMode = false;
+            }
+        }
 
 		/// <summary>
 		/// Признак остановки двжиения. Если во время очередной
@@ -50,13 +72,21 @@ namespace CoordControl.Core
 		/// </summary>
         public double Velocity { get; set; }
 
-        //TODO: настроить расчет интенсивности по времени моделировния, а не мгновенной
 		/// <summary>
 		/// интенсивность
 		/// потока на данном участке
 		/// 
 		/// </summary>
-        public double Intensity { get; set; }
+        public double GetIntensity() {
+            double result;
+
+            if (RouteEnvir.Instance.TimeCurrent != 0)
+                result = FlowPartGeneral / (RouteEnvir.Instance.TimeCurrent / 3600.0);
+            else
+                result = 0;
+
+            return result;
+        }
 
 		public Region(IWay way, double lenght):
             this()
@@ -105,6 +135,40 @@ namespace CoordControl.Core
 
             return resultDeltaFP;
 		}
+
+        /// <summary>
+        /// Получение региона, предшествующего текущему
+        /// </summary>
+        /// <returns></returns>
+        public Region GetRegionPrev() {
+            if (Way is Way)
+            {
+                Way w = ((Way)Way);
+                int i = w.Regions.IndexOf(this);
+                if (i > 0)
+                    return w.Regions[i - 1];
+                else
+                    return null;
+            }
+            else if (Way is WayEntry)
+            {
+                WayEntry w = ((WayEntry)Way);
+                if (this == w.RegionLast)
+                    return w.RegionBoundary;
+                else
+                    return null;
+            }
+            else if (Way is WayExit)
+            {
+                WayExit w = ((WayExit)Way);
+                if (this == w.RegionBoundary)
+                    return w.RegionFirst;
+                else
+                    return null;
+            }
+            else
+                return null;
+        }
 
 	}
 }

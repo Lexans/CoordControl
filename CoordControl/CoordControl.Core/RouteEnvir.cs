@@ -74,11 +74,11 @@ namespace CoordControl.Core
 		/// </summary>
 		public void RunSimulationStep()
 		{
-			foreach(NodeCross nc in ListCross)
-                nc.RunSimulationStep();
-
             foreach (IWay w in ListWays)
                 w.RunSimulationStep();
+
+			foreach(NodeCross nc in ListCross)
+                nc.RunSimulationStep();
 
             TimeCurrent += TimeScan;
 		}
@@ -97,40 +97,32 @@ namespace CoordControl.Core
             TimeScan = 1;
 		}
 
-		/// <summary>
-		/// Получение суммы приведенных средних задержек
-		/// на всех перекрестках за заданный контрольный интервал.
-		/// Приведение осуществляется по интенсивностям подходов
-		/// </summary>
-		/// <param name="int intervaNum">номер контрольного интервала (индекс в списке истории замеров средней задержки)</param>
-		public double GetStatAvgDelay(int intervaNum)
-		{
-			throw new System.NotImplementedException();
-		}
 
 		/// <summary>
 		/// Получение текущей средней задержки ТС
 		/// </summary>
-		public void GetStatAvgDelayCurrent()
+		public double GetStatAvgDelayCurrent()
 		{
-			throw new System.NotImplementedException();
+            double result = 0d;
+
+            foreach (NodeCross nc in ListCross)
+                result += nc.CalcCrossDelay();
+
+            return result;
 		}
 
-		/// <summary>
-		/// Получение последней средней задержки ТС
-		/// </summary>
-		public void GetStatAvgDelayLast()
-		{
-			throw new System.NotImplementedException();
-		}
 
 		/// <summary>
 		/// Получение величины контрольного интервала
-		/// для измерения статистики магистрали
+		/// для измерения статистики магистрали, кратный циклу, но не менее 5 минут
 		/// </summary>
 		public double CalcMeasureInterval()
 		{
-            return (double) (EntityRoute.CrossCount * EntityPlan.Cycle);
+            double result = (double)(EntityRoute.CrossCount * EntityPlan.Cycle);
+            if (result < 300)
+                result = EntityPlan.Cycle * Math.Floor(300.0 / EntityPlan.Cycle);
+
+            return result;
 		}
 
         /// <summary>

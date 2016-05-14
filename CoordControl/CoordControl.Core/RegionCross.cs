@@ -27,7 +27,6 @@ namespace CoordControl.Core
         public double WidthTop; 
 
 
-
 		/// <summary>
 		/// Часть потока, которая едет
 		/// к левому выходу
@@ -69,10 +68,11 @@ namespace CoordControl.Core
         public double MoveToCross(Region regionFrom, double deltaFlowPart)
         {
             double resultDeltaFP = deltaFlowPart;
+            double regionFromFlowPart = regionFrom.FlowPart - regionFrom.DeltaFlowPartLast;
 
             //ограничение на количество имеющихся ТС
-            if (regionFrom.FlowPart < deltaFlowPart)
-                resultDeltaFP = regionFrom.FlowPart;
+            if (regionFromFlowPart < deltaFlowPart)
+                resultDeltaFP = regionFromFlowPart;
 
             //ограничение на максимальное количество ТС на участке перекрестка
             double FpNextMax = Lenght *
@@ -84,9 +84,9 @@ namespace CoordControl.Core
 
 
             //"остатки" ТС перемещаются на следующий регион
-            if ((regionFrom.FlowPart - resultDeltaFP) < 0.5 &&
-                (regionFrom.FlowPart + FlowPart) < FpNextMax)
-                resultDeltaFP = FlowPart;
+            if ((regionFromFlowPart - resultDeltaFP) < 0.5 &&
+                (regionFromFlowPart + FlowPart) < FpNextMax)
+                resultDeltaFP = regionFromFlowPart;
 
 
             //перемещение части ТП

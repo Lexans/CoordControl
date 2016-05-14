@@ -65,7 +65,7 @@ namespace CoordControl.Core
 		/// </summary>
 		public Region GetRegionFirst()
 		{
-            return Regions.First();
+            return Regions[0];
 		}
 
 		/// <summary>
@@ -76,10 +76,6 @@ namespace CoordControl.Core
             return Regions.Last();
         }
 
-
-
-
-        //TODO: проверить метод расчета DensityCoef
         /// <summary>
         /// Расчет коэффициента, определяющего замедление ТС
         /// вследствие понижения манев-ренности ТС при повышении плотности ТП
@@ -87,7 +83,7 @@ namespace CoordControl.Core
         /// <returns></returns>
         public static double CalcDensityCoef(int lineCount, double maxSpeed)
         {
-            double densityMax = (1 / 6.0 * lineCount);
+            double densityMax = (1.0 / 6.0 * lineCount);
             double densityCoef = (maxSpeed / 3.6 / 2.0) / densityMax;
 
             return densityCoef;
@@ -113,10 +109,12 @@ namespace CoordControl.Core
                 double deltaFP = Regions[i].FlowPart / Regions[i + 1].Lenght
                     * velocity * RouteEnvir.Instance.TimeScan;
 
-                Regions[i].Move(Regions[i + 1], deltaFP);
+                double RealDeltaFP = Regions[i].Move(Regions[i + 1], deltaFP);
 
-                Regions[i].Velocity = velocity;
-                Regions[i+1].Intensity = (deltaFP / RouteEnvir.Instance.TimeScan) * 3600;
+                if (RealDeltaFP != 0)
+                    Regions[i+1].Velocity = velocity;
+                else
+                    Regions[i+1].Velocity = 0;
             }
 		}
 
@@ -155,9 +153,13 @@ namespace CoordControl.Core
 
             Regions = new List<Region>();
             for (int i = 0; i < RegionsN; i++)
+            {
+                Region newRegion = new Region(this, length);
                 Regions.Add(
-                    new Region(this, length)
+                    newRegion
                     );
+            }
+
         }
     }
 }

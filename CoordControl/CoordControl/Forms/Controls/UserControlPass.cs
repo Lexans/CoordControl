@@ -181,7 +181,6 @@ namespace CoordControl.Forms.Controls
                 numericUpDownIntensity.Maximum = 10000;
                 numericUpDownIntensity.Minimum = 0;
             }
-            
         }
     }
 }

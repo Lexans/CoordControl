@@ -7,18 +7,12 @@ using CoordControl.Core.Domains;
 
 namespace CoordControl.Core
 {
-    public sealed class PlanCalculatorSimple : PlanCalculator
+    public sealed class PlanCalculatorWithoutShifts : PlanCalculator
     {
         protected override void CalcPhaseShifts(Plan p)
         {
             foreach (CrossPlan crP in p.CrossPlans)
             {
-                if (crP.Cross.RoadLeft != null)
-                    crP.PhaseOffset = (int)(
-                        1.2 *
-                        (CalcLengthRoadWithCross(crP.Cross) / ((double)crP.Cross.RoadLeft.Speed / 3.6)) - 5.0
-                        );
-                else
                     crP.PhaseOffset = 0;
             }
         }

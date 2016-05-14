@@ -79,9 +79,10 @@ namespace CoordControl.Core
 
             RegionBoundary.Move(RegionLast, deltaFP);
 
-            RegionBoundary.Velocity = velocity;
-            RegionLast.Intensity = (deltaFP / RouteEnvir.Instance.TimeScan) * 3600.0;
-
+            if (deltaFP != 0)
+            {
+                RegionBoundary.Velocity = velocity;
+            }
 
             //появление ТП на граничном участке
             RegionBoundary.FlowPart += GetPuassonSample(

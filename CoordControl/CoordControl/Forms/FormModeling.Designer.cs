@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModeling));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonStart = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPause = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReset = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCurrentTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDownDelay = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,6 +63,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panelCanvas = new CoordControl.Forms.Controls.UserControlPanelImage();
+            this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,7 +83,6 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonStart,
-            this.toolStripButtonPause,
             this.toolStripButtonReset});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -100,16 +100,6 @@
             this.toolStripButtonStart.Text = "Старт";
             this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
             // 
-            // toolStripButtonPause
-            // 
-            this.toolStripButtonPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonPause.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPause.Image")));
-            this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPause.Name = "toolStripButtonPause";
-            this.toolStripButtonPause.Size = new System.Drawing.Size(54, 24);
-            this.toolStripButtonPause.Text = "Пауза";
-            this.toolStripButtonPause.Click += new System.EventHandler(this.toolStripButtonPause_Click);
-            // 
             // toolStripButtonReset
             // 
             this.toolStripButtonReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -125,39 +115,51 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabelCurrentTime,
-            this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 711);
+            this.toolStripStatusLabel3,
+            this.toolStripButton1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 710);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1127, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(1127, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(197, 20);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(197, 21);
             this.toolStripStatusLabel1.Text = "Текущее модельное время";
             // 
             // toolStripStatusLabelCurrentTime
             // 
             this.toolStripStatusLabelCurrentTime.Name = "toolStripStatusLabelCurrentTime";
-            this.toolStripStatusLabelCurrentTime.Size = new System.Drawing.Size(17, 20);
+            this.toolStripStatusLabelCurrentTime.Size = new System.Drawing.Size(17, 21);
             this.toolStripStatusLabelCurrentTime.Text = "0";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(31, 20);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(31, 21);
             this.toolStripStatusLabel3.Text = "сек";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(106, 24);
+            this.toolStripButton1.Text = "на шаг впред";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.numericUpDownDelay);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(902, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(208, 93);
+            this.groupBox1.Size = new System.Drawing.Size(208, 126);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистика магистрали";
@@ -200,7 +202,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(906, 128);
+            this.groupBox2.Location = new System.Drawing.Point(906, 182);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(204, 328);
             this.groupBox2.TabIndex = 4;
@@ -344,7 +346,8 @@
             this.trackBarModelingSpeed.Size = new System.Drawing.Size(191, 56);
             this.trackBarModelingSpeed.TabIndex = 5;
             this.trackBarModelingSpeed.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBarModelingSpeed.Value = 1;
+            this.trackBarModelingSpeed.Value = 850;
+            this.trackBarModelingSpeed.ValueChanged += new System.EventHandler(this.trackBarModelingSpeed_ValueChanged);
             // 
             // label10
             // 
@@ -370,7 +373,7 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.trackBarModelingSpeed);
-            this.groupBox3.Location = new System.Drawing.Point(906, 462);
+            this.groupBox3.Location = new System.Drawing.Point(906, 516);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(204, 86);
             this.groupBox3.TabIndex = 0;
@@ -420,7 +423,7 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.trackBarScale);
-            this.groupBox4.Location = new System.Drawing.Point(906, 554);
+            this.groupBox4.Location = new System.Drawing.Point(906, 608);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(204, 92);
             this.groupBox4.TabIndex = 6;
@@ -440,6 +443,15 @@
             this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint_1);
             this.panelCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelCanvas_MouseClick_1);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(14, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 30);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Статистика";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormModeling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -456,6 +468,7 @@
             this.Name = "FormModeling";
             this.Text = "Моделирование";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormModeling_FormClosing);
             this.Load += new System.EventHandler(this.FormModeling_Load);
             this.SizeChanged += new System.EventHandler(this.FormModeling_SizeChanged);
             this.toolStrip1.ResumeLayout(false);
@@ -503,7 +516,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownRegionFlowPart;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripButton toolStripButtonStart;
-        private System.Windows.Forms.ToolStripButton toolStripButtonPause;
         private System.Windows.Forms.ToolStripButton toolStripButtonReset;
         private System.Windows.Forms.TrackBar trackBarModelingSpeed;
         private System.Windows.Forms.ComboBox comboBoxViewParam;
@@ -517,5 +529,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TrackBar trackBarScale;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -40,12 +40,23 @@ namespace CoordControl.Core
         /// <param name="p"></param>
         protected abstract void CalcPhaseShifts(Plan p);
 
+
+        protected double CalcLengthRoadWithCross(Cross cr) {
+            double Lenght = cr.RoadLeft.Length;
+            Pass entryTopPass = cr.RoadLeft.CrossLeft.PassTop;
+            Lenght += entryTopPass.LinesCount * entryTopPass.LineWidth;
+            Pass entryBottomPass = cr.RoadLeft.CrossLeft.PassBottom;
+            Lenght += entryBottomPass.LinesCount * entryBottomPass.LineWidth;
+
+            return Lenght;
+        }
+
         /// <summary>
         /// расчет потока насыщения на подходе
         /// </summary>
         /// <param name="p">подход, на котором расчитывается поток насыщения</param>
         /// <returns>величина потока насыщения</returns>
-		private int CalcMaxFlow(Pass p)
+		public static int CalcMaxFlow(Pass p)
 		{
             int maxFlow = 0;
             double width = p.LinesCount * p.LineWidth;
@@ -221,6 +232,8 @@ namespace CoordControl.Core
 
             return result;
 		}
+
+
 
 	}
 }

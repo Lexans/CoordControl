@@ -26,6 +26,9 @@ namespace CoordControl.Forms
         event EventHandler CalcAnalytClick;
         event EventHandler CalcImitClick;
         event EventHandler CalcSimpleClick;
+        event EventHandler CalcMoveTimeClick;
+        event EventHandler CalcWithoutShiftsClick;
+
     }
 
     public partial class FormPlans : Form, IFormPlans
@@ -48,7 +51,12 @@ namespace CoordControl.Forms
 
         public Plan SelectedPlan
         {
-            get { return (Plan)planBindingSource.Current; }
+            get {
+                if (planBindingSource.Count > 0)
+                    return (Plan)planBindingSource.Current;
+                else
+                    return null;
+            }
         }
 
         public string TitleForm
@@ -72,6 +80,10 @@ namespace CoordControl.Forms
         public event EventHandler CalcImitClick;
         
         public event EventHandler CalcSimpleClick;
+
+        public event EventHandler CalcMoveTimeClick;
+
+        public event EventHandler CalcWithoutShiftsClick;
         
 
         private void buttonModeling_Click(object sender, EventArgs e)
@@ -109,6 +121,16 @@ namespace CoordControl.Forms
         {
             if (CalcSimpleClick != null) CalcSimpleClick(this, EventArgs.Empty);
         }
+
+        private void поВремениПроездаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CalcMoveTimeClick != null) CalcMoveTimeClick(this, EventArgs.Empty);
+        }
+
+        private void безСдвиговToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CalcWithoutShiftsClick != null) CalcWithoutShiftsClick(this, EventArgs.Empty);
+        }
         #endregion
 
 
@@ -134,5 +156,8 @@ namespace CoordControl.Forms
         {
             CheckElementsState();
         }
+
+
+
     }
 }

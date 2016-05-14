@@ -96,6 +96,18 @@ namespace CoordControl.Core
                 );
         }
 
+        /// <summary>
+        /// измеренные суммы числа стоящих ТС для
+        /// каждого подхода за период 5 минут
+        /// </summary>
+        private double[] NStop;
+        /// <summary>
+        /// измеренное количество ТС (для каждого подхода)
+        /// прошехавших перекресток за период 5 минут
+        /// </summary>
+        private double[] NMoved;
+
+
 		/// <summary>
 		/// Получение верхнего выходного перегона
 		/// 
@@ -166,7 +178,7 @@ namespace CoordControl.Core
         /// левого и правого перегона
         /// </summary>
         /// <returns></returns>
-        private double CalcVerticalSpeed() {
+        public double CalcVerticalSpeed() {
             double result = 0;
             IWay leftEntry = GetLeftEntryWay();
             if(leftEntry is Way)
@@ -196,8 +208,13 @@ namespace CoordControl.Core
                 * velocity * RouteEnvir.Instance.TimeScan;
 
             deltaFP = CrossRegion.MoveToCross(wFrom.GetRegionLast(), deltaFP);
-            wFrom.GetRegionLast().Velocity = velocity;
-            CrossRegion.Intensity += (deltaFP / RouteEnvir.Instance.TimeScan) * 3600;
+            if (deltaFP != 0 && CrossRegion.FlowPart != 0)
+                CrossRegion.Velocity = velocity;
+            else if (CrossRegion.FlowPart == 0)
+                CrossRegion.Velocity = 0;
+
+            if (deltaFP < 0)
+            { }
 
             return deltaFP;
         }
@@ -213,28 +230,84 @@ namespace CoordControl.Core
         /// <returns>Фактически перемещенная часть ТП</returns>
         private double MoveFromCross(IWay wTo, ref double flowPartSource, double speed, bool isHorisontal)
         {
-            double avgDensity = CrossRegion.GetDensity();
+            double avgDensity = wTo.GetRegionFirst().GetDensity();
             double densityCoef = Way.CalcDensityCoef(wTo.GetInfo().LinesCount, speed);
             double velocity = ((speed / 3.6) - densityCoef * avgDensity);
+            
             double deltaFP = flowPartSource / ((isHorisontal) ? CrossRegion.Lenght : CrossRegion.Width)
                 * velocity * RouteEnvir.Instance.TimeScan;
 
             deltaFP = CrossRegion.MoveFromCross(wTo.GetRegionFirst(), ref flowPartSource, deltaFP);
-
-            wTo.GetRegionFirst().Velocity = velocity;
-            CrossRegion.Intensity += (deltaFP / RouteEnvir.Instance.TimeScan) * 3600;
+            wTo.GetRegionFirst().Velocity = (deltaFP != 0) ? velocity : 0;
 
             return deltaFP;
         }
 
+        /// <summary>
+        /// подсчет количества стоящих ТС на подходе
+        /// </summary>
+        /// <param name="wFrom"></param>
+        private double CalcNStop(IWay wFrom) {
+
+            double result = 0;
+
+            Region reg = wFrom.GetRegionLast();
+
+            while(reg != null && reg.Velocity == 0)
+            {
+                result += reg.FlowPart;
+                reg = reg.GetRegionPrev();
+            }
+            return result;
+        }
 
         /// <summary>
-		/// Перемещение ТП за интервал сканирования: части ТП забираются с подходов
+        /// возвращает суммарную задержку для всех подходов
+        /// взвешенную по интенсивностям
+        /// </summary>
+        /// <returns></returns>
+        public double CalcCrossDelay() {
+            double[] intensities = new double[2];
+
+            intensities[0] = GetRightEntryWay().GetRegionLast().GetIntensity();
+            intensities[1] = GetLeftEntryWay().GetRegionLast().GetIntensity();
+
+            double result = 0;
+            double intSum = 0;
+            for (int i = 0; i < 1; i++)
+            {
+                if (NMoved[i] != 0)
+                {
+                    intSum += intensities[i] / 3600.0;
+                    result += 1 * NStop[i] / NMoved[i] * (intensities[i] / 3600.0);
+                }
+            }
+
+           
+            if (intSum != 0)
+                result /= intSum;
+            else
+                result = 0;
+
+            return result;
+        }
+
+
+        /// <summary>
+        /// Перемещение ТП за интервал сканирования: части ТП забираются с подходов
         /// части ТП перемещаются
-		/// </summary>
+        /// </summary>
         public void RunSimulationStep()
         {
-            CrossRegion.Intensity = 0;
+            //TODO: сделать период равным кратным циклу
+            //TODO: сделать учет среднее по нескольким подходам
+            //сброс статистики через интервал времени, кратным циклу
+            double timeOfPeriod = RouteEnvir.Instance.TimeCurrent % RouteEnvir.Instance.CalcMeasureInterval();
+            if (timeOfPeriod < 1.5 && timeOfPeriod > 0.5)
+            {
+                NStop = new double[2] { 0, 0 };
+                NMoved = new double[2] { 0, 0 };
+            }
 
             //перемещение ТП с перекрестка на выходные перегоны
             IWay leftExit = GetLeftExitWay();
@@ -246,14 +319,14 @@ namespace CoordControl.Core
 
             MoveFromCross(leftExit, ref CrossRegion.ToLeftFlowPart, leftExitSpeed, true);
 
-            IWay rightExit = GetLeftExitWay();
+            IWay rightExit = GetRightExitWay();
             double rightExitSpeed = 80;
             if (rightExit is Way)
                 rightExitSpeed = ((Way)rightExit).EntityRoad.Speed;
             else if (rightExit is WayExit)
                 rightExitSpeed = ((WayExit)rightExit).GetInternalRoad().Speed;
 
-            MoveFromCross(leftExit, ref CrossRegion.ToRightFlowPart, rightExitSpeed, true);
+            MoveFromCross(rightExit, ref CrossRegion.ToRightFlowPart, rightExitSpeed, true);
 
             IWay topExit = GetTopExitWay();
             MoveFromCross(topExit, ref CrossRegion.ToTopFlowPart, CalcVerticalSpeed(), false);
@@ -261,10 +334,11 @@ namespace CoordControl.Core
             IWay botExit = GetBottomExitWay();
             MoveFromCross(botExit, ref CrossRegion.ToBottomFlowPart, CalcVerticalSpeed(), false);
 
+            IWay leftWay = GetLeftEntryWay();
+            IWay rightWay = GetRightEntryWay();
             //перемещение с перегонов на перекресток
-            if (GetLightStateFirst() == LightState.Green || GetLightStateFirst() == LightState.YellowRed)
+            if (GetLightStateFirst() == LightState.Green || GetLightStateFirst() == LightState.Yellow)
             {
-                IWay leftWay = GetLeftEntryWay();
                 double leftSpeed = 80;
                 if(leftWay is Way)
                     leftSpeed = ((Way)leftWay).EntityRoad.Speed;
@@ -273,11 +347,13 @@ namespace CoordControl.Core
 
 
                 double deltaFP = MoveToCross(leftWay, leftSpeed, true);
+                if (!(leftWay is WayEntry))
+                    NMoved[0] += deltaFP;
+
                 CrossRegion.ToRightFlowPart += deltaFP * leftWay.GetInfo().DirectPart / 100.0;
                 CrossRegion.ToBottomFlowPart += deltaFP * leftWay.GetInfo().RightPart / 100.0;
                 CrossRegion.ToTopFlowPart += deltaFP * leftWay.GetInfo().LeftPart / 100.0;
 
-                IWay rightWay = GetRightEntryWay();
                 double rightSpeed = 80;
 
                 if (rightWay is Way)
@@ -286,11 +362,14 @@ namespace CoordControl.Core
                     rightSpeed = ((WayEntry)rightWay).GetInternalRoad().Speed;
 
                 deltaFP = MoveToCross(rightWay, rightSpeed, true);
+                if (!(rightWay is WayEntry))
+                    NMoved[1] += deltaFP;
+
                 CrossRegion.ToLeftFlowPart += deltaFP * rightWay.GetInfo().DirectPart / 100.0;
                 CrossRegion.ToTopFlowPart += deltaFP * rightWay.GetInfo().RightPart / 100.0;
                 CrossRegion.ToBottomFlowPart += deltaFP * rightWay.GetInfo().LeftPart / 100.0;
             }
-            else if (GetLightStateSecond() == LightState.Green || GetLightStateSecond() == LightState.YellowRed)
+            else if (GetLightStateSecond() == LightState.Green || GetLightStateSecond() == LightState.Yellow)
             {
                 IWay way = GetTopEntryWay();
                 double deltaFP = MoveToCross(way, CalcVerticalSpeed(), false);
@@ -304,6 +383,11 @@ namespace CoordControl.Core
                 CrossRegion.ToRightFlowPart += deltaFP * way.GetInfo().RightPart / 100.0;
                 CrossRegion.ToLeftFlowPart += deltaFP * way.GetInfo().LeftPart / 100.0;
             }
+
+            if (!(leftWay is WayEntry))
+                NStop[0] += CalcNStop(leftWay);
+            if (!(rightWay is WayEntry))
+                NStop[1] += CalcNStop(rightWay);
         }
 
         /// <summary>
@@ -331,26 +415,28 @@ namespace CoordControl.Core
         }
 
 
-		/// <summary>
-		/// Получение состояния светофоров первой группы
-		/// (разрешает движение по магистральной улице во время первого такта)
-		/// </summary>
+
         private double GreenTime;
+        /// <summary>
+        /// Получение состояния светофоров первой группы
+        /// (разрешает движение по магистральной улице во время первого такта)
+        /// </summary>
 		public LightState GetLightStateFirst()
 		{
-            double timeOfCycle = (RouteEnvir.Instance.TimeCurrent + CalcPhaseOffset())
+            double timeOfCycle =
+                Math.Abs(RouteEnvir.Instance.EntityPlan.Cycle + RouteEnvir.Instance.TimeCurrent % RouteEnvir.Instance.EntityPlan.Cycle - CalcPhaseOffset())
                 % RouteEnvir.Instance.EntityPlan.Cycle;
             CrossPlan cp = GetCrossPlan();
 
             int t;
-            if (timeOfCycle <= (t = cp.P1MainInterval))
+            if (timeOfCycle < (t = cp.P1MainInterval))
             {
                 GreenTime = timeOfCycle;
                 return LightState.Green;
             }
-            else if (timeOfCycle <= (t += cp.P1MediateInterval))
+            else if (timeOfCycle < (t += cp.P1MediateInterval))
                 return LightState.Yellow;
-            else if (timeOfCycle <= (t += cp.P2MainInterval))
+            else if (timeOfCycle < (t += cp.P2MainInterval))
                 return LightState.Red;
             else
                 return LightState.YellowRed;
@@ -362,15 +448,17 @@ namespace CoordControl.Core
 		/// </summary>
 		public LightState GetLightStateSecond()
 		{
-            double timeOfCycle = (RouteEnvir.Instance.TimeCurrent + CalcPhaseOffset()) % RouteEnvir.Instance.EntityPlan.Cycle;
+            double timeOfCycle =
+                Math.Abs(RouteEnvir.Instance.EntityPlan.Cycle + RouteEnvir.Instance.TimeCurrent % RouteEnvir.Instance.EntityPlan.Cycle - CalcPhaseOffset())
+                % RouteEnvir.Instance.EntityPlan.Cycle;
             CrossPlan cp = GetCrossPlan();
 
             int t;
-            if (timeOfCycle <= (t = cp.P1MainInterval))
+            if (timeOfCycle < (t = cp.P1MainInterval))
                 return LightState.Red;
-            else if (timeOfCycle <= (t += cp.P1MediateInterval))
+            else if (timeOfCycle < (t += cp.P1MediateInterval))
                 return LightState.YellowRed;
-            else if (timeOfCycle <= (t += cp.P2MainInterval))
+            else if (timeOfCycle < (t += cp.P2MainInterval))
             {
                 GreenTime = timeOfCycle - cp.P1MediateInterval - cp.P1MainInterval;
                 return LightState.Green;
@@ -382,7 +470,11 @@ namespace CoordControl.Core
 		public NodeCross(Cross cross)
 		{
             EntityCross = cross;
-            CrossRegion = new RegionCross(this); 
+            CrossRegion = new RegionCross(this);
+
+            NStop = new double[2] { 0, 0 };
+            NMoved = new double[2] { 0, 0 };
+
 		}
 
 	}
