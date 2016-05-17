@@ -58,9 +58,9 @@ namespace CoordControl.Forms
 
         string TitleForm { get; set; }
 
-        RegionViewParam RegionViewParam { get; set; }
+        Size FormSize { get; }
 
-        double StatDelay { set; }
+        RegionViewParam RegionViewParam { get; set; }
 
         event EventHandler CanvasClick;
 
@@ -74,7 +74,11 @@ namespace CoordControl.Forms
 
         event EventHandler FormLoad;
 
+        event EventHandler FormClosed;
+
         event EventHandler FormSizeChanged;
+
+        event EventHandler StatShow;
 
         void DrawRectangle(Color color, RectangleF rect);
 
@@ -224,6 +228,11 @@ namespace CoordControl.Forms
             }
         }
 
+        public Size FormSize
+        {
+            get { return this.Size; }
+        }
+
         public double DrawScale
         {
             get
@@ -232,10 +241,6 @@ namespace CoordControl.Forms
             }
         }
 
-        public double StatDelay
-        {
-            set { numericUpDownDelay.Value = (decimal)value; }
-        }
         #endregion
 
         #region проброс событий
@@ -252,6 +257,12 @@ namespace CoordControl.Forms
         public event EventHandler ScaleChanged;
 
         public event EventHandler FormSizeChanged;
+
+        public event EventHandler StatShow;
+
+        public new event EventHandler FormClosed;
+
+
 
         private void FormModeling_SizeChanged(object sender, EventArgs e)
         {
@@ -319,7 +330,10 @@ namespace CoordControl.Forms
             if (ScaleChanged != null) ScaleChanged(this, EventArgs.Empty);
             panelCanvas.Refresh();
         }
-
+        private void buttonStatShow_Click(object sender, EventArgs e)
+        {
+            if (StatShow != null) StatShow(this, e);
+        }
         #endregion
 
         #region методы формы
@@ -459,7 +473,6 @@ namespace CoordControl.Forms
 
         private void FormModeling_FormClosing(object sender, FormClosingEventArgs e)
         {
-            timer.Stop();
         }
 
 
@@ -468,5 +481,13 @@ namespace CoordControl.Forms
             timer.Stop();
             toolStripButtonStart.Text = "Старт";
         }
+
+        private void FormModeling_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            timer.Stop();
+            if (FormClosed != null)
+                FormClosed(this, EventArgs.Empty);
+        }
+
     }
 }

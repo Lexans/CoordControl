@@ -55,6 +55,17 @@ namespace CoordControl.Core
 		/// </summary>
 		public List<NodeCross> ListCross { get; set; }
 
+
+        /// <summary>
+        /// Измерения задержек магистрали в прямом направлении
+        /// </summary>
+        public List<double> DelaysDirect { get; set; }
+
+        /// <summary>
+        /// Измерения задержек магистрали в обратном направлении
+        /// </summary>
+        public List<double> DelaysReverse { get; set; }
+
 		/// <summary>
 		/// Объект-одиночка
 		/// </summary>
@@ -74,13 +85,21 @@ namespace CoordControl.Core
 		/// </summary>
 		public void RunSimulationStep()
 		{
+            TimeCurrent += TimeScan;
+
             foreach (IWay w in ListWays)
                 w.RunSimulationStep();
 
 			foreach(NodeCross nc in ListCross)
                 nc.RunSimulationStep();
 
-            TimeCurrent += TimeScan;
+            //сбор статистики
+            if (((int)TimeCurrent) > 0 &&
+                ((int)TimeCurrent) % CalcMeasureInterval() == 0)
+            {
+                DelaysDirect.Add(GetStatAvgDelayCurrent(true));
+                DelaysReverse.Add(GetStatAvgDelayCurrent(false));
+            }
 		}
 
 		/// <summary>
@@ -95,18 +114,22 @@ namespace CoordControl.Core
 		{
             TimeCurrent = 0;
             TimeScan = 1;
+            DelaysDirect = new List<double>();
+            DelaysReverse = new List<double>();
 		}
 
 
-		/// <summary>
-		/// Получение текущей средней задержки ТС
-		/// </summary>
-		public double GetStatAvgDelayCurrent()
+        /// <summary>
+        /// Получение текущей средней задержки ТС
+        /// </summary>
+        /// <param name="isDirectSide">Задержка ТС при движении в прямом направлении,
+        /// иначе в обратном</param>
+		public double GetStatAvgDelayCurrent(bool isDirectSide)
 		{
             double result = 0d;
 
             foreach (NodeCross nc in ListCross)
-                result += nc.CalcCrossDelay();
+                result += nc.CalcCrossDelay(isDirectSide);
 
             return result;
 		}
@@ -120,7 +143,7 @@ namespace CoordControl.Core
 		{
             double result = (double)(EntityRoute.CrossCount * EntityPlan.Cycle);
             if (result < 300)
-                result = EntityPlan.Cycle * Math.Floor(300.0 / EntityPlan.Cycle);
+                result = EntityPlan.Cycle * Math.Ceiling(300.0 / EntityPlan.Cycle);
 
             return result;
 		}

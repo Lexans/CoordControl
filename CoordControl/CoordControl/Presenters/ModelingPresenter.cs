@@ -7,6 +7,7 @@ using System.Text;
 
 using CoordControl.Core.Domains;
 using CoordControl.Core;
+using CoordControl.Models;
 
 
 namespace CoordControl.Presenters
@@ -14,8 +15,9 @@ namespace CoordControl.Presenters
 	public sealed class ModelingPresenter
 	{
 
-		private IFormModeling _view { get; set; }
+        private IFormModeling _view;
         private Plan _plan;
+
 
         /// <summary>
         /// позиции отображения регионов
@@ -29,6 +31,13 @@ namespace CoordControl.Presenters
         public Dictionary<NodeCross, List<RectangleF>> CrossLights2 { get; set; }
 
         private CoordControl.Core.Region _selectedRegion;
+
+        public event EventHandler ModelSteped;
+
+        public event EventHandler StatMeasured;
+
+        public event EventHandler FormClosed;
+
 
 		/// <summary>
 		/// Вычисление масштаба (пикс/метр)
@@ -51,14 +60,39 @@ namespace CoordControl.Presenters
              _view.ScaleChanged += _view_ScaleChanged;
              _view.CanvasClick += _view_CanvasClick;
              _view.FormSizeChanged += _view_FormSizeChanged;
+             _view.StatShow += _view_StatShow;
+             _view.FormClosed += _view_FormClosed;
 
              _view.ModelingTimerTick += _view_ModelingTimerTick;
              _view.ModelingResetClick += _view_ModelingResetClick;
          }
 
+         void _view_FormClosed(object sender, EventArgs e)
+         {
+             if (FormClosed != null)
+                 FormClosed(this, EventArgs.Empty);
+         }
+
+
+         FormStatistic _formStat;
+         void _view_StatShow(object sender, EventArgs e)
+         {
+             if (_formStat == null || _formStat.IsDisposed)
+             {
+                 _formStat = new FormStatistic();
+                 StatisticModel mod = new StatisticModel();
+                 StatisticPresenter statPresenter = new StatisticPresenter(_formStat, mod, this);
+
+                 _formStat.Location = new Point(_view.FormSize.Width - _formStat.Size.Width - 70, 70);
+
+                 _formStat.Show();
+             }
+             else
+                 _formStat.Activate();
+         }
+
          void _view_ModelingResetClick(object sender, EventArgs e)
          {
-
              ResetModel();
          }
 
@@ -70,7 +104,7 @@ namespace CoordControl.Presenters
              CalcGeometries();
              _view.RedrawCanvas();
              _view.ModelingTime = RouteEnvir.Instance.TimeCurrent;
-             _view.StatDelay = RouteEnvir.Instance.GetStatAvgDelayCurrent();
+             //_view.StatDelay = RouteEnvir.Instance.GetStatAvgDelayCurrent();
              _selectedRegion = null;
          }
 
@@ -80,10 +114,13 @@ namespace CoordControl.Presenters
              SelectedRegionShow();
              _view.RedrawCanvas();
              _view.ModelingTime = RouteEnvir.Instance.TimeCurrent;
-             _view.StatDelay = RouteEnvir.Instance.GetStatAvgDelayCurrent();
 
-             //if (((int)RouteEnvir.Instance.TimeCurrent) % RouteEnvir.Instance.CalcMeasureInterval() == 0)
-             //    _view.TimerStop();
+             if (ModelSteped != null)
+                 ModelSteped(this, EventArgs.Empty);
+
+             if (((int)RouteEnvir.Instance.TimeCurrent) > 0 &&
+                 (((int)RouteEnvir.Instance.TimeCurrent) % RouteEnvir.Instance.CalcMeasureInterval() == 0))
+                 if (StatMeasured != null) StatMeasured(this, EventArgs.Empty);
          }
 
          void _view_FormSizeChanged(object sender, EventArgs e)
@@ -514,8 +551,6 @@ namespace CoordControl.Presenters
             #endregion
 
         }
-
-
 
 	}
 }

@@ -33,8 +33,21 @@ namespace CoordControl.Presenters
             _view.CalcSimpleClick += _view_CalcSimpleClick;
             _view.CalcMoveTimeClick += _view_CalcMoveTimeClick;
             _view.CalcWithoutShiftsClick += _view_CalcWithoutShiftsClick;
+            _view.CalcAnalytClick += _view_CalcAnalytClick;
 
             _view.ModelingButtonClick += _view_ModelingButtonClick;
+        }
+
+        void _view_CalcAnalytClick(object sender, EventArgs e)
+        {
+            PlanCalculator pc = new PlanCalculatorAnalytic();
+            Plan p = pc.CalcFullPlan(currentRoute);
+            currentRoute.Plans.Add(p);
+
+            p.Title = "Аналитическая модель";
+            _model.SavePlan(p);
+
+            _view.PlanList = _model.GetPlansByRoute(currentRoute);
         }
 
         void _view_CalcWithoutShiftsClick(object sender, EventArgs e)
@@ -65,8 +78,7 @@ namespace CoordControl.Presenters
         {
             FormModeling form = new FormModeling();
             ModelingPresenter presenter = new ModelingPresenter(form, _model.GetById(_view.SelectedPlan.ID));
-
-             form.ShowDialog();
+            form.ShowDialog();
 
         }
 

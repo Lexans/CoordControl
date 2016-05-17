@@ -169,7 +169,7 @@ namespace CoordControl.Core
                     result += cp.PhaseOffset;
             }
 
-            return result;
+            return result % RouteEnvir.Instance.EntityPlan.Cycle;
         }
 
         /// <summary>
@@ -266,28 +266,19 @@ namespace CoordControl.Core
         /// взвешенную по интенсивностям
         /// </summary>
         /// <returns></returns>
-        public double CalcCrossDelay() {
-            double[] intensities = new double[2];
+        public double CalcCrossDelay(bool isDirectSide)
+        {
+            int i;
 
-            intensities[0] = GetRightEntryWay().GetRegionLast().GetIntensity();
-            intensities[1] = GetLeftEntryWay().GetRegionLast().GetIntensity();
+            if (isDirectSide)
+                i = 0;
+            else
+                i = 1;
+
 
             double result = 0;
-            double intSum = 0;
-            for (int i = 0; i < 1; i++)
-            {
-                if (NMoved[i] != 0)
-                {
-                    intSum += intensities[i] / 3600.0;
-                    result += 1 * NStop[i] / NMoved[i] * (intensities[i] / 3600.0);
-                }
-            }
-
-           
-            if (intSum != 0)
-                result /= intSum;
-            else
-                result = 0;
+            if (NMoved[i] != 0)
+                result = 1 * NStop[i] / NMoved[i];
 
             return result;
         }
@@ -299,9 +290,6 @@ namespace CoordControl.Core
         /// </summary>
         public void RunSimulationStep()
         {
-            //TODO: сделать период равным кратным циклу
-            //TODO: сделать учет среднее по нескольким подходам
-            //сброс статистики через интервал времени, кратным циклу
             double timeOfPeriod = RouteEnvir.Instance.TimeCurrent % RouteEnvir.Instance.CalcMeasureInterval();
             if (timeOfPeriod < 1.5 && timeOfPeriod > 0.5)
             {
