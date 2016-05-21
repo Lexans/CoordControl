@@ -37,6 +37,7 @@ namespace CoordControl.Forms.Controls
             }
         }
 
+
         public int LineCount
         {
             get
@@ -117,6 +118,18 @@ namespace CoordControl.Forms.Controls
             }
         }
 
+
+        public void SwapPartInputs() {
+            Point tmp = labelLeft.Location;
+            labelLeft.Location = labelRight.Location;
+            labelRight.Location = tmp;
+
+            tmp = numericUpDownLeftPart.Location;
+            numericUpDownLeftPart.Location = numericUpDownRightPart.Location;
+            numericUpDownRightPart.Location = tmp;
+        }
+
+
         public UserControlPass()
         {
             InitializeComponent();
@@ -126,6 +139,7 @@ namespace CoordControl.Forms.Controls
         {
 
         }
+
 
         private void numericUpDownLeftPart_ValueChanged(object sender, EventArgs e)
         {

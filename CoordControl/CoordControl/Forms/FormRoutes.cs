@@ -88,7 +88,9 @@ namespace CoordControl.Forms
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DeleteClick != null) DeleteClick(this, EventArgs.Empty);
+            DialogResult dr = MessageBox.Show("Вы действительно хотите удалить программу координации?", "Удалить программу координации", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DeleteClick != null && dr == System.Windows.Forms.DialogResult.Yes)
+                DeleteClick(this, EventArgs.Empty);
         }
 
         private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,6 +125,11 @@ namespace CoordControl.Forms
             buttonPlans.Enabled = isSelected;
             изменитьToolStripMenuItem.Enabled = isSelected;
             удалитьToolStripMenuItem.Enabled = isSelected;
+        }
+
+        private void dataGridViewRoutes_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            dataGridViewRoutes.Rows[e.RowIndex].Height = 36;
         }
 
     }

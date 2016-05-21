@@ -34,9 +34,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.labelRight = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.labelLeft = new System.Windows.Forms.Label();
             this.numericUpDownRightPart = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownDirectPart = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownLeftPart = new System.Windows.Forms.NumericUpDown();
@@ -134,9 +134,9 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.label12);
+            this.groupBox8.Controls.Add(this.labelRight);
             this.groupBox8.Controls.Add(this.label11);
-            this.groupBox8.Controls.Add(this.label10);
+            this.groupBox8.Controls.Add(this.labelLeft);
             this.groupBox8.Controls.Add(this.numericUpDownRightPart);
             this.groupBox8.Controls.Add(this.numericUpDownDirectPart);
             this.groupBox8.Controls.Add(this.numericUpDownLeftPart);
@@ -147,14 +147,14 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Части потока, %";
             // 
-            // label12
+            // labelRight
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(2, 97);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 17);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "направо";
+            this.labelRight.AutoSize = true;
+            this.labelRight.Location = new System.Drawing.Point(6, 97);
+            this.labelRight.Name = "labelRight";
+            this.labelRight.Size = new System.Drawing.Size(63, 17);
+            this.labelRight.TabIndex = 5;
+            this.labelRight.Text = "направо";
             // 
             // label11
             // 
@@ -165,19 +165,19 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "прямо";
             // 
-            // label10
+            // labelLeft
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 17);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "налево";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.labelLeft.AutoSize = true;
+            this.labelLeft.Location = new System.Drawing.Point(6, 29);
+            this.labelLeft.Name = "labelLeft";
+            this.labelLeft.Size = new System.Drawing.Size(55, 17);
+            this.labelLeft.TabIndex = 3;
+            this.labelLeft.Text = "налево";
+            this.labelLeft.Click += new System.EventHandler(this.label10_Click);
             // 
             // numericUpDownRightPart
             // 
-            this.numericUpDownRightPart.Location = new System.Drawing.Point(66, 95);
+            this.numericUpDownRightPart.Location = new System.Drawing.Point(75, 95);
             this.numericUpDownRightPart.Maximum = new decimal(new int[] {
             30,
             0,
@@ -195,7 +195,7 @@
             // 
             // numericUpDownDirectPart
             // 
-            this.numericUpDownDirectPart.Location = new System.Drawing.Point(66, 61);
+            this.numericUpDownDirectPart.Location = new System.Drawing.Point(75, 59);
             this.numericUpDownDirectPart.Minimum = new decimal(new int[] {
             70,
             0,
@@ -213,7 +213,7 @@
             // 
             // numericUpDownLeftPart
             // 
-            this.numericUpDownLeftPart.Location = new System.Drawing.Point(66, 30);
+            this.numericUpDownLeftPart.Location = new System.Drawing.Point(75, 26);
             this.numericUpDownLeftPart.Maximum = new decimal(new int[] {
             30,
             0,
@@ -289,9 +289,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelRight;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelLeft;
         private System.Windows.Forms.NumericUpDown numericUpDownRightPart;
         private System.Windows.Forms.NumericUpDown numericUpDownDirectPart;
         private System.Windows.Forms.NumericUpDown numericUpDownLeftPart;

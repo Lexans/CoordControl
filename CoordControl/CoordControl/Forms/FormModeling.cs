@@ -46,19 +46,11 @@ namespace CoordControl.Forms
 
         double ModelingTime { set; }
 
-        double RegionDensity { set; }
-
-        double RegionFlowPart { set; }
-
-        double RegionIntensity { set; }
-
-        double RegionVelocity { set; }
-
         double DrawScale { get; }
 
         string TitleForm { get; set; }
 
-        Size FormSize { get; }
+        Point FormLocation { get; }
 
         RegionViewParam RegionViewParam { get; set; }
 
@@ -154,28 +146,7 @@ namespace CoordControl.Forms
             }
         }
 
-        public double RegionDensity
-        {
-            set {
-                numericUpDownRegionDensity.Value = (decimal) value;
-            }
-        }
-
-        public double RegionFlowPart
-        {
-            set { numericUpDownRegionFlowPart.Value = (decimal)value; }
-        }
-
-        public double RegionIntensity
-        {
-            set { numericUpDownRegionIntensity.Value = (decimal)value; }
-        }
-
-        public double RegionVelocity
-        {
-            set { numericUpDownRegionVelocity.Value = (decimal)value; }
-        }
-
+       
         public RegionViewParam RegionViewParam
         {
             get
@@ -228,9 +199,9 @@ namespace CoordControl.Forms
             }
         }
 
-        public Size FormSize
+        public Point FormLocation
         {
-            get { return this.Size; }
+            get { return this.Location; }
         }
 
         public double DrawScale
@@ -286,6 +257,11 @@ namespace CoordControl.Forms
 
         }
 
+        private void toolStripButtonStep_Click(object sender, EventArgs e)
+        {
+            if (ModelingTimerTick != null) ModelingTimerTick(this, EventArgs.Empty);
+        }
+
         private void toolStripButtonStart_Click(object sender, EventArgs e)
         {
             if (timer.Enabled)
@@ -295,6 +271,8 @@ namespace CoordControl.Forms
             else
             {
                 toolStripButtonStart.Text = "Пауза";
+                toolStripButtonStart.Image = global::CoordControl.Properties.Resources.pause;
+                toolStripButtonStep.Enabled = false;
                 timer.Start();
             }
         }
@@ -304,10 +282,6 @@ namespace CoordControl.Forms
             if (ModelingTimerTick != null) ModelingTimerTick(this, EventArgs.Empty);
         }
 
-        private void toolStripButton1_Click_1(object sender, EventArgs e)
-        {
-            if (ModelingTimerTick != null) ModelingTimerTick(this, EventArgs.Empty);
-        }
 
         Graphics gr;
         private void panelCanvas_Paint_1(object sender, PaintEventArgs e)
@@ -480,6 +454,9 @@ namespace CoordControl.Forms
         {
             timer.Stop();
             toolStripButtonStart.Text = "Старт";
+            toolStripButtonStep.Enabled = true;
+            toolStripButtonStart.Image = global::CoordControl.Properties.Resources.play;
+
         }
 
         private void FormModeling_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -487,6 +464,27 @@ namespace CoordControl.Forms
             timer.Stop();
             if (FormClosed != null)
                 FormClosed(this, EventArgs.Empty);
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxViewParam_VisibleChanged(object sender, EventArgs e)
+        {
+            RedrawCanvas();
+        }
+
+        private void comboBoxViewParam_SelectedValueChanged(object sender, EventArgs e)
+        {
+            RedrawCanvas();
+
         }
 
     }

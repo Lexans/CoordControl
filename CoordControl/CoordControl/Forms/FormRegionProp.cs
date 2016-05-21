@@ -16,9 +16,13 @@ namespace CoordControl.Forms
         double FlowPart { set; }
         double Speed { set; }
         double Intensity { set; }
-
+        double Density { set; }
+        string RegionNum { set; }
+        double RegionLength { set; }
+        double RegionWidth { set; }
         string WayType { set; }
-        int RegionNum { set; }
+        int LinesCount { set; }
+        string WayLength { set; }
         string CrossLeft { set; }
         string CrossRight { set; }
         string MovingDirect { set; }
@@ -26,6 +30,7 @@ namespace CoordControl.Forms
         event EventHandler FormClosing;
 
         void FormClose();
+        void FormActivate();
     }
 
     public partial class FormRegionProp : Form, IFormRegionProp
@@ -39,7 +44,7 @@ namespace CoordControl.Forms
         public double FlowPart
         {
             set {
-                listViewProp.Items[0].SubItems[0].Text = NumFormat(value, 2);
+                listViewProp.Items[0].SubItems[1].Text = NumFormat(value, 2) + " авт";
             }
         }
 
@@ -47,7 +52,7 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[1].SubItems[0].Text = NumFormat(value, 2);
+                listViewProp.Items[1].SubItems[1].Text = NumFormat(value, 2) + " км/ч";
             }
         }
 
@@ -55,7 +60,14 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[2].SubItems[0].Text = NumFormat(value, 2);
+                listViewProp.Items[2].SubItems[1].Text = NumFormat(value, 2) + " авт/ч";
+            }
+        }
+
+        public double Density
+        {
+            set {
+                listViewProp.Items[3].SubItems[1].Text = NumFormat(value, 2) + " авт/м";
             }
         }
 
@@ -63,15 +75,15 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[3].SubItems[0].Text = value;
+                listViewProp.Items[7].SubItems[1].Text = value;
             }
         }
 
-        public int RegionNum
+        public string RegionNum
         {
             set
             {
-                listViewProp.Items[4].SubItems[0].Text = value.ToString();
+                listViewProp.Items[4].SubItems[1].Text = value;
             }
         }
 
@@ -79,7 +91,7 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[5].SubItems[0].Text = value;
+                listViewProp.Items[11].SubItems[1].Text = value;
             }
         }
 
@@ -87,7 +99,7 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[6].SubItems[0].Text = value;
+                listViewProp.Items[12].SubItems[1].Text = value;
             }
         }
 
@@ -95,7 +107,7 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[7].SubItems[0].Text = value;
+                listViewProp.Items[8].SubItems[1].Text = value;
             }
         }
 
@@ -111,6 +123,11 @@ namespace CoordControl.Forms
             this.Close();
         }
 
+        public void FormActivate()
+        {
+            Activate();
+        }
+
 
         private string NumFormat(double num, int decPlaces = 2)
         {
@@ -123,6 +140,41 @@ namespace CoordControl.Forms
 
 
 
+        public double RegionLength
+        {
+            set {
+                listViewProp.Items[5].SubItems[1].Text = NumFormat(value, 2) + " м";
+            }
+        }
 
+        //TODO: перенести участок в перегон
+        public double RegionWidth
+        {
+            set
+            {
+                listViewProp.Items[6].SubItems[1].Text = NumFormat(value, 2) + " м";
+            }
+        }
+
+        public int LinesCount
+        {
+            set
+            {
+                string s = "";
+                if (value != 0)
+                    s = value.ToString();
+
+                listViewProp.Items[9].SubItems[1].Text = s;
+
+            }
+        }
+
+        public string WayLength
+        {
+            set
+            {
+                listViewProp.Items[10].SubItems[1].Text = value + " м";
+            }
+        }
     }
 }

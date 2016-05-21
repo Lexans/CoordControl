@@ -42,6 +42,7 @@ namespace CoordControl.Forms
         public FormRoute()
         {
             InitializeComponent();
+            userControlPassRight.SwapPartInputs();
             textBoxStreetNameMagistral.Text = " ";
         }
 

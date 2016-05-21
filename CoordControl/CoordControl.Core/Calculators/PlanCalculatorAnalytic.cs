@@ -19,7 +19,7 @@ namespace CoordControl.Core
             double[] tc = new double[n-1];
 
             for(int i = 0; i < n-1; i++)
-                tc[i] = 0;
+                tc[i] = 1;
 
             _plan = p;
 
@@ -38,73 +38,65 @@ namespace CoordControl.Core
 
             for(int i = 0; i < n; i++)
             {
+                int ai = 0;
                 if (i == n - 1)
-                    result += DelayDirect(_plan, i+1, tc[i]);
+                    result += DelayDirect(_plan, i + 1, tc[i], out ai);
                 else
-                    result += (DelayDirect(_plan, i + 1, tc[i]) +
-                        DelayReverse(_plan, i + 1, tc[i+1]));
+                {
+
+                    result += (DelayDirect(_plan, i + 1, tc[i], out ai) +
+                        DelayReverse(_plan, i + 1, tc[i + 1], ai));
+                }
             }
 
             return result;
         }
 
-        private double DelayDirect(Plan plan, int i, double tci)
+        private double DelayDirect(Plan plan, int i, double tci, out int ai)
         {
             //программа координации i-го перекрестка
             CrossPlan cp = plan.CrossPlans.First(x => (x.Cross.Position == i));
 
-            int tkri = cp.P2MainInterval;
+            int tkri = cp.P2MainInterval + cp.P2MediateInterval;
             double Ipi = CalcMaxFlow(cp.Cross.PassLeft) / 3600d;
             double Ii = cp.Cross.PassLeft.Intensity / 3600d;
             double T = (double)plan.Cycle;
 
 
-            int ai =
+            ai =
                 (int) findMin((ax) =>
-                    (1d / Ipi * Ii * Integrate((t) => (t - tci), 0, ax) - ax + tkri),
-                    1, (double) cp.P1MainInterval);
+                    Math.Abs((1d / Ipi * Ii * Integrate((t) => (t - tci), 0, ax) - ax + tkri)),
+                    0, T - cp.P2MediateInterval);
 
             double result =
                 Integrate((t) =>
-                    Ii * (t - tci) * (tkri + 1d/Ipi * Ii * Integrate((tau) => tau - tci, 0, t)),
+                    Ii * (t - tci) * (tkri + 1d/Ipi * Ii * Integrate((tau) => tau - tci, 0, t) - t),
                     0, ai) / (Ii * T);
             
             return result;
         }
 
 
-        private double DelayReverse(Plan plan, int i, double tci1)
+        private double DelayReverse(Plan plan, int i, double tci1, int ai)
         {
             CrossPlan cpi = plan.CrossPlans.First(x => (x.Cross.Position == i));
             CrossPlan cpi1 = plan.CrossPlans.First(x => (x.Cross.Position == i+1));
 
-            int tkri = cpi.P2MainInterval;
+            int tkri = cpi.P2MainInterval + cpi.P2MediateInterval;
             double Ii_ = cpi.Cross.PassRight.Intensity / 3600d;
             double T = (double) plan.Cycle;
             double Ipi_ = CalcMaxFlow(cpi.Cross.PassRight) / 3600d;
 
+
             int ai_ =
                 (int)findMin((ax_) =>
-                    (1d / Ipi_ * Ii_ * Integrate((t) => (t - tci1), 0, ax_) - ax_ + tkri),
-                    1, (double)cpi.P1MainInterval);
-
-            double result =
-                Integrate((t) =>
-                    Ii_ * (t - tci1) * (tkri + 1d / Ipi_ * Ii_ * Integrate((tau) => tau - tci1, 0, t)),
-                    0, ai_);
-
-
-            /*
-            int ai_ =
-                (int)findMin((ax_) =>
-                    (1d / Ipi_ * Ii_ * Integrate((t) => (t - T + tci1), 0, ax_) - ax_ + tkri),
-                    1, (double)cpi.P1MainInterval);
+                    Math.Abs(1d / Ipi_ * Ii_ * Integrate((t) => (t - T + tci1), 0, ax_) - ai + tkri),
+                    0, T - cpi.P2MediateInterval);
 
             double result =
                 Integrate((t) =>
                     Ii_ * (t - T + tci1) * (tkri + 1d / Ipi_ * Ii_ * Integrate((tau) => tau - T + tci1, 0, t) - t),
                     0, ai_) / (Ii_ * T);
-            */
 
             return result;
         }
@@ -142,7 +134,7 @@ namespace CoordControl.Core
         private double findMin(func f, double start, double end)
         {
             double ymin = f(start);
-            double result = double.NaN;
+            double result = start;
 
             for (double x = start+1; x <= end; x++)
             {
@@ -162,13 +154,14 @@ namespace CoordControl.Core
         {
             double result = 0d;
             double step = 1;
-            double fx = 1;
+            double fx1, fx2;
 
             double curX = start;
             do
             {
-                fx = f(curX);
-                result += fx * step;
+                fx1 = f(curX);
+                fx2 = f(curX + step);
+                result += (fx1 + fx2) / 2d * step;
                 curX += step;
             }
             while (curX <= end);

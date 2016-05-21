@@ -32,21 +32,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlans));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.простойМетодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.аналитическийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.безСдвиговToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поВремениПроездаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.безКоррекцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сКоррекциейToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.имитационныйЭкспериментToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оптимизацияПрямогоНаправленияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обратноеНаправлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обаНаправленияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.аналитическийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonView = new System.Windows.Forms.ToolStripButton();
+            this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewCoordProgs = new System.Windows.Forms.DataGridView();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.planBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonModeling = new System.Windows.Forms.Button();
-            this.поВремениПроездаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.безСдвиговToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).BeginInit();
@@ -57,11 +61,10 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2,
-            this.toolStripButtonView});
+            this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(895, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(752, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -69,23 +72,77 @@
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.простойМетодToolStripMenuItem,
-            this.поВремениПроездаToolStripMenuItem,
             this.безСдвиговToolStripMenuItem,
-            this.аналитическийToolStripMenuItem,
-            this.имитационныйЭкспериментToolStripMenuItem});
+            this.поВремениПроездаToolStripMenuItem,
+            this.имитационныйЭкспериментToolStripMenuItem,
+            this.аналитическийToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(67, 24);
+            this.toolStripDropDownButton1.ShowDropDownArrow = false;
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(58, 24);
             this.toolStripDropDownButton1.Text = "Расчет";
             // 
-            // простойМетодToolStripMenuItem
+            // безСдвиговToolStripMenuItem
             // 
-            this.простойМетодToolStripMenuItem.Name = "простойМетодToolStripMenuItem";
-            this.простойМетодToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
-            this.простойМетодToolStripMenuItem.Text = "Простой метод";
-            this.простойМетодToolStripMenuItem.Click += new System.EventHandler(this.простойМетодToolStripMenuItem_Click);
+            this.безСдвиговToolStripMenuItem.Name = "безСдвиговToolStripMenuItem";
+            this.безСдвиговToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
+            this.безСдвиговToolStripMenuItem.Text = "Без сдвигов фаз";
+            this.безСдвиговToolStripMenuItem.Click += new System.EventHandler(this.безСдвиговToolStripMenuItem_Click);
+            // 
+            // поВремениПроездаToolStripMenuItem
+            // 
+            this.поВремениПроездаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.безКоррекцииToolStripMenuItem,
+            this.сКоррекциейToolStripMenuItem});
+            this.поВремениПроездаToolStripMenuItem.Name = "поВремениПроездаToolStripMenuItem";
+            this.поВремениПроездаToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
+            this.поВремениПроездаToolStripMenuItem.Text = "По времени проезда";
+            // 
+            // безКоррекцииToolStripMenuItem
+            // 
+            this.безКоррекцииToolStripMenuItem.Name = "безКоррекцииToolStripMenuItem";
+            this.безКоррекцииToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.безКоррекцииToolStripMenuItem.Text = "Без коррекции";
+            this.безКоррекцииToolStripMenuItem.Click += new System.EventHandler(this.безКоррекцииToolStripMenuItem_Click);
+            // 
+            // сКоррекциейToolStripMenuItem
+            // 
+            this.сКоррекциейToolStripMenuItem.Name = "сКоррекциейToolStripMenuItem";
+            this.сКоррекциейToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.сКоррекциейToolStripMenuItem.Text = "С коррекцией";
+            this.сКоррекциейToolStripMenuItem.Click += new System.EventHandler(this.сКоррекциейToolStripMenuItem_Click);
+            // 
+            // имитационныйЭкспериментToolStripMenuItem
+            // 
+            this.имитационныйЭкспериментToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.оптимизацияПрямогоНаправленияToolStripMenuItem,
+            this.обратноеНаправлениеToolStripMenuItem,
+            this.обаНаправленияToolStripMenuItem});
+            this.имитационныйЭкспериментToolStripMenuItem.Name = "имитационныйЭкспериментToolStripMenuItem";
+            this.имитационныйЭкспериментToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
+            this.имитационныйЭкспериментToolStripMenuItem.Text = "Имитационная модель";
+            // 
+            // оптимизацияПрямогоНаправленияToolStripMenuItem
+            // 
+            this.оптимизацияПрямогоНаправленияToolStripMenuItem.Name = "оптимизацияПрямогоНаправленияToolStripMenuItem";
+            this.оптимизацияПрямогоНаправленияToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.оптимизацияПрямогоНаправленияToolStripMenuItem.Text = "Прямое направление";
+            this.оптимизацияПрямогоНаправленияToolStripMenuItem.Click += new System.EventHandler(this.оптимизацияПрямогоНаправленияToolStripMenuItem_Click);
+            // 
+            // обратноеНаправлениеToolStripMenuItem
+            // 
+            this.обратноеНаправлениеToolStripMenuItem.Name = "обратноеНаправлениеToolStripMenuItem";
+            this.обратноеНаправлениеToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.обратноеНаправлениеToolStripMenuItem.Text = "Обратное направление";
+            this.обратноеНаправлениеToolStripMenuItem.Click += new System.EventHandler(this.обратноеНаправлениеToolStripMenuItem_Click);
+            // 
+            // обаНаправленияToolStripMenuItem
+            // 
+            this.обаНаправленияToolStripMenuItem.Name = "обаНаправленияToolStripMenuItem";
+            this.обаНаправленияToolStripMenuItem.Size = new System.Drawing.Size(244, 24);
+            this.обаНаправленияToolStripMenuItem.Text = "Оба направления";
+            this.обаНаправленияToolStripMenuItem.Click += new System.EventHandler(this.обаНаправленияToolStripMenuItem_Click);
             // 
             // аналитическийToolStripMenuItem
             // 
@@ -94,48 +151,40 @@
             this.аналитическийToolStripMenuItem.Text = "Аналитическая модель";
             this.аналитическийToolStripMenuItem.Click += new System.EventHandler(this.аналитическийToolStripMenuItem_Click);
             // 
-            // имитационныйЭкспериментToolStripMenuItem
-            // 
-            this.имитационныйЭкспериментToolStripMenuItem.Name = "имитационныйЭкспериментToolStripMenuItem";
-            this.имитационныйЭкспериментToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
-            this.имитационныйЭкспериментToolStripMenuItem.Text = "Имитационная модель";
-            this.имитационныйЭкспериментToolStripMenuItem.Click += new System.EventHandler(this.имитационныйЭкспериментToolStripMenuItem_Click);
-            // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.изменитьToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
+            this.удалитьToolStripMenuItem,
+            this.просмотрToolStripMenuItem});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(73, 24);
-            this.toolStripDropDownButton2.Text = "Правка";
+            this.toolStripDropDownButton2.ShowDropDownArrow = false;
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(95, 24);
+            this.toolStripDropDownButton2.Text = "Программа";
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
-            // toolStripButtonView
+            // просмотрToolStripMenuItem
             // 
-            this.toolStripButtonView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonView.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonView.Image")));
-            this.toolStripButtonView.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonView.Name = "toolStripButtonView";
-            this.toolStripButtonView.Size = new System.Drawing.Size(84, 24);
-            this.toolStripButtonView.Text = "Просмотр";
-            this.toolStripButtonView.Click += new System.EventHandler(this.toolStripButtonView_Click);
+            this.просмотрToolStripMenuItem.Name = "просмотрToolStripMenuItem";
+            this.просмотрToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.просмотрToolStripMenuItem.Text = "Просмотр";
+            this.просмотрToolStripMenuItem.Click += new System.EventHandler(this.просмотрToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -143,9 +192,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dataGridViewCoordProgs);
-            this.groupBox2.Location = new System.Drawing.Point(12, 30);
+            this.groupBox2.Location = new System.Drawing.Point(14, 34);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(871, 500);
+            this.groupBox2.Size = new System.Drawing.Size(725, 372);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выберите программу координации";
@@ -164,7 +213,7 @@
             this.Cycle});
             this.dataGridViewCoordProgs.DataSource = this.planBindingSource;
             this.dataGridViewCoordProgs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewCoordProgs.Location = new System.Drawing.Point(3, 18);
+            this.dataGridViewCoordProgs.Location = new System.Drawing.Point(3, 20);
             this.dataGridViewCoordProgs.MultiSelect = false;
             this.dataGridViewCoordProgs.Name = "dataGridViewCoordProgs";
             this.dataGridViewCoordProgs.ReadOnly = true;
@@ -172,9 +221,10 @@
             this.dataGridViewCoordProgs.RowTemplate.Height = 24;
             this.dataGridViewCoordProgs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCoordProgs.ShowEditingIcon = false;
-            this.dataGridViewCoordProgs.Size = new System.Drawing.Size(865, 479);
+            this.dataGridViewCoordProgs.Size = new System.Drawing.Size(719, 349);
             this.dataGridViewCoordProgs.TabIndex = 0;
             this.dataGridViewCoordProgs.CurrentCellChanged += new System.EventHandler(this.dataGridViewCoordProgs_CurrentCellChanged);
+            this.dataGridViewCoordProgs.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewCoordProgs_RowsAdded);
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -191,7 +241,7 @@
             this.Cycle.HeaderText = "Длина цикла";
             this.Cycle.Name = "Cycle";
             this.Cycle.ReadOnly = true;
-            this.Cycle.Width = 119;
+            this.Cycle.Width = 123;
             // 
             // planBindingSource
             // 
@@ -200,36 +250,25 @@
             // buttonModeling
             // 
             this.buttonModeling.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonModeling.Location = new System.Drawing.Point(611, 536);
+            this.buttonModeling.Location = new System.Drawing.Point(432, 413);
             this.buttonModeling.Name = "buttonModeling";
-            this.buttonModeling.Size = new System.Drawing.Size(269, 33);
+            this.buttonModeling.Size = new System.Drawing.Size(303, 37);
             this.buttonModeling.TabIndex = 3;
             this.buttonModeling.Text = "Имитационное моделирование";
             this.buttonModeling.UseVisualStyleBackColor = true;
             this.buttonModeling.Click += new System.EventHandler(this.buttonModeling_Click);
             // 
-            // поВремениПроездаToolStripMenuItem
-            // 
-            this.поВремениПроездаToolStripMenuItem.Name = "поВремениПроездаToolStripMenuItem";
-            this.поВремениПроездаToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
-            this.поВремениПроездаToolStripMenuItem.Text = "По времени проезда";
-            this.поВремениПроездаToolStripMenuItem.Click += new System.EventHandler(this.поВремениПроездаToolStripMenuItem_Click);
-            // 
-            // безСдвиговToolStripMenuItem
-            // 
-            this.безСдвиговToolStripMenuItem.Name = "безСдвиговToolStripMenuItem";
-            this.безСдвиговToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
-            this.безСдвиговToolStripMenuItem.Text = "Без сдвигов фаз";
-            this.безСдвиговToolStripMenuItem.Click += new System.EventHandler(this.безСдвиговToolStripMenuItem_Click);
-            // 
             // FormPlans
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 577);
+            this.ClientSize = new System.Drawing.Size(752, 459);
             this.Controls.Add(this.buttonModeling);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.toolStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "FormPlans";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Программы координации магистрали";
@@ -256,12 +295,16 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButtonView;
         private System.Windows.Forms.BindingSource planBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cycle;
-        private System.Windows.Forms.ToolStripMenuItem простойМетодToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поВремениПроездаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem безСдвиговToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem просмотрToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem безКоррекцииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сКоррекциейToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оптимизацияПрямогоНаправленияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem обратноеНаправлениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem обаНаправленияToolStripMenuItem;
     }
 }

@@ -12,7 +12,7 @@ using CoordControl.Models;
 
 namespace CoordControl.Presenters
 {
-	public sealed class ModelingPresenter
+	public class ModelingPresenter
 	{
 
         private IFormModeling _view;
@@ -83,7 +83,8 @@ namespace CoordControl.Presenters
                  StatisticModel mod = new StatisticModel();
                  StatisticPresenter statPresenter = new StatisticPresenter(_formStat, mod, this);
 
-                 _formStat.Location = new Point(_view.FormSize.Width - _formStat.Size.Width - 70, 70);
+                 Point p = System.Windows.Forms.Cursor.Position;
+                 _formStat.Location = new Point(p.X - _formStat.Size.Width, _view.FormLocation.Y + 30);
 
                  _formStat.Show();
              }
@@ -104,14 +105,17 @@ namespace CoordControl.Presenters
              CalcGeometries();
              _view.RedrawCanvas();
              _view.ModelingTime = RouteEnvir.Instance.TimeCurrent;
-             //_view.StatDelay = RouteEnvir.Instance.GetStatAvgDelayCurrent();
              _selectedRegion = null;
+
+             if (FormClosed != null)
+                 FormClosed(this, EventArgs.Empty);
+
+             regPresenters = new List<RegionPropPresenter>();
          }
 
          void _view_ModelingTimerTick(object sender, EventArgs e)
          {
              RouteEnvir.Instance.RunSimulationStep();
-             SelectedRegionShow();
              _view.RedrawCanvas();
              _view.ModelingTime = RouteEnvir.Instance.TimeCurrent;
 
@@ -153,7 +157,8 @@ namespace CoordControl.Presenters
                  _selectedRegion = (CoordControl.Core.Region) entryCross.Key;
              }
 
-             SelectedRegionShow();
+             if (_selectedRegion != null)
+                RegionPropsShow(_selectedRegion);
          }
 
          void _view_ScaleChanged(object sender, EventArgs e)
@@ -162,16 +167,35 @@ namespace CoordControl.Presenters
          }
 
 
-         void SelectedRegionShow()
-         {
-             if (_selectedRegion != null)
-             {
-                 _view.RegionDensity = _selectedRegion.GetDensity();
-                 _view.RegionIntensity = _selectedRegion.GetIntensity();
-                 _view.RegionVelocity = _selectedRegion.Velocity * 3.6;
-                 _view.RegionFlowPart = _selectedRegion.FlowPart;
-             }
-         }
+        List<RegionPropPresenter> regPresenters;
+        void RegionPropsShow(CoordControl.Core.Region reg)
+        {
+            RegionPropPresenter regPr = regPresenters.FirstOrDefault((x) => x.Region == reg);
+
+            if (regPr != null && regPr.View == null)
+            {
+                regPresenters.Remove(regPr);
+                regPr = null;
+            }
+
+            if (regPr != null)
+            {
+                regPr.SetWindowActive();
+            }
+            else
+            {
+                FormRegionProp _formRegProp = new FormRegionProp();
+                Point p = System.Windows.Forms.Cursor.Position;
+                _formRegProp.Location = new Point(p.X, p.Y - _formRegProp.Height);
+
+                RegionPropModel mod = new RegionPropModel();
+                RegionPropPresenter propPresenter = new RegionPropPresenter(_formRegProp, mod, this, reg);
+                regPresenters.Add(propPresenter);
+                _formRegProp.Show();
+            }
+
+        }
+
 
          void _view_PanelNeedPaint(object sender, EventArgs e)
          {
@@ -321,6 +345,7 @@ namespace CoordControl.Presenters
                     else if (reg is RegionCross)
                         maxValue = ((RegionCross)reg).CrossNode.CalcVerticalSpeed();
 
+                    maxValue = maxValue / 3.6 * 1.5;
                     value = reg.Velocity;
                     break;
                 default:
@@ -330,14 +355,22 @@ namespace CoordControl.Presenters
                     break;
             }
 
+            int colorCode = (int) (381d * (value - minValue) / (maxValue - minValue));
 
-            int colorCode = (int) (255.0 - 255.0 * (value - minValue) / (maxValue - minValue));
             if (colorCode > 255)
-                colorCode = 255;
+                colorCode = 381;
             else if (colorCode < 0)
                 colorCode = 0;
 
-            return Color.FromArgb(colorCode, colorCode, colorCode);
+            Color col;
+            if (colorCode <= 127)
+                col = Color.FromArgb(255-colorCode*2, 255, 255-colorCode*2);
+            else if(colorCode <= 254)
+                col = Color.FromArgb(255, 255, 255 - colorCode);
+            else
+                col = Color.FromArgb(255, 381 - colorCode, 381 -colorCode );
+
+            return col;
          }
 
         /// <summary>

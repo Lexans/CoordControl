@@ -9,6 +9,7 @@ namespace CoordControl.Models
 {
     public class RegionPropModel
     {
+        //TODO: добавить модели всех параметров и согласовать с формой и презентором, добавить единицы измерения
         public string GetWayType(Region reg) {
             IWay w = reg.Way;
             string result = "";
@@ -25,13 +26,16 @@ namespace CoordControl.Models
             return result;
         }
 
-        public int GetRegionNum(Region reg)
+        public string GetRegionNum(Region reg)
         {
             IWay w = reg.Way;
-            int result = 1;
+            string result = "1";
 
             if (w != null && w is Way)
-                result = ((Way)reg.Way).Regions.IndexOf(reg);
+                result = (((Way)reg.Way).Regions.IndexOf(reg)).ToString()
+                    + " из " + (((Way)reg.Way).Regions).Count.ToString();
+            else if (w != null && w is WayEntry)
+                result = "крайний";
 
             return result;
         }
@@ -85,6 +89,46 @@ namespace CoordControl.Models
                 else
                     result = "обратно";
             }
+
+            return result;
+        }
+
+        public int GetLinesCount(Region reg)
+        {
+            IWay w = reg.Way;
+            int result = 0;
+
+            if (!(reg is RegionCross))
+                result = reg.Way.GetInfo().LinesCount;
+
+            return result;
+        }
+
+        public string GetWayLength(Region reg)
+        {
+            IWay w = reg.Way;
+            string result =  "";
+
+            if (reg is RegionCross)
+                result = String.Format("{0:0.##}", ((RegionCross)reg).Lenght);
+            else if (w is Way)
+                result = ((Way)reg.Way).EntityRoad.Length.ToString();
+
+            return result;
+        }
+
+        public double GetRegionLength(Region reg)
+        {
+            return reg.Lenght;
+        }
+
+        public double GetRegionWidth(Region reg)
+        {
+            double result = 0;
+            if (reg is RegionCross)
+                result = ((RegionCross)reg).Width;
+            else
+                result = reg.Way.GetInfo().LinesCount * reg.Way.GetInfo().LineWidth;
 
             return result;
         }

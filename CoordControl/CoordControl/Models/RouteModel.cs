@@ -72,18 +72,14 @@ namespace CoordControl.Models
                     #region создание объектов-перегонов
                     if (i < (r.CrossCount))
                     {
-                        Road road = new Road();
-                        road.Length = _rand.Next(100, 1000);
-                        road.Speed = 80;
+                        Road road = newRoad();
                         road.CrossLeft = cr;
                         cr.RoadRight = road;
 
                         if (crCountReal > 0)
                         {
                             if(r.Crosses[i - 1].RoadRight == null) {
-                                Road road2 = new Road();
-                                road2.Length = _rand.Next(100, 1000);
-                                road2.Speed = 80;
+                                Road road2 = newRoad();
                                 road2.CrossLeft = r.Crosses[i - 1];
                                 r.Crosses[i - 1].RoadRight = road2;
                             }
@@ -109,43 +105,24 @@ namespace CoordControl.Models
                     #region левый подход
                     Pass passLeft = newPass();
                     passLeft.CrossLeftPass = cr;
-                    //интенсивность самого левого перекрестка
-                    if (i == 0)
-                    {
-                        for (int j = 0; j < passLeft.LinesCount; j++)
-                            passLeft.Intensity += _rand.Next(300, 700);
-                    }
-
                     cr.PassLeft = passLeft;
                     #endregion
 
                     #region правый подход
                     Pass passRight = newPass();
                     passRight.CrossRightPass = cr;
-
-                    //интенсивность самого правого перекерстка
-                    if (i == r.CrossCount - 1)
-                        for (int j = 0; j < passRight.LinesCount; j++)
-                            passRight.Intensity += _rand.Next(300, 700);
-
                     cr.PassRight = passRight;
                     #endregion
 
                     #region верхний подход
                     Pass passTop = newPass();
                     passTop.CrossTopPass = cr;
-                    for (int j = 0; j < passTop.LinesCount; j++)
-                        passTop.Intensity += _rand.Next(300, 700);
-
                     cr.PassTop = passTop;
                     #endregion
 
                     #region нижний подход
                     Pass passBottom = newPass();
                     passBottom.CrossBottomPass = cr;
-                    for (int j = 0; j < passBottom.LinesCount; j++)
-                        passBottom.Intensity += _rand.Next(300, 700);
-
                     cr.PassBottom = passBottom;
                     #endregion
 
@@ -158,6 +135,21 @@ namespace CoordControl.Models
             }
         }
 
+
+        private Road newRoad()
+        {
+            Road road = new Road();
+
+#if (DEBUG)
+            road.Length = _rand.Next(100, 1000);
+#else
+                        road.Length = 300;
+#endif
+            road.Speed = 80;
+
+            return road;
+        }
+
         /// <summary>
         /// создование нового подхода
         /// со случайными пераметрами
@@ -167,11 +159,22 @@ namespace CoordControl.Models
         private Pass newPass()
         {
             Pass p = new Pass();
+            
+#if (DEBUG)
             p.DirectPart = _rand.Next(70, 100);
             p.RightPart = _rand.Next(0, 100 - p.DirectPart);
             p.LeftPart = 100 - p.DirectPart - p.RightPart;
-            p.LineWidth = 3.5;
             p.LinesCount = _rand.Next(2, 4);
+            for (int j = 0; j < p.LinesCount; j++)
+                p.Intensity += _rand.Next(300, 700);
+#else
+            p.DirectPart = 80;
+            p.RightPart = 15;
+            p.LeftPart = 5;
+            p.LinesCount = 3;
+            p.Intensity = 1500;
+#endif
+            p.LineWidth = 3.5;
 
             return p;
         }

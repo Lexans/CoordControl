@@ -26,26 +26,6 @@ namespace CoordControl.Core
 		/// </summary>
 		public bool IsRightDirection { get; set; }
 
-		/// <summary>
-		/// Общая задержка всех ТС за текущий цикл в сек
-		/// Равна количеству ТС стоящих на подходе к перекрестку,
-		/// умноженное на интервал сканирования
-		/// </summary>
-		public double StatDelay { get; set; }
-
-		/// <summary>
-		/// Количество ТС, проехваших перекересток
-		/// за текущий контрольный интевал времени
-		/// (единица измерения: автомобиль приведенный)
-		/// </summary>
-		public double StatCarMoved { get; set; }
-
-		/// <summary>
-		/// история средних задержек за контрольный период времени
-		/// контрольный период времени = цикл * количество перекрестков
-		/// Единица измерения: сек/авт
-		/// </summary>
-		public List<double> StatAvgDelays { get; set; }
 
 		/// <summary>
 		/// Получение узла перекерестка,
@@ -137,8 +117,6 @@ namespace CoordControl.Core
 		{
             EntityRoad = road;
             IsRightDirection = isRightDirection;
-            StatDelay = StatCarMoved = 0;
-            StatAvgDelays = new List<double>();
 		}
 
 

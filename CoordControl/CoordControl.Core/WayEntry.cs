@@ -97,17 +97,17 @@ namespace CoordControl.Core
 		/// <param name="lambda">Параметр распределения Пуассона</param>
 		private int GetPuassonSample(double lambda)
 		{
-            double r = _random.NextDouble();
-            r = r / Math.Exp(-1 * lambda);
+            double r = _random.NextDouble() * Math.Exp(lambda);
 
             double ps = 0;
+            double psMax = Math.Exp(lambda);
             int s = -1;
             do
             {
                 s++;
                 ps += Math.Pow(lambda, (double)s) / Factorial(s);
             }
-            while ((ps < r) && (ps <= 1));
+            while ((ps < r) && (ps <= psMax));
 
             return s;
 		}
@@ -118,7 +118,7 @@ namespace CoordControl.Core
         private double Factorial(int n)
         {
             double res = 1;
-            for (int i = 2; i < n; i++)
+            for (int i = 2; i <= n; i++)
                 res *= i;
 
             return res;

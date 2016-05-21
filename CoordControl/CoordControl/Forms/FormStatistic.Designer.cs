@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Мат. ожидание");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Дисперсия");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatistic));
             this.listViewHistory = new System.Windows.Forms.ListView();
             this.columnHeaderNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDirect = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,9 +67,9 @@
             this.columnHeaderDirect,
             this.columnHeaderReverse,
             this.columnHeaderSum});
-            this.listViewHistory.Location = new System.Drawing.Point(12, 95);
+            this.listViewHistory.Location = new System.Drawing.Point(14, 107);
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(559, 179);
+            this.listViewHistory.Size = new System.Drawing.Size(628, 201);
             this.listViewHistory.TabIndex = 0;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -96,9 +97,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 75);
+            this.label1.Location = new System.Drawing.Point(10, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 17);
+            this.label1.Size = new System.Drawing.Size(146, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "История измерений";
             // 
@@ -114,9 +115,9 @@
             this.listViewNumChars.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
-            this.listViewNumChars.Location = new System.Drawing.Point(12, 299);
+            this.listViewNumChars.Location = new System.Drawing.Point(14, 336);
             this.listViewNumChars.Name = "listViewNumChars";
-            this.listViewNumChars.Size = new System.Drawing.Size(559, 96);
+            this.listViewNumChars.Size = new System.Drawing.Size(628, 108);
             this.listViewNumChars.TabIndex = 2;
             this.listViewNumChars.UseCompatibleStateImageBehavior = false;
             this.listViewNumChars.View = System.Windows.Forms.View.Details;
@@ -146,18 +147,18 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 277);
+            this.label2.Location = new System.Drawing.Point(10, 312);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 17);
+            this.label2.Size = new System.Drawing.Size(237, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Оценки числовых характеристик";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 27);
+            this.label4.Location = new System.Drawing.Point(7, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
+            this.label4.Size = new System.Drawing.Size(52, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "прямо";
             // 
@@ -165,7 +166,7 @@
             // 
             this.numericUpDownDirect.DecimalPlaces = 2;
             this.numericUpDownDirect.InterceptArrowKeys = false;
-            this.numericUpDownDirect.Location = new System.Drawing.Point(61, 27);
+            this.numericUpDownDirect.Location = new System.Drawing.Point(69, 30);
             this.numericUpDownDirect.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -173,14 +174,14 @@
             0});
             this.numericUpDownDirect.Name = "numericUpDownDirect";
             this.numericUpDownDirect.ReadOnly = true;
-            this.numericUpDownDirect.Size = new System.Drawing.Size(102, 22);
+            this.numericUpDownDirect.Size = new System.Drawing.Size(115, 24);
             this.numericUpDownDirect.TabIndex = 6;
             // 
             // numericUpDownReverse
             // 
             this.numericUpDownReverse.DecimalPlaces = 2;
             this.numericUpDownReverse.InterceptArrowKeys = false;
-            this.numericUpDownReverse.Location = new System.Drawing.Point(246, 25);
+            this.numericUpDownReverse.Location = new System.Drawing.Point(277, 28);
             this.numericUpDownReverse.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -188,15 +189,15 @@
             0});
             this.numericUpDownReverse.Name = "numericUpDownReverse";
             this.numericUpDownReverse.ReadOnly = true;
-            this.numericUpDownReverse.Size = new System.Drawing.Size(102, 22);
+            this.numericUpDownReverse.Size = new System.Drawing.Size(115, 24);
             this.numericUpDownReverse.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(177, 27);
+            this.label5.Location = new System.Drawing.Point(199, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 17);
+            this.label5.Size = new System.Drawing.Size(66, 18);
             this.label5.TabIndex = 7;
             this.label5.Text = "обратно";
             // 
@@ -204,7 +205,7 @@
             // 
             this.numericUpDownSum.DecimalPlaces = 2;
             this.numericUpDownSum.InterceptArrowKeys = false;
-            this.numericUpDownSum.Location = new System.Drawing.Point(443, 25);
+            this.numericUpDownSum.Location = new System.Drawing.Point(498, 28);
             this.numericUpDownSum.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -212,15 +213,15 @@
             0});
             this.numericUpDownSum.Name = "numericUpDownSum";
             this.numericUpDownSum.ReadOnly = true;
-            this.numericUpDownSum.Size = new System.Drawing.Size(102, 22);
+            this.numericUpDownSum.Size = new System.Drawing.Size(115, 24);
             this.numericUpDownSum.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(365, 27);
+            this.label6.Location = new System.Drawing.Point(411, 30);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 17);
+            this.label6.Size = new System.Drawing.Size(78, 18);
             this.label6.TabIndex = 9;
             this.label6.Text = "суммарно";
             // 
@@ -232,9 +233,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.numericUpDownReverse);
-            this.groupBox1.Location = new System.Drawing.Point(12, 7);
+            this.groupBox1.Location = new System.Drawing.Point(14, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(559, 65);
+            this.groupBox1.Size = new System.Drawing.Size(629, 73);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Текущее значение, сек/авт";
@@ -242,28 +243,30 @@
             // labelMeasurePeriod
             // 
             this.labelMeasurePeriod.AutoSize = true;
-            this.labelMeasurePeriod.Location = new System.Drawing.Point(150, 75);
+            this.labelMeasurePeriod.Location = new System.Drawing.Point(169, 84);
             this.labelMeasurePeriod.Name = "labelMeasurePeriod";
-            this.labelMeasurePeriod.Size = new System.Drawing.Size(182, 17);
+            this.labelMeasurePeriod.Size = new System.Drawing.Size(192, 18);
             this.labelMeasurePeriod.TabIndex = 12;
             this.labelMeasurePeriod.Text = "(измерения каждые 0 сек)";
             // 
             // FormStatistic
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 405);
+            this.ClientSize = new System.Drawing.Size(656, 456);
             this.Controls.Add(this.labelMeasurePeriod);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listViewNumChars);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listViewHistory);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "FormStatistic";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Средняя задержка ТС на магистрали";
+            this.Text = "Средняя задержка автомобилей на магистрали";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormStatistic_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDirect)).EndInit();

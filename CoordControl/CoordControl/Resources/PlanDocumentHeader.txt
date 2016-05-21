@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <style type='text/css'>
+            div.light-box {
+                height: 42px;
+                outline: 1px solid black;
+	            display: table-cell;	
+				position:relative;  		 
+                float: left;
+            }
+
+            div#graph-box {
+
+            }
+
+            div#green-box {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAqCAIAAAA4bjy6AAAAMElEQVR4AWMYJECOYsTwn0I0zI0YNWLUCMqz2aAAgy5GRo0YWmA0aY0aMWrEaGYHAKpglrNTQOujAAAAAElFTkSuQmCC);
+                background-repeat: repeat-x;
+            }
+
+            div#red-box {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAqAQMAAACNwjmuAAAAA1BMVEX/AAAZ4gk3AAAAC0lEQVR4AWMYIgAAAKgAAfX0Zc4AAAAASUVORK5CYII=);
+                background-repeat: repeat-x;
+            }
+
+            div#yellow-box {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAqCAMAAABiDkCmAAAANlBMVEX//wD//wH//wD//wL//wH//xb9/Rc9PQAuLgAkJAAcHAAVFQANDQAICAAGBgADAwABAQAAAADQXRm2AAAAB3RSTlP//v78/evn7YYiXQAAAIdJREFUeAGd0NsKw0AIRdGd3muv+/9/tkxkCCOQpvVFWAgeJcbSL6IqQCrQBWc4dThiE9irnmEZfaiXBbJfSbFDAAQL3GZoMiXcEwJ3CU8SAhJeNem7giu3pCSYIKFjdKKARAHp0JP6A0xrQAWpIHoYQCoIBfwPiPqgJgM0GUEsIFvWWmuLfADpBxwCP+VPawAAAABJRU5ErkJggg==);
+                background-repeat: repeat-x;
+            }
+
+            div#yellowred-box {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAqCAIAAAA8m+yHAAAAOElEQVR4Ae3LsQ0AMBDCQO+/tDND+OoTLCqkQ/ItxsXFxcVPpGh0/iIhl0ou9U5WQi6VXOpcLuwA4kJVx3AHHN4AAAAASUVORK5CYII=);
+                background-repeat: repeat-x;
+            }
+
+            body {
+                font-family: Times New Roman;
+                max-width: 21cm;
+                margin: auto;
+                padding: 0.5cm 1.5cm 2cm 3cm;
+            }
+
+            p {
+                font-size: 14pt; 
+            }
+
+            h1 {
+                font-size: 14pt;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            h2 {
+                font-size: 14pt; 
+                padding-left: 1cm;
+            }
+
+            table {
+                border-right: 1px solid black;
+                border-bottom: 1px solid black;
+                font-size: 14pt;
+                border-spacing: 0px;                
+            }
+
+            th {
+                border-top: 1px solid black;
+                border-left: 1px solid black;
+                text-align: center;
+                font-weight: normal;
+                padding: 1px 5px;
+            }
+
+            td {
+                border-top: 1px solid black;
+                border-left: 1px solid black;
+                text-align: center;
+                padding: 3px 7px;
+            }
+        </style> 

@@ -12,15 +12,73 @@ namespace CoordControl.Presenters
 {
     public class RegionPropPresenter
     {
-        private IFormRegionProp _view;
+        public IFormRegionProp View;
         private RegionPropModel _model;
-        private Region _region;
+        private ModelingPresenter modelPresenter;
+        public Region Region;
 
-        public RegionPropPresenter(IFormRegionProp view, RegionPropModel model, Region region)
+        public RegionPropPresenter(IFormRegionProp view, RegionPropModel model, ModelingPresenter mp, Region region)
         {
-            _view = view;
+            View = view;
             _model = model;
-            _region = region;
+            Region = region;
+            modelPresenter = mp;
+            SetConstParams();
+            SetVariableParams();
+
+            mp.FormClosed += mp_FormClosed;
+            mp.ModelSteped += mp_ModelSteped;
+            View.FormClosing += View_FormClosing;
+        }
+
+        void View_FormClosing(object sender, EventArgs e)
+        {
+            OnFormClose();
+        }
+
+        void mp_ModelSteped(object sender, EventArgs e)
+        {
+            SetVariableParams();
+        }
+
+        void mp_FormClosed(object sender, EventArgs e)
+        {
+            if (View!= null)
+                View.FormClose();
+            OnFormClose();
+        }
+
+        private void OnFormClose()
+        {
+            View = null;
+            modelPresenter.ModelSteped -= mp_ModelSteped;
+        }
+
+        private void SetConstParams() {
+            View.CrossLeft = _model.GetLeftCrossName(Region);
+            View.CrossRight = _model.GetRightCrossName(Region);
+
+            View.MovingDirect = _model.GetWayDirection(Region);
+            View.RegionNum = _model.GetRegionNum(Region);
+            View.WayType = _model.GetWayType(Region);
+            View.RegionLength = _model.GetRegionLength(Region);
+            View.RegionWidth = _model.GetRegionWidth(Region);
+            View.LinesCount = _model.GetLinesCount(Region);
+            View.WayLength = _model.GetWayLength(Region);
+        }
+
+        public void SetVariableParams()
+        {
+            View.FlowPart = Region.FlowPart;
+            View.Speed = Region.Velocity * 3.6;
+            View.Intensity = Region.GetIntensity();
+            View.Density = Region.GetDensity();
+        }
+
+
+        public void SetWindowActive()
+        {
+            View.FormActivate();
         }
 
         //TO-DO: доделать свойства участков

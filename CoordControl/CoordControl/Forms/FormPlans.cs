@@ -24,8 +24,10 @@ namespace CoordControl.Forms
         event EventHandler ViewClick;
 
         event EventHandler CalcAnalytClick;
-        event EventHandler CalcImitClick;
-        event EventHandler CalcSimpleClick;
+        event EventHandler CalcImitRightWayClick;
+        event EventHandler CalcImitLeftWayClick;
+        event EventHandler CalcImitSumClick;
+        event EventHandler CalcMoveTimeCorrectClick;
         event EventHandler CalcMoveTimeClick;
         event EventHandler CalcWithoutShiftsClick;
 
@@ -76,10 +78,8 @@ namespace CoordControl.Forms
         public event EventHandler ViewClick;
 
         public event EventHandler CalcAnalytClick;
-
-        public event EventHandler CalcImitClick;
         
-        public event EventHandler CalcSimpleClick;
+        public event EventHandler CalcMoveTimeCorrectClick;
 
         public event EventHandler CalcMoveTimeClick;
 
@@ -98,8 +98,9 @@ namespace CoordControl.Forms
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DeleteClick != null) DeleteClick(this, EventArgs.Empty);
-
+            DialogResult dr = MessageBox.Show("Вы действительно хотите удалить программу координации?", "Удалить программу координации", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(DeleteClick != null && dr == System.Windows.Forms.DialogResult.Yes)
+                DeleteClick(this, EventArgs.Empty);
         }
 
         private void toolStripButtonView_Click(object sender, EventArgs e)
@@ -110,21 +111,6 @@ namespace CoordControl.Forms
         private void аналитическийToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CalcAnalytClick != null) CalcAnalytClick(this, EventArgs.Empty);
-        }
-
-        private void имитационныйЭкспериментToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (CalcImitClick != null) CalcImitClick(this, EventArgs.Empty);
-        }
-
-        private void простойМетодToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (CalcSimpleClick != null) CalcSimpleClick(this, EventArgs.Empty);
-        }
-
-        private void поВремениПроездаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (CalcMoveTimeClick != null) CalcMoveTimeClick(this, EventArgs.Empty);
         }
 
         private void безСдвиговToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,7 +135,7 @@ namespace CoordControl.Forms
             buttonModeling.Enabled = isSelected;
             изменитьToolStripMenuItem.Enabled = isSelected;
             удалитьToolStripMenuItem.Enabled = isSelected;
-            toolStripButtonView.Enabled = isSelected;
+            просмотрToolStripMenuItem.Enabled = isSelected;
         }
 
         private void FormPlans_Load(object sender, EventArgs e)
@@ -157,7 +143,52 @@ namespace CoordControl.Forms
             CheckElementsState();
         }
 
+        private void просмотрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ViewClick != null) ViewClick(this, EventArgs.Empty);
+        }
+
+        private void безКоррекцииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CalcMoveTimeClick != null) CalcMoveTimeClick(this, EventArgs.Empty);
+        }
+
+        private void сКоррекциейToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CalcMoveTimeCorrectClick != null) CalcMoveTimeCorrectClick(this, EventArgs.Empty);
+        }
 
 
+
+
+
+        public event EventHandler CalcImitRightWayClick;
+
+        public event EventHandler CalcImitLeftWayClick;
+
+        public event EventHandler CalcImitSumClick;
+
+        private void оптимизацияПрямогоНаправленияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CalcImitRightWayClick != null)
+                CalcImitRightWayClick(this, EventArgs.Empty);
+        }
+
+        private void обратноеНаправлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CalcImitLeftWayClick != null)
+                CalcImitLeftWayClick(this, EventArgs.Empty);
+        }
+
+        private void обаНаправленияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CalcImitSumClick != null)
+                CalcImitSumClick(this, EventArgs.Empty);
+        }
+
+        private void dataGridViewCoordProgs_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            dataGridViewCoordProgs.Rows[e.RowIndex].Height = 36;
+        }
     }
 }
