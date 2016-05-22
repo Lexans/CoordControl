@@ -16,7 +16,7 @@ namespace CoordControl.Core
                 if (crP.Cross.RoadLeft != null)
                     crP.PhaseOffset = (int)(
                         1.2 *
-                        (CalcLengthRoadWithCross(crP.Cross) / ((double)crP.Cross.RoadLeft.Speed / 3.6)) - 5.0
+                        (CalcLengthRoadWithCross(crP.Cross) / ((double)crP.Cross.RoadLeft.Speed / ModelConst.SPEED_COEF)) - 5.0
                         );
                 else
                     crP.PhaseOffset = 0;

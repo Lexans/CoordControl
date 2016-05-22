@@ -63,8 +63,8 @@ namespace CoordControl.Core
         /// <returns></returns>
         public static double CalcDensityCoef(int lineCount, double maxSpeed)
         {
-            double densityMax = (1.0 / 6.0 * lineCount);
-            double densityCoef = (maxSpeed / 3.6 / 2.0) / densityMax;
+            double densityMax = (1.0 / ModelConst.CAR_LENGTH * lineCount);
+            double densityCoef = (maxSpeed / ModelConst.SPEED_COEF / 2.0) / densityMax;
 
             return densityCoef;
         }
@@ -82,7 +82,7 @@ namespace CoordControl.Core
                     (Regions[i+1].Lenght + ((i > 0) ? Regions[i-1].Lenght : 0) + Regions[i].Lenght);
 
                 double densityCoef = Way.CalcDensityCoef(GetInfo().LinesCount, EntityRoad.Speed);
-                double velocity = (EntityRoad.Speed / 3.6) - densityCoef * avgDensity;
+                double velocity = (EntityRoad.Speed / ModelConst.SPEED_COEF) - densityCoef * avgDensity;
                 
 
                 //часть ТП, перемещаемая с региона i на i+1
@@ -125,7 +125,7 @@ namespace CoordControl.Core
         /// </summary>
         public void CreateRegions()
         {
-            double lengthMin = ((double)EntityRoad.Speed) /3.6 * RouteEnvir.Instance.TimeScan;
+            double lengthMin = ((double)EntityRoad.Speed) / ModelConst.SPEED_COEF * RouteEnvir.Instance.TimeScan;
             int RegionsN = (int) Math.Floor((double)EntityRoad.Length / lengthMin);
             double length = (double)EntityRoad.Length / (double)RegionsN;
 

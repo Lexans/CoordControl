@@ -181,7 +181,7 @@ namespace CoordControl.Core
                 + (cr.PassRight.LinesCount * cr.PassRight.LineWidth);
 
 
-            int p1MediateCar = (int)(velosity / (7.2 * 3.5) + 3.6 * (lenRoadVertical + 6.0) / velosity);
+            int p1MediateCar = (int)(velosity / (7.2 * 3.5) + ModelConst.SPEED_COEF * (lenRoadVertical + ModelConst.CAR_LENGTH) / velosity);
             int p1MediatePedestrian = (int)(lenRoadHorisont / (4 * 1.3));
             int p1Mediate = (p1MediateCar > p1MediatePedestrian) ? p1MediateCar : p1MediatePedestrian;
             if (p1Mediate > 8)
@@ -191,7 +191,7 @@ namespace CoordControl.Core
             cp.P1MediateInterval = p1Mediate;
 
 
-            int p2MediateCar = (int)(velosity / (7.2 * 3.5) + 3.6 * (lenRoadHorisont + 6.0) / velosity);
+            int p2MediateCar = (int)(velosity / (7.2 * 3.5) + ModelConst.SPEED_COEF * (lenRoadHorisont + ModelConst.CAR_LENGTH) / velosity);
             int p2MediatePedestrian = (int)(lenRoadVertical / (4 * 1.3));
             int p2Mediate = (p2MediateCar > p2MediatePedestrian) ? p2MediateCar : p2MediatePedestrian;
             if (p2Mediate > 8)

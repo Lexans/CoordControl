@@ -45,16 +45,14 @@
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewCoordProgs = new System.Windows.Forms.DataGridView();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.planBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonModeling = new System.Windows.Forms.Button();
+            this.dataGridViewCoordProgs = new System.Windows.Forms.DataGridView();
+            this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -168,80 +166,23 @@
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // просмотрToolStripMenuItem
             // 
             this.просмотрToolStripMenuItem.Name = "просмотрToolStripMenuItem";
-            this.просмотрToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.просмотрToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
             this.просмотрToolStripMenuItem.Text = "Просмотр";
             this.просмотрToolStripMenuItem.Click += new System.EventHandler(this.просмотрToolStripMenuItem_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dataGridViewCoordProgs);
-            this.groupBox2.Location = new System.Drawing.Point(14, 34);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(725, 372);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Выберите программу координации";
-            // 
-            // dataGridViewCoordProgs
-            // 
-            this.dataGridViewCoordProgs.AllowUserToAddRows = false;
-            this.dataGridViewCoordProgs.AllowUserToDeleteRows = false;
-            this.dataGridViewCoordProgs.AllowUserToOrderColumns = true;
-            this.dataGridViewCoordProgs.AllowUserToResizeRows = false;
-            this.dataGridViewCoordProgs.AutoGenerateColumns = false;
-            this.dataGridViewCoordProgs.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewCoordProgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCoordProgs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.titleDataGridViewTextBoxColumn,
-            this.Cycle});
-            this.dataGridViewCoordProgs.DataSource = this.planBindingSource;
-            this.dataGridViewCoordProgs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewCoordProgs.Location = new System.Drawing.Point(3, 20);
-            this.dataGridViewCoordProgs.MultiSelect = false;
-            this.dataGridViewCoordProgs.Name = "dataGridViewCoordProgs";
-            this.dataGridViewCoordProgs.ReadOnly = true;
-            this.dataGridViewCoordProgs.RowHeadersVisible = false;
-            this.dataGridViewCoordProgs.RowTemplate.Height = 24;
-            this.dataGridViewCoordProgs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCoordProgs.ShowEditingIcon = false;
-            this.dataGridViewCoordProgs.Size = new System.Drawing.Size(719, 349);
-            this.dataGridViewCoordProgs.TabIndex = 0;
-            this.dataGridViewCoordProgs.CurrentCellChanged += new System.EventHandler(this.dataGridViewCoordProgs_CurrentCellChanged);
-            this.dataGridViewCoordProgs.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewCoordProgs_RowsAdded);
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Cycle
-            // 
-            this.Cycle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Cycle.DataPropertyName = "Cycle";
-            this.Cycle.HeaderText = "Длина цикла";
-            this.Cycle.Name = "Cycle";
-            this.Cycle.ReadOnly = true;
-            this.Cycle.Width = 123;
             // 
             // planBindingSource
             // 
@@ -258,13 +199,59 @@
             this.buttonModeling.UseVisualStyleBackColor = true;
             this.buttonModeling.Click += new System.EventHandler(this.buttonModeling_Click);
             // 
+            // dataGridViewCoordProgs
+            // 
+            this.dataGridViewCoordProgs.AllowUserToAddRows = false;
+            this.dataGridViewCoordProgs.AllowUserToDeleteRows = false;
+            this.dataGridViewCoordProgs.AllowUserToOrderColumns = true;
+            this.dataGridViewCoordProgs.AllowUserToResizeRows = false;
+            this.dataGridViewCoordProgs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCoordProgs.AutoGenerateColumns = false;
+            this.dataGridViewCoordProgs.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewCoordProgs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCoordProgs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.titleDataGridViewTextBoxColumn,
+            this.Cycle});
+            this.dataGridViewCoordProgs.DataSource = this.planBindingSource;
+            this.dataGridViewCoordProgs.Location = new System.Drawing.Point(12, 30);
+            this.dataGridViewCoordProgs.MultiSelect = false;
+            this.dataGridViewCoordProgs.Name = "dataGridViewCoordProgs";
+            this.dataGridViewCoordProgs.ReadOnly = true;
+            this.dataGridViewCoordProgs.RowHeadersVisible = false;
+            this.dataGridViewCoordProgs.RowTemplate.Height = 24;
+            this.dataGridViewCoordProgs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCoordProgs.ShowEditingIcon = false;
+            this.dataGridViewCoordProgs.Size = new System.Drawing.Size(728, 377);
+            this.dataGridViewCoordProgs.TabIndex = 0;
+            this.dataGridViewCoordProgs.CurrentCellChanged += new System.EventHandler(this.dataGridViewCoordProgs_CurrentCellChanged);
+            this.dataGridViewCoordProgs.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewCoordProgs_RowsAdded);
+            // 
+            // Cycle
+            // 
+            this.Cycle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Cycle.DataPropertyName = "Cycle";
+            this.Cycle.HeaderText = "Длина цикла";
+            this.Cycle.Name = "Cycle";
+            this.Cycle.ReadOnly = true;
+            this.Cycle.Width = 123;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // FormPlans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 459);
+            this.Controls.Add(this.dataGridViewCoordProgs);
             this.Controls.Add(this.buttonModeling);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -275,9 +262,8 @@
             this.Load += new System.EventHandler(this.FormPlans_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.planBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,8 +272,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridViewCoordProgs;
         private System.Windows.Forms.Button buttonModeling;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem аналитическийToolStripMenuItem;
@@ -296,8 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.BindingSource planBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cycle;
         private System.Windows.Forms.ToolStripMenuItem поВремениПроездаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem безСдвиговToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem просмотрToolStripMenuItem;
@@ -306,5 +288,8 @@
         private System.Windows.Forms.ToolStripMenuItem оптимизацияПрямогоНаправленияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обратноеНаправлениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обаНаправленияToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridViewCoordProgs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cycle;
     }
 }

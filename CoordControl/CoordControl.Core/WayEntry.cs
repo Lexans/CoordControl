@@ -72,7 +72,7 @@ namespace CoordControl.Core
             double avgDensity = RegionLast.GetDensity();
 
             double densityCoef = Way.CalcDensityCoef(GetInfo().LinesCount, GetInternalRoad().Speed);
-            double velocity = (GetInternalRoad().Speed / 3.6) - densityCoef * avgDensity;
+            double velocity = (GetInternalRoad().Speed / ModelConst.SPEED_COEF) - densityCoef * avgDensity;
 
             double deltaFP = RegionBoundary.FlowPart / RegionLast.Lenght
                 * velocity * RouteEnvir.Instance.TimeScan;
@@ -86,7 +86,7 @@ namespace CoordControl.Core
 
             //появление ТП на граничном участке
             RegionBoundary.FlowPart += GetPuassonSample(
-                EntityPass.Intensity / 3600.0 * RouteEnvir.Instance.TimeScan
+                EntityPass.Intensity / ModelConst.SEC_PER_HOUR * RouteEnvir.Instance.TimeScan
                 );
 		}
 
@@ -162,7 +162,7 @@ namespace CoordControl.Core
         /// </summary>
         private void MakeRegions()
         {
-            double length = ((double)GetInternalRoad().Speed) / 3.6 * RouteEnvir.Instance.TimeScan;
+            double length = ((double)GetInternalRoad().Speed) / ModelConst.SPEED_COEF * RouteEnvir.Instance.TimeScan;
             RegionLast = new Region( this,
                 length);
             RegionBoundary = new Region(this,

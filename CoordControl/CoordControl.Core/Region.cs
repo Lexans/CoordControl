@@ -81,7 +81,7 @@ namespace CoordControl.Core
             double result;
 
             if (RouteEnvir.Instance.TimeCurrent != 0)
-                result = FlowPartGeneral / (RouteEnvir.Instance.TimeCurrent / 3600.0);
+                result = FlowPartGeneral / (RouteEnvir.Instance.TimeCurrent / ModelConst.SEC_PER_HOUR);
             else
                 result = 0;
 
@@ -117,7 +117,7 @@ namespace CoordControl.Core
             //ограничение на максимальное количество ТС на следюущем участке
             double FpNextMax = nextRegion.Lenght *
                 nextRegion.Way.GetInfo().LinesCount /
-                6.0;
+                ModelConst.CAR_LENGTH;
             double FpNext = nextRegion.FlowPart + resultDeltaFP;
             if (FpNext > FpNextMax)
                 resultDeltaFP -= (FpNext - FpNextMax);

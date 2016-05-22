@@ -142,8 +142,8 @@ namespace CoordControl.Core
 		public double CalcMeasureInterval()
 		{
             double result = (double)(EntityRoute.CrossCount * EntityPlan.Cycle);
-            if (result < 300)
-                result = EntityPlan.Cycle * Math.Ceiling(300.0 / EntityPlan.Cycle);
+            if (result < ModelConst.MEASURE_INTERVAL_MIN)
+                result = EntityPlan.Cycle * Math.Ceiling(ModelConst.MEASURE_INTERVAL_MIN / EntityPlan.Cycle);
 
             return result;
 		}

@@ -62,6 +62,7 @@
     <Compile Include="Domains\Route.cs" />
     <Compile Include="IWay.cs" />
     <Compile Include="LightState.cs" />
+    <Compile Include="ModelConst.cs" />
     <Compile Include="NodeCross.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

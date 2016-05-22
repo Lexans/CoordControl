@@ -76,8 +76,8 @@ namespace CoordControl.Core
 
             //ограничение на максимальное количество ТС на участке перекрестка
             double FpNextMax = Lenght *
-                (Width / 3.5) /
-                6.0;
+                (Width / ModelConst.LINE_WIDTH_DEFAULT) /
+                ModelConst.CAR_LENGTH;
             double FpNext = FlowPart + resultDeltaFP;
             if (FpNext > FpNextMax)
                 resultDeltaFP -= (FpNext - FpNextMax);
@@ -115,7 +115,7 @@ namespace CoordControl.Core
                 resultDeltaFP = flowPartSource;
 
             //ограничение на максимальное количество ТС на следующем участке
-            double FpNextMax = regionTo.Lenght * regionTo.Way.GetInfo().LinesCount / 6.0;
+            double FpNextMax = regionTo.Lenght * regionTo.Way.GetInfo().LinesCount / ModelConst.CAR_LENGTH;
             double FpNext = regionTo.FlowPart + resultDeltaFP;
             if (FpNext > FpNextMax)
                 resultDeltaFP -= (FpNext - FpNextMax);

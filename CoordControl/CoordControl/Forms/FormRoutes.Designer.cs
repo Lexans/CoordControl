@@ -163,7 +163,7 @@
             this.dataGridViewRoutes.RowTemplate.Height = 24;
             this.dataGridViewRoutes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRoutes.ShowEditingIcon = false;
-            this.dataGridViewRoutes.Size = new System.Drawing.Size(730, 375);
+            this.dataGridViewRoutes.Size = new System.Drawing.Size(730, 377);
             this.dataGridViewRoutes.TabIndex = 0;
             this.dataGridViewRoutes.CurrentCellChanged += new System.EventHandler(this.dataGridViewRoutes_CurrentCellChanged);
             this.dataGridViewRoutes.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewRoutes_RowsAdded);

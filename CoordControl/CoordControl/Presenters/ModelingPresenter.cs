@@ -301,21 +301,21 @@ namespace CoordControl.Presenters
                 case RegionViewParam.FlowPart:
                     minValue = 0;
                     if (!(reg is RegionCross))
-                        maxValue = reg.Lenght / 6.0 * reg.Way.GetInfo().LinesCount;
+                        maxValue = reg.Lenght / ModelConst.CAR_LENGTH * reg.Way.GetInfo().LinesCount;
                     else {
                         RegionCross regCross = (RegionCross)reg;
-                        maxValue = regCross.Lenght * (regCross.Width / 3.5) /6.0;
+                        maxValue = regCross.Lenght * (regCross.Width / ModelConst.LINE_WIDTH_DEFAULT) / ModelConst.CAR_LENGTH;
                     }
                     value = reg.FlowPart;
                     break;
                 case RegionViewParam.Density:
                     minValue = 0;
                     if (!(reg is RegionCross))
-                        maxValue = reg.Way.GetInfo().LinesCount / 6.0;
+                        maxValue = reg.Way.GetInfo().LinesCount / ModelConst.CAR_LENGTH;
                     else
                     {
                         RegionCross regCross = (RegionCross)reg;
-                        maxValue = (regCross.Width / 3.5) / 6.0;
+                        maxValue = (regCross.Width / ModelConst.LINE_WIDTH_DEFAULT) / ModelConst.CAR_LENGTH;
                     }
                     value = reg.GetDensity();
                     break;
@@ -345,7 +345,7 @@ namespace CoordControl.Presenters
                     else if (reg is RegionCross)
                         maxValue = ((RegionCross)reg).CrossNode.CalcVerticalSpeed();
 
-                    maxValue = maxValue / 3.6 * 1.5;
+                    maxValue = maxValue / ModelConst.SPEED_COEF * 1.5;
                     value = reg.Velocity;
                     break;
                 default:

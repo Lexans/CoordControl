@@ -53,7 +53,7 @@ namespace CoordControl.Core
             double avgDensity = RegionFirst.GetDensity();
 
             double densityCoef = Way.CalcDensityCoef(GetInfo().LinesCount, GetInternalRoad().Speed);
-            double velocity = (GetInternalRoad().Speed / 3.6) - densityCoef * avgDensity;
+            double velocity = (GetInternalRoad().Speed / ModelConst.SPEED_COEF) - densityCoef * avgDensity;
 
             double deltaFP = RegionFirst.FlowPart / RegionBoundary.Lenght
                 * velocity * RouteEnvir.Instance.TimeScan;
@@ -101,7 +101,7 @@ namespace CoordControl.Core
         /// </summary>
         private void MakeRegions()
         {
-            double length = ((double)GetInternalRoad().Speed) / 3.6 * RouteEnvir.Instance.TimeScan;
+            double length = ((double)GetInternalRoad().Speed) / ModelConst.SPEED_COEF * RouteEnvir.Instance.TimeScan;
             RegionFirst = new Region(this,
                 length);
             RegionBoundary = new Region(this,

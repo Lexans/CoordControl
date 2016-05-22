@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using CoordControl.Core.Domains;
 using CoordControl.Data.DAO;
+using CoordControl.Core;
 
 namespace CoordControl.Models
 {
@@ -145,7 +146,7 @@ namespace CoordControl.Models
 #else
                         road.Length = 300;
 #endif
-            road.Speed = 80;
+            road.Speed = (int)ModelConst.SPEED_DEFAULT;
 
             return road;
         }
@@ -174,7 +175,7 @@ namespace CoordControl.Models
             p.LinesCount = 3;
             p.Intensity = 1500;
 #endif
-            p.LineWidth = 3.5;
+            p.LineWidth = ModelConst.LINE_WIDTH_DEFAULT;
 
             return p;
         }

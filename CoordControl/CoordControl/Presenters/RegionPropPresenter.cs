@@ -70,7 +70,7 @@ namespace CoordControl.Presenters
         public void SetVariableParams()
         {
             View.FlowPart = Region.FlowPart;
-            View.Speed = Region.Velocity * 3.6;
+            View.Speed = Region.Velocity * ModelConst.SPEED_COEF;
             View.Intensity = Region.GetIntensity();
             View.Density = Region.GetDensity();
         }

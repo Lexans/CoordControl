@@ -202,7 +202,7 @@ namespace CoordControl.Core
         {
             double avgDensity = wFrom.GetRegionLast().GetDensity();
             double densityCoef = Way.CalcDensityCoef(wFrom.GetInfo().LinesCount, speed);
-            double velocity = CalcSpeedCoef() * ((speed / 3.6) - densityCoef * avgDensity);
+            double velocity = CalcSpeedCoef() * ((speed / ModelConst.SPEED_COEF) - densityCoef * avgDensity);
 
             double deltaFP = wFrom.GetRegionLast().FlowPart / ((isHorisontal) ? CrossRegion.Lenght : CrossRegion.Width)
                 * velocity * RouteEnvir.Instance.TimeScan;
@@ -232,7 +232,7 @@ namespace CoordControl.Core
         {
             double avgDensity = wTo.GetRegionFirst().GetDensity();
             double densityCoef = Way.CalcDensityCoef(wTo.GetInfo().LinesCount, speed);
-            double velocity = ((speed / 3.6) - densityCoef * avgDensity);
+            double velocity = ((speed / ModelConst.SPEED_COEF) - densityCoef * avgDensity);
             
             double deltaFP = flowPartSource / ((isHorisontal) ? CrossRegion.Lenght : CrossRegion.Width)
                 * velocity * RouteEnvir.Instance.TimeScan;
@@ -299,7 +299,7 @@ namespace CoordControl.Core
 
             //перемещение ТП с перекрестка на выходные перегоны
             IWay leftExit = GetLeftExitWay();
-            double leftExitSpeed = 80;
+            double leftExitSpeed = ModelConst.SPEED_DEFAULT;
             if (leftExit is Way)
                 leftExitSpeed = ((Way)leftExit).EntityRoad.Speed;
             else if (leftExit is WayExit)
@@ -308,7 +308,7 @@ namespace CoordControl.Core
             MoveFromCross(leftExit, ref CrossRegion.ToLeftFlowPart, leftExitSpeed, true);
 
             IWay rightExit = GetRightExitWay();
-            double rightExitSpeed = 80;
+            double rightExitSpeed = ModelConst.SPEED_DEFAULT;
             if (rightExit is Way)
                 rightExitSpeed = ((Way)rightExit).EntityRoad.Speed;
             else if (rightExit is WayExit)
@@ -327,7 +327,7 @@ namespace CoordControl.Core
             //перемещение с перегонов на перекресток
             if (GetLightStateFirst() == LightState.Green || GetLightStateFirst() == LightState.Yellow)
             {
-                double leftSpeed = 80;
+                double leftSpeed = ModelConst.SPEED_DEFAULT;
                 if(leftWay is Way)
                     leftSpeed = ((Way)leftWay).EntityRoad.Speed;
                 else if(leftWay is WayEntry)
@@ -342,7 +342,7 @@ namespace CoordControl.Core
                 CrossRegion.ToBottomFlowPart += deltaFP * leftWay.GetInfo().RightPart / 100.0;
                 CrossRegion.ToTopFlowPart += deltaFP * leftWay.GetInfo().LeftPart / 100.0;
 
-                double rightSpeed = 80;
+                double rightSpeed = ModelConst.SPEED_DEFAULT;
 
                 if (rightWay is Way)
                     rightSpeed = ((Way)rightWay).EntityRoad.Speed;
