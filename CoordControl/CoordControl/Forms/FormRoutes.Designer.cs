@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRoutes));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.routeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -160,6 +161,8 @@
             this.dataGridViewRoutes.Name = "dataGridViewRoutes";
             this.dataGridViewRoutes.ReadOnly = true;
             this.dataGridViewRoutes.RowHeadersVisible = false;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.dataGridViewRoutes.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewRoutes.RowTemplate.Height = 24;
             this.dataGridViewRoutes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRoutes.ShowEditingIcon = false;
@@ -172,7 +175,7 @@
             // 
             this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "Улица магистрали";
+            this.Title.HeaderText = "Участок магистрали";
             this.Title.MinimumWidth = 100;
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;

@@ -453,7 +453,7 @@ namespace CoordControl.Forms
         public void TimerStop()
         {
             timer.Stop();
-            toolStripButtonStart.Text = "Старт";
+            toolStripButtonStart.Text = "Запуск";
             toolStripButtonStep.Enabled = true;
             toolStripButtonStart.Image = global::CoordControl.Properties.Resources.play;
 

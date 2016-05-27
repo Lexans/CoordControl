@@ -80,7 +80,7 @@
             this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStart.Name = "toolStripButtonStart";
             this.toolStripButtonStart.Size = new System.Drawing.Size(40, 40);
-            this.toolStripButtonStart.Text = "Старт";
+            this.toolStripButtonStart.Text = "Запуск";
             this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
             // 
             // toolStripButtonReset
@@ -138,8 +138,8 @@
             // 
             // buttonStatShow
             // 
-            this.buttonStatShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonStatShow.Location = new System.Drawing.Point(1051, 750);
+            this.buttonStatShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStatShow.Location = new System.Drawing.Point(1051, 43);
             this.buttonStatShow.Name = "buttonStatShow";
             this.buttonStatShow.Size = new System.Drawing.Size(204, 37);
             this.buttonStatShow.TabIndex = 3;
@@ -158,7 +158,7 @@
             "Скорость"});
             this.comboBoxViewParam.Location = new System.Drawing.Point(7, 38);
             this.comboBoxViewParam.Name = "comboBoxViewParam";
-            this.comboBoxViewParam.Size = new System.Drawing.Size(178, 26);
+            this.comboBoxViewParam.Size = new System.Drawing.Size(195, 26);
             this.comboBoxViewParam.TabIndex = 6;
             this.comboBoxViewParam.SelectedValueChanged += new System.EventHandler(this.comboBoxViewParam_SelectedValueChanged);
             this.comboBoxViewParam.VisibleChanged += new System.EventHandler(this.comboBoxViewParam_VisibleChanged);
@@ -197,7 +197,7 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.trackBarModelingSpeed);
-            this.groupBox3.Location = new System.Drawing.Point(14, 65);
+            this.groupBox3.Location = new System.Drawing.Point(12, 42);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(230, 83);
             this.groupBox3.TabIndex = 0;
@@ -246,7 +246,7 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.trackBarScale);
-            this.groupBox4.Location = new System.Drawing.Point(262, 62);
+            this.groupBox4.Location = new System.Drawing.Point(250, 39);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(233, 92);
             this.groupBox4.TabIndex = 6;
@@ -257,9 +257,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBoxViewParam);
-            this.groupBox1.Location = new System.Drawing.Point(502, 68);
+            this.groupBox1.Location = new System.Drawing.Point(490, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(205, 92);
+            this.groupBox1.Size = new System.Drawing.Size(215, 92);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Отбражение цветом";
@@ -271,9 +271,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCanvas.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelCanvas.Location = new System.Drawing.Point(15, 166);
+            this.panelCanvas.Location = new System.Drawing.Point(15, 139);
             this.panelCanvas.Name = "panelCanvas";
-            this.panelCanvas.Size = new System.Drawing.Size(1240, 577);
+            this.panelCanvas.Size = new System.Drawing.Size(1241, 651);
             this.panelCanvas.TabIndex = 5;
             this.panelCanvas.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelCanvas_Scroll);
             this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint_1);
@@ -284,8 +284,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1268, 828);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonStatShow);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.panelCanvas);
             this.Controls.Add(this.groupBox3);

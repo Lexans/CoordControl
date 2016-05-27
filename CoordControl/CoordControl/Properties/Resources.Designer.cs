@@ -63,6 +63,46 @@ namespace CoordControl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrows_bottom {
+            get {
+                object obj = ResourceManager.GetObject("arrows_bottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrows_left {
+            get {
+                object obj = ResourceManager.GetObject("arrows_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrows_right {
+            get {
+                object obj = ResourceManager.GetObject("arrows_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrows_top {
+            get {
+                object obj = ResourceManager.GetObject("arrows_top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
@@ -94,12 +134,13 @@ namespace CoordControl.Properties {
         ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///    &lt;head&gt;
-        ///        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        ///        &lt;style type=&quot;text/css&quot;&gt;
+        ///        &lt;meta charset=&apos;UTF-8&apos;&gt;
+        ///        &lt;style type=&apos;text/css&apos;&gt;
         ///            div.light-box {
         ///                height: 42px;
         ///                outline: 1px solid black;
-        ///                position:relative;   
+        ///	            display: table-cell;	
+        ///				position:relative;  		 
         ///                float: left;
         ///            }
         ///
@@ -108,7 +149,7 @@ namespace CoordControl.Properties {
         ///            }
         ///
         ///            div#green-box {
-        ///                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAqCAIAAAA4bjy6AAAAMElEQVR4AWMYJECOYsTwn0I0zI0YNWLUCMqz [остаток строки не уместился]&quot;;.
+        ///                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAqCAIAAAA4bjy6AAAAMElEQVR4AW [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string PlanDocHeader {
             get {

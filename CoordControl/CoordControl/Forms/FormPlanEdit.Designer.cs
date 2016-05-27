@@ -66,11 +66,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(321, 30);
+            this.label1.Location = new System.Drawing.Point(321, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 18);
+            this.label1.Size = new System.Drawing.Size(183, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Цикл управления, сек";
+            this.label1.Text = "Цикл регулирования, сек";
             // 
             // comboBoxCrosses
             // 
@@ -78,7 +78,7 @@
             this.comboBoxCrosses.DisplayMember = "StreetName";
             this.comboBoxCrosses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCrosses.FormattingEnabled = true;
-            this.comboBoxCrosses.Location = new System.Drawing.Point(7, 24);
+            this.comboBoxCrosses.Location = new System.Drawing.Point(11, 24);
             this.comboBoxCrosses.Name = "comboBoxCrosses";
             this.comboBoxCrosses.Size = new System.Drawing.Size(275, 26);
             this.comboBoxCrosses.TabIndex = 20;
@@ -96,9 +96,9 @@
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.comboBoxCrosses);
-            this.groupBox1.Location = new System.Drawing.Point(18, 97);
+            this.groupBox1.Location = new System.Drawing.Point(17, 75);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(594, 325);
+            this.groupBox1.Size = new System.Drawing.Size(594, 256);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Перекресток";
@@ -106,7 +106,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 58);
+            this.label6.Location = new System.Drawing.Point(303, 27);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 18);
             this.label6.TabIndex = 24;
@@ -114,7 +114,7 @@
             // 
             // numericUpDownOffset
             // 
-            this.numericUpDownOffset.Location = new System.Drawing.Point(9, 83);
+            this.numericUpDownOffset.Location = new System.Drawing.Point(392, 26);
             this.numericUpDownOffset.Maximum = new decimal(new int[] {
             70,
             0,
@@ -135,7 +135,7 @@
             this.groupBox3.Controls.Add(this.numericUpDownP2MainInterval);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(296, 126);
+            this.groupBox3.Location = new System.Drawing.Point(292, 64);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 180);
             this.groupBox3.TabIndex = 22;
@@ -193,9 +193,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 115);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(232, 18);
+            this.label4.Size = new System.Drawing.Size(190, 18);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Промежуточный интеравал, сек";
+            this.label4.Text = "Промежуточный такт, сек";
             // 
             // label5
             // 
@@ -212,7 +212,7 @@
             this.groupBox2.Controls.Add(this.numericUpDownP1MainInterval);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(8, 126);
+            this.groupBox2.Location = new System.Drawing.Point(12, 64);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(274, 180);
             this.groupBox2.TabIndex = 21;
@@ -270,9 +270,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(232, 18);
+            this.label3.Size = new System.Drawing.Size(190, 18);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Промежуточный интеравал, сек";
+            this.label3.Text = "Промежуточный такт, сек";
             // 
             // label2
             // 
@@ -285,7 +285,7 @@
             // 
             // numericUpDownCycle
             // 
-            this.numericUpDownCycle.Location = new System.Drawing.Point(327, 53);
+            this.numericUpDownCycle.Location = new System.Drawing.Point(327, 38);
             this.numericUpDownCycle.Maximum = new decimal(new int[] {
             70,
             0,
@@ -310,7 +310,7 @@
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonSave.Location = new System.Drawing.Point(386, 439);
+            this.buttonSave.Location = new System.Drawing.Point(362, 339);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(118, 34);
             this.buttonSave.TabIndex = 24;
@@ -322,7 +322,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(511, 439);
+            this.buttonCancel.Location = new System.Drawing.Point(486, 339);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(118, 34);
             this.buttonCancel.TabIndex = 25;
@@ -332,7 +332,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 30);
+            this.label7.Location = new System.Drawing.Point(26, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 18);
             this.label7.TabIndex = 26;
@@ -340,7 +340,7 @@
             // 
             // textBoxPlanName
             // 
-            this.textBoxPlanName.Location = new System.Drawing.Point(27, 53);
+            this.textBoxPlanName.Location = new System.Drawing.Point(27, 38);
             this.textBoxPlanName.MaxLength = 256;
             this.textBoxPlanName.Name = "textBoxPlanName";
             this.textBoxPlanName.Size = new System.Drawing.Size(273, 24);
@@ -350,7 +350,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 486);
+            this.ClientSize = new System.Drawing.Size(616, 385);
             this.Controls.Add(this.textBoxPlanName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.buttonCancel);

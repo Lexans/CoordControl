@@ -25,7 +25,7 @@ namespace CoordControl.Presenters
             _model = model;
             currentRoute = r;
             _view.PlanList = _model.GetPlansByRoute(r);
-            _view.TitleForm += " «" + currentRoute.StreetName + "»";
+            _view.TitleForm += " по улице «" + currentRoute.StreetName + "»";
 
             _view.EditClick += _view_EditClick;
             _view.DeleteClick += _view_DeleteClick;

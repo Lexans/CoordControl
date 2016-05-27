@@ -159,17 +159,23 @@ namespace CoordControl.Core
         /// расчет сдвига фаз относительно нулевого перекрестка
         /// </summary>
         /// <returns></returns>
-        public int CalcPhaseOffset()
+        public double CalcTimeOfCycle()
         {
-            int result = 0;
+            int phaseOffset = 0;
             List<CrossPlan> cps = RouteEnvir.Instance.EntityPlan.CrossPlans.ToList();
             foreach (CrossPlan cp in cps)
             {
                 if (cp.Cross.Position <= EntityCross.Position)
-                    result += cp.PhaseOffset;
+                    phaseOffset += cp.PhaseOffset;
             }
 
-            return result % RouteEnvir.Instance.EntityPlan.Cycle;
+            phaseOffset = phaseOffset % RouteEnvir.Instance.EntityPlan.Cycle;
+
+            double timeOfCycle = RouteEnvir.Instance.TimeCurrent % RouteEnvir.Instance.EntityPlan.Cycle - phaseOffset;
+            if (timeOfCycle < 0)
+                timeOfCycle += RouteEnvir.Instance.EntityPlan.Cycle;
+
+            return timeOfCycle;
         }
 
         /// <summary>
@@ -411,9 +417,8 @@ namespace CoordControl.Core
         /// </summary>
 		public LightState GetLightStateFirst()
 		{
-            double timeOfCycle =
-                Math.Abs(RouteEnvir.Instance.EntityPlan.Cycle + RouteEnvir.Instance.TimeCurrent % RouteEnvir.Instance.EntityPlan.Cycle - CalcPhaseOffset())
-                % RouteEnvir.Instance.EntityPlan.Cycle;
+            double timeOfCycle = CalcTimeOfCycle();
+
             CrossPlan cp = GetCrossPlan();
 
             int t;
@@ -436,9 +441,8 @@ namespace CoordControl.Core
 		/// </summary>
 		public LightState GetLightStateSecond()
 		{
-            double timeOfCycle =
-                Math.Abs(RouteEnvir.Instance.EntityPlan.Cycle + RouteEnvir.Instance.TimeCurrent % RouteEnvir.Instance.EntityPlan.Cycle - CalcPhaseOffset())
-                % RouteEnvir.Instance.EntityPlan.Cycle;
+            double timeOfCycle = CalcTimeOfCycle();
+
             CrossPlan cp = GetCrossPlan();
 
             int t;

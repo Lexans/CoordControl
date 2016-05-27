@@ -101,15 +101,15 @@ namespace CoordControl.Core
 
             double ps = 0;
             double psMax = Math.Exp(lambda);
-            int s = -1;
-            do
-            {
-                s++;
-                ps += Math.Pow(lambda, (double)s) / Factorial(s);
-            }
-            while ((ps < r) && (ps <= psMax));
 
-            return s;
+            int s = 0;
+            while ((ps < r) && (ps <= psMax))
+            {
+                ps += Math.Pow(lambda, (double)s) / Factorial(s);
+                s++;
+            }
+            
+            return s-1;
 		}
 
         /// <summary>

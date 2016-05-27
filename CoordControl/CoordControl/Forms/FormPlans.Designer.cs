@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlans));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.безСдвиговToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,14 +46,14 @@
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonModeling = new System.Windows.Forms.Button();
             this.dataGridViewCoordProgs = new System.Windows.Forms.DataGridView();
-            this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.planBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.planBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -184,10 +185,6 @@
             this.просмотрToolStripMenuItem.Text = "Просмотр";
             this.просмотрToolStripMenuItem.Click += new System.EventHandler(this.просмотрToolStripMenuItem_Click);
             // 
-            // planBindingSource
-            // 
-            this.planBindingSource.DataSource = typeof(CoordControl.Core.Domains.Plan);
-            // 
             // buttonModeling
             // 
             this.buttonModeling.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -220,6 +217,8 @@
             this.dataGridViewCoordProgs.Name = "dataGridViewCoordProgs";
             this.dataGridViewCoordProgs.ReadOnly = true;
             this.dataGridViewCoordProgs.RowHeadersVisible = false;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.dataGridViewCoordProgs.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewCoordProgs.RowTemplate.Height = 24;
             this.dataGridViewCoordProgs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCoordProgs.ShowEditingIcon = false;
@@ -228,14 +227,9 @@
             this.dataGridViewCoordProgs.CurrentCellChanged += new System.EventHandler(this.dataGridViewCoordProgs_CurrentCellChanged);
             this.dataGridViewCoordProgs.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewCoordProgs_RowsAdded);
             // 
-            // Cycle
+            // planBindingSource
             // 
-            this.Cycle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Cycle.DataPropertyName = "Cycle";
-            this.Cycle.HeaderText = "Длина цикла";
-            this.Cycle.Name = "Cycle";
-            this.Cycle.ReadOnly = true;
-            this.Cycle.Width = 123;
+            this.planBindingSource.DataSource = typeof(CoordControl.Core.Domains.Plan);
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -244,6 +238,15 @@
             this.titleDataGridViewTextBoxColumn.HeaderText = "Название";
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Cycle
+            // 
+            this.Cycle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Cycle.DataPropertyName = "Cycle";
+            this.Cycle.HeaderText = "Цикл регулирования";
+            this.Cycle.Name = "Cycle";
+            this.Cycle.ReadOnly = true;
+            this.Cycle.Width = 200;
             // 
             // FormPlans
             // 
@@ -262,8 +265,8 @@
             this.Load += new System.EventHandler(this.FormPlans_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.planBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

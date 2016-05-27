@@ -12,6 +12,19 @@ namespace CoordControl.Forms.Controls
 {
     public partial class UserControlPass : UserControl
     {
+        public Image ImageArrows
+        {
+            set
+            {
+                pictureBoxArrows.Image = value;
+            }
+
+            get
+            {
+                return pictureBoxArrows.Image;
+            }
+        }
+
         public string Title
         {
             set
@@ -187,7 +200,7 @@ namespace CoordControl.Forms.Controls
         {
             if (numericUpDownIntensity.Enabled)
             {
-                numericUpDownIntensity.Minimum = 300 * numericUpDownLinesN.Value;
+                numericUpDownIntensity.Minimum = 50 * numericUpDownLinesN.Value;
                 numericUpDownIntensity.Maximum = 700 * numericUpDownLinesN.Value;
             }
             else

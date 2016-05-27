@@ -36,20 +36,8 @@ namespace CoordControl.Core
 
                 if (DeltaFlowPartLast > 0)
                     FlowPartGeneral += DeltaFlowPartLast;
-
-                if (DeltaFlowPartLast == 0)
-                    IsStopMode = true;
-                else
-                    IsStopMode = false;
             }
         }
-
-		/// <summary>
-		/// Признак остановки двжиения. Если во время очередной
-		/// итерации не произошло измненение части ТП на данном участке,
-		/// то считается что все ТС стоят на данном участке.
-		/// </summary>
-		public bool IsStopMode { get; set; }
 
 		/// <summary>
 		/// Перегон, которому принадлежит данный участок
@@ -97,7 +85,6 @@ namespace CoordControl.Core
 
         protected Region() {
             FlowPart = 0d;
-            IsStopMode = false;
         }
 
 		/// <summary>
@@ -111,23 +98,17 @@ namespace CoordControl.Core
             double resultDeltaFP = deltaFlowPart;
 
             //ограничение на количество имеющихся ТС
-            if (FlowPart < deltaFlowPart)
+            //"остатки" ТС перемещаются на следующий регион
+            if ((FlowPart - resultDeltaFP) < 0.5)
                 resultDeltaFP = FlowPart;
 
             //ограничение на максимальное количество ТС на следюущем участке
             double FpNextMax = nextRegion.Lenght *
                 nextRegion.Way.GetInfo().LinesCount /
                 ModelConst.CAR_LENGTH;
-            double FpNext = nextRegion.FlowPart + resultDeltaFP;
-            if (FpNext > FpNextMax)
-                resultDeltaFP -= (FpNext - FpNextMax);
 
-
-            //"остатки" ТС перемещаются на следующий регион
-            if ((FlowPart - resultDeltaFP) < 0.5 &&
-                (nextRegion.FlowPart + FlowPart) < FpNextMax)
-                resultDeltaFP = FlowPart;
-
+            if (nextRegion.FlowPart + resultDeltaFP > FpNextMax)
+                resultDeltaFP = FpNextMax - nextRegion.FlowPart;
 
             //перемещение части ТП
             nextRegion.FlowPart += resultDeltaFP;

@@ -36,7 +36,7 @@ namespace CoordControl.Presenters
             String str = global::CoordControl.Properties.Resources.PlanDocHeader;
             str += @"<title id='title'>"+_plan.Title+@"</title></head><body>";
             str += @"<h1>Программа координированного управления на участке магистрали по улице «"+_plan.Route.StreetName+
-                "» от «" + _plan.Route.Crosses.First().StreetName + "» до «"
+                "» от пересечения с улицей «" + _plan.Route.Crosses.First().StreetName + "» до улицы «"
                 + _plan.Route.Crosses.Last().StreetName + "»</h1>";
 
             int n = _plan.Route.Crosses.Count();
@@ -72,7 +72,7 @@ namespace CoordControl.Presenters
                 str += "<div class = 'light-box' id = 'yellow-box' style='width:" + (cp.P2MediateInterval * 7).ToString() + "px'></div>";
                 str += "</div></td>";
 
-                str += "<td>" + (cp.P1MainInterval).ToString() + "</td><td>" + (cp.P2MediateInterval).ToString() +
+                str += "<td>" + (cp.P2MainInterval).ToString() + "</td><td>" + (cp.P2MediateInterval).ToString() +
                     "</td><td>" + (cp.P1MainInterval).ToString() + "</td><td>" + (cp.P1MediateInterval).ToString() + "</td>";
                 str += "</tr></table> ";
             }

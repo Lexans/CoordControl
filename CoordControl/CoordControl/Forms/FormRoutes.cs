@@ -88,7 +88,7 @@ namespace CoordControl.Forms
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Вы действительно хотите удалить программу координации?", "Удалить программу координации", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Вы действительно хотите удалить магистраль?", "Удалить магистраль", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DeleteClick != null && dr == System.Windows.Forms.DialogResult.Yes)
                 DeleteClick(this, EventArgs.Empty);
         }

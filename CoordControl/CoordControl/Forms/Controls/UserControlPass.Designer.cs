@@ -34,6 +34,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxArrows = new System.Windows.Forms.PictureBox();
             this.labelRight = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.labelLeft = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLinesN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLineWidth)).BeginInit();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArrows)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRightPart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDirectPart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeftPart)).BeginInit();
@@ -62,7 +64,9 @@
             this.groupBoxPassName.Controls.Add(this.numericUpDownIntensity);
             this.groupBoxPassName.Controls.Add(this.label9);
             this.groupBoxPassName.Location = new System.Drawing.Point(3, -1);
+            this.groupBoxPassName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxPassName.Name = "groupBoxPassName";
+            this.groupBoxPassName.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxPassName.Size = new System.Drawing.Size(283, 176);
             this.groupBoxPassName.TabIndex = 11;
             this.groupBoxPassName.TabStop = false;
@@ -70,19 +74,20 @@
             // 
             // numericUpDownLinesN
             // 
-            this.numericUpDownLinesN.Location = new System.Drawing.Point(14, 102);
+            this.numericUpDownLinesN.Location = new System.Drawing.Point(13, 102);
+            this.numericUpDownLinesN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownLinesN.Maximum = new decimal(new int[] {
             4,
             0,
             0,
             0});
             this.numericUpDownLinesN.Minimum = new decimal(new int[] {
-            2,
+            1,
             0,
             0,
             0});
             this.numericUpDownLinesN.Name = "numericUpDownLinesN";
-            this.numericUpDownLinesN.Size = new System.Drawing.Size(118, 22);
+            this.numericUpDownLinesN.Size = new System.Drawing.Size(117, 22);
             this.numericUpDownLinesN.TabIndex = 6;
             this.numericUpDownLinesN.Value = new decimal(new int[] {
             2,
@@ -94,7 +99,8 @@
             // numericUpDownLineWidth
             // 
             this.numericUpDownLineWidth.DecimalPlaces = 2;
-            this.numericUpDownLineWidth.Location = new System.Drawing.Point(14, 148);
+            this.numericUpDownLineWidth.Location = new System.Drawing.Point(13, 148);
+            this.numericUpDownLineWidth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownLineWidth.Maximum = new decimal(new int[] {
             5,
             0,
@@ -106,7 +112,7 @@
             0,
             65536});
             this.numericUpDownLineWidth.Name = "numericUpDownLineWidth";
-            this.numericUpDownLineWidth.Size = new System.Drawing.Size(118, 22);
+            this.numericUpDownLineWidth.Size = new System.Drawing.Size(117, 22);
             this.numericUpDownLineWidth.TabIndex = 5;
             this.numericUpDownLineWidth.Value = new decimal(new int[] {
             35,
@@ -134,23 +140,36 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.pictureBoxArrows);
             this.groupBox8.Controls.Add(this.labelRight);
             this.groupBox8.Controls.Add(this.label11);
             this.groupBox8.Controls.Add(this.labelLeft);
             this.groupBox8.Controls.Add(this.numericUpDownRightPart);
             this.groupBox8.Controls.Add(this.numericUpDownDirectPart);
             this.groupBox8.Controls.Add(this.numericUpDownLeftPart);
-            this.groupBox8.Location = new System.Drawing.Point(143, 35);
+            this.groupBox8.Location = new System.Drawing.Point(143, 34);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(132, 131);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox8.Size = new System.Drawing.Size(132, 130);
             this.groupBox8.TabIndex = 2;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Части потока, %";
             // 
+            // pictureBoxArrows
+            // 
+            this.pictureBoxArrows.Location = new System.Drawing.Point(5, 16);
+            this.pictureBoxArrows.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxArrows.Name = "pictureBoxArrows";
+            this.pictureBoxArrows.Size = new System.Drawing.Size(63, 110);
+            this.pictureBoxArrows.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxArrows.TabIndex = 6;
+            this.pictureBoxArrows.TabStop = false;
+            // 
             // labelRight
             // 
             this.labelRight.AutoSize = true;
-            this.labelRight.Location = new System.Drawing.Point(6, 97);
+            this.labelRight.Location = new System.Drawing.Point(5, 97);
             this.labelRight.Name = "labelRight";
             this.labelRight.Size = new System.Drawing.Size(63, 17);
             this.labelRight.TabIndex = 5;
@@ -159,7 +178,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 61);
+            this.label11.Location = new System.Drawing.Point(5, 62);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 17);
             this.label11.TabIndex = 4;
@@ -168,7 +187,7 @@
             // labelLeft
             // 
             this.labelLeft.AutoSize = true;
-            this.labelLeft.Location = new System.Drawing.Point(6, 29);
+            this.labelLeft.Location = new System.Drawing.Point(5, 30);
             this.labelLeft.Name = "labelLeft";
             this.labelLeft.Size = new System.Drawing.Size(55, 17);
             this.labelLeft.TabIndex = 3;
@@ -178,6 +197,7 @@
             // numericUpDownRightPart
             // 
             this.numericUpDownRightPart.Location = new System.Drawing.Point(75, 95);
+            this.numericUpDownRightPart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownRightPart.Maximum = new decimal(new int[] {
             30,
             0,
@@ -196,6 +216,7 @@
             // numericUpDownDirectPart
             // 
             this.numericUpDownDirectPart.Location = new System.Drawing.Point(75, 59);
+            this.numericUpDownDirectPart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownDirectPart.Minimum = new decimal(new int[] {
             70,
             0,
@@ -214,6 +235,7 @@
             // numericUpDownLeftPart
             // 
             this.numericUpDownLeftPart.Location = new System.Drawing.Point(75, 26);
+            this.numericUpDownLeftPart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownLeftPart.Maximum = new decimal(new int[] {
             30,
             0,
@@ -232,13 +254,14 @@
             // numericUpDownIntensity
             // 
             this.numericUpDownIntensity.Location = new System.Drawing.Point(12, 38);
+            this.numericUpDownIntensity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownIntensity.Maximum = new decimal(new int[] {
             2800,
             0,
             0,
             0});
             this.numericUpDownIntensity.Minimum = new decimal(new int[] {
-            300,
+            50,
             0,
             0,
             0});
@@ -254,7 +277,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 18);
+            this.label9.Location = new System.Drawing.Point(5, 18);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(150, 17);
             this.label9.TabIndex = 0;
@@ -265,14 +288,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBoxPassName);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlPass";
-            this.Size = new System.Drawing.Size(292, 184);
+            this.Size = new System.Drawing.Size(292, 185);
             this.groupBoxPassName.ResumeLayout(false);
             this.groupBoxPassName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLinesN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLineWidth)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArrows)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRightPart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDirectPart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeftPart)).EndInit();
@@ -297,6 +322,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownLeftPart;
         private System.Windows.Forms.NumericUpDown numericUpDownIntensity;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBoxArrows;
 
     }
 }

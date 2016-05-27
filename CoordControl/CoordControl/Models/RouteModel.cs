@@ -86,8 +86,6 @@ namespace CoordControl.Models
                             }
                             r.Crosses[i - 1].RoadRight.CrossRight = cr;
                         }
-
-                        cr.RoadRight = road;
                     }
                     else
                         cr.RoadRight = null;

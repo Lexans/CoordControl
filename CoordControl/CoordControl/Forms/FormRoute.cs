@@ -39,11 +39,13 @@ namespace CoordControl.Forms
 
     public partial class FormRoute : Form, IFormRoute
     {
+
+        bool isJustOpened;
         public FormRoute()
         {
             InitializeComponent();
             userControlPassRight.SwapPartInputs();
-            textBoxStreetNameMagistral.Text = " ";
+            isJustOpened = true;
         }
 
 
@@ -119,7 +121,8 @@ namespace CoordControl.Forms
                 cross.StreetName = CrossStreetName;
                 if (cross.RoadRight != null)
                 {
-                    cross.RoadRight = RightRoad;
+                    if (RightRoad.CrossLeft == cross)
+                        cross.RoadRight = RightRoad;
                 }
 
                 return cross;
@@ -323,7 +326,10 @@ namespace CoordControl.Forms
             if (String.IsNullOrWhiteSpace(textBoxStreetNameMagistral.Text))
             {
                 buttonSave.Enabled = false;
-                errorProvider1.SetError(textBoxStreetNameMagistral, "пустое значение");
+                if (!isJustOpened)
+                    errorProvider1.SetError(textBoxStreetNameMagistral, "пустое значение");
+                else
+                    isJustOpened = false;
                 return;
             }
             else
@@ -344,6 +350,11 @@ namespace CoordControl.Forms
                 comboBoxCrosses.Enabled = true;
                 buttonSave.Enabled = true;
             }
+        }
+
+        private void userControlPassLeft_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -156,7 +156,15 @@ namespace CoordControl.Core
 
             if (crPlan.P1MainInterval < 7) crPlan.P1MainInterval = 7;
 
+
             crPlan.P2MainInterval = cycle - mediateIntervals - crPlan.P1MainInterval;
+
+            if (crPlan.P2MainInterval < 7)
+            {
+                crPlan.P1MainInterval -= 7 - crPlan.P2MainInterval;
+                crPlan.P2MainInterval = 7;
+            }
+
         }
 
         /// <summary>
