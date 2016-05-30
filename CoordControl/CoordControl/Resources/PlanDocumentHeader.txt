@@ -6,13 +6,13 @@
             div.light-box {
                 height: 42px;
                 outline: 1px solid black;
-	            display: table-cell;	
 				position:relative;  		 
                 float: left;
             }
 
             div#graph-box {
-
+				margin: auto;
+				float: none;
             }
 
             div#green-box {

@@ -48,9 +48,9 @@
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonModeling = new System.Windows.Forms.Button();
             this.dataGridViewCoordProgs = new System.Windows.Forms.DataGridView();
-            this.planBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.planBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoordProgs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planBindingSource)).BeginInit();
@@ -227,10 +227,6 @@
             this.dataGridViewCoordProgs.CurrentCellChanged += new System.EventHandler(this.dataGridViewCoordProgs_CurrentCellChanged);
             this.dataGridViewCoordProgs.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewCoordProgs_RowsAdded);
             // 
-            // planBindingSource
-            // 
-            this.planBindingSource.DataSource = typeof(CoordControl.Core.Domains.Plan);
-            // 
             // titleDataGridViewTextBoxColumn
             // 
             this.titleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -248,6 +244,10 @@
             this.Cycle.ReadOnly = true;
             this.Cycle.Width = 200;
             // 
+            // planBindingSource
+            // 
+            this.planBindingSource.DataSource = typeof(CoordControl.Core.Domains.Plan);
+            // 
             // FormPlans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -258,7 +258,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(700, 500);
+            this.MinimumSize = new System.Drawing.Size(700, 300);
             this.Name = "FormPlans";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Программы координации магистрали";

@@ -52,7 +52,7 @@ namespace CoordControl.Presenters
                 str += "<table cellspacing='0'>" +
             "<tr><th rowspan='2'><font color='white'>.</font></th><th rowspan='2'>График включения сигналов</th><th colspan='4'>Длительность, сек</th></tr>" +
             "<tr><th>t<sub>з</sub></th><th>t<sub>ж</sub></th><th>t<sub>к</sub></th><th>t<sub>кж</sub></th></tr>" +
-            "<tr><td>Главная улица</td><td>";
+            "<tr><td>Главная улица</td><td align='center'>";
 
                 str += "<div class = 'light-box' id = 'graph-box' style='width:"+(_plan.Cycle * 7).ToString()+"px'>";
                 str += "<div class = 'light-box' id = 'green-box' style='width:"+(cp.P1MainInterval * 7).ToString()+"px'></div>";
@@ -64,7 +64,7 @@ namespace CoordControl.Presenters
                 str += "<td>" + (cp.P1MainInterval).ToString() + "</td><td>" + (cp.P1MediateInterval).ToString() +
                     "</td><td>" + (cp.P2MainInterval).ToString() + "</td><td>" + (cp.P2MediateInterval).ToString() + "</td>";
 
-                str += "</tr><tr><td>Второстепенная улица</td><td>";
+                str += "</tr><tr><td>Второстепенная улица</td><td align='center'>";
                 str += "<div class = 'light-box' id = 'graph-box' style='width:" + (_plan.Cycle * 7).ToString() + "px'>";
                 str += "<div class = 'light-box' id = 'red-box' style='width:" + (cp.P1MainInterval * 7).ToString() + "px'></div>";
                 str += "<div class = 'light-box' id = 'yellowred-box' style='width:" + (cp.P1MediateInterval * 7).ToString() + "px'></div>";
