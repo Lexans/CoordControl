@@ -68,7 +68,7 @@
             this.textBoxStreetNameMagistral.Location = new System.Drawing.Point(14, 54);
             this.textBoxStreetNameMagistral.MaxLength = 256;
             this.textBoxStreetNameMagistral.Name = "textBoxStreetNameMagistral";
-            this.textBoxStreetNameMagistral.Size = new System.Drawing.Size(332, 24);
+            this.textBoxStreetNameMagistral.Size = new System.Drawing.Size(296, 24);
             this.textBoxStreetNameMagistral.TabIndex = 0;
             this.textBoxStreetNameMagistral.TextChanged += new System.EventHandler(this.textBoxStreetNameMagistral_TextChanged);
             // 

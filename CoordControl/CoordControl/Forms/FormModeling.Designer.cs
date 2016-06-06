@@ -139,16 +139,17 @@
             // buttonStatShow
             // 
             this.buttonStatShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonStatShow.Location = new System.Drawing.Point(1051, 43);
+            this.buttonStatShow.Location = new System.Drawing.Point(1036, 46);
             this.buttonStatShow.Name = "buttonStatShow";
             this.buttonStatShow.Size = new System.Drawing.Size(204, 37);
             this.buttonStatShow.TabIndex = 3;
             this.buttonStatShow.Text = "Статистика магистрали";
-            this.buttonStatShow.UseVisualStyleBackColor = true;
+            this.buttonStatShow.UseVisualStyleBackColor = false;
             this.buttonStatShow.Click += new System.EventHandler(this.buttonStatShow_Click);
             // 
             // comboBoxViewParam
             // 
+            this.comboBoxViewParam.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.comboBoxViewParam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxViewParam.FormattingEnabled = true;
             this.comboBoxViewParam.Items.AddRange(new object[] {
@@ -165,6 +166,7 @@
             // 
             // trackBarModelingSpeed
             // 
+            this.trackBarModelingSpeed.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.trackBarModelingSpeed.Location = new System.Drawing.Point(8, 26);
             this.trackBarModelingSpeed.Maximum = 999;
             this.trackBarModelingSpeed.Name = "trackBarModelingSpeed";
@@ -210,6 +212,7 @@
             // 
             // trackBarScale
             // 
+            this.trackBarScale.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.trackBarScale.Location = new System.Drawing.Point(11, 24);
             this.trackBarScale.Maximum = 30;
             this.trackBarScale.Minimum = 3;
@@ -283,6 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1268, 828);
             this.Controls.Add(this.buttonStatShow);
             this.Controls.Add(this.groupBox1);

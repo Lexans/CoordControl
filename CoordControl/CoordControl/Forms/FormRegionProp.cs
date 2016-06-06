@@ -91,7 +91,7 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[11].SubItems[1].Text = value;
+                //listViewProp.Items[11].SubItems[1].Text = value;
             }
         }
 
@@ -99,7 +99,7 @@ namespace CoordControl.Forms
         {
             set
             {
-                listViewProp.Items[12].SubItems[1].Text = value;
+               //listViewProp.Items[12].SubItems[1].Text = value;
             }
         }
 

@@ -32,7 +32,7 @@ namespace CoordControl.Models
             string result = "1";
 
             if (w != null && w is Way)
-                result = (((Way)reg.Way).Regions.IndexOf(reg)).ToString()
+                result = (((Way)reg.Way).Regions.IndexOf(reg)+1).ToString()
                     + " из " + (((Way)reg.Way).Regions).Count.ToString();
             else if (w != null && w is WayEntry)
                 result = "крайний";

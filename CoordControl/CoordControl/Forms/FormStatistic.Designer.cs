@@ -51,6 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelMeasurePeriod = new System.Windows.Forms.Label();
+            this.buttonShowGraph = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDirect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownReverse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSum)).BeginInit();
@@ -67,9 +68,9 @@
             this.columnHeaderDirect,
             this.columnHeaderReverse,
             this.columnHeaderSum});
-            this.listViewHistory.Location = new System.Drawing.Point(14, 107);
+            this.listViewHistory.Location = new System.Drawing.Point(14, 120);
             this.listViewHistory.Name = "listViewHistory";
-            this.listViewHistory.Size = new System.Drawing.Size(628, 201);
+            this.listViewHistory.Size = new System.Drawing.Size(628, 188);
             this.listViewHistory.TabIndex = 0;
             this.listViewHistory.UseCompatibleStateImageBehavior = false;
             this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -97,7 +98,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 84);
+            this.label1.Location = new System.Drawing.Point(10, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 18);
             this.label1.TabIndex = 1;
@@ -243,17 +244,28 @@
             // labelMeasurePeriod
             // 
             this.labelMeasurePeriod.AutoSize = true;
-            this.labelMeasurePeriod.Location = new System.Drawing.Point(169, 84);
+            this.labelMeasurePeriod.Location = new System.Drawing.Point(151, 95);
             this.labelMeasurePeriod.Name = "labelMeasurePeriod";
             this.labelMeasurePeriod.Size = new System.Drawing.Size(192, 18);
             this.labelMeasurePeriod.TabIndex = 12;
             this.labelMeasurePeriod.Text = "(измерения каждые 0 сек)";
+            // 
+            // buttonShowGraph
+            // 
+            this.buttonShowGraph.Location = new System.Drawing.Point(428, 87);
+            this.buttonShowGraph.Name = "buttonShowGraph";
+            this.buttonShowGraph.Size = new System.Drawing.Size(204, 31);
+            this.buttonShowGraph.TabIndex = 13;
+            this.buttonShowGraph.Text = "Показать график";
+            this.buttonShowGraph.UseVisualStyleBackColor = true;
+            this.buttonShowGraph.Click += new System.EventHandler(this.buttonShowGraph_Click);
             // 
             // FormStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 456);
+            this.Controls.Add(this.buttonShowGraph);
             this.Controls.Add(this.labelMeasurePeriod);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -301,5 +313,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelMeasurePeriod;
+        private System.Windows.Forms.Button buttonShowGraph;
     }
 }

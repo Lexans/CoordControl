@@ -28,6 +28,8 @@ namespace CoordControl.Forms
         void FormClose();
 
         event EventHandler FormClosing;
+
+        event EventHandler ShowGraphClick;
     }
 
 
@@ -115,7 +117,7 @@ namespace CoordControl.Forms
 
 
         public new event EventHandler FormClosing;
-
+        public event EventHandler ShowGraphClick;
 
         private void FormStatistic_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -128,5 +130,12 @@ namespace CoordControl.Forms
         {
             this.Close();
         }
+
+        private void buttonShowGraph_Click(object sender, EventArgs e)
+        {
+            if (ShowGraphClick != null)
+                ShowGraphClick(this, EventArgs.Empty);
+        }
+
     }
 }

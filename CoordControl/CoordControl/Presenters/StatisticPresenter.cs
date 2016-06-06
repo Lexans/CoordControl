@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CoordControl.Forms;
 using CoordControl.Models;
+using CoordControl.Core;
+using System.Drawing;
 
 namespace CoordControl.Presenters
 {
@@ -21,6 +23,7 @@ namespace CoordControl.Presenters
             _modelPresenter = modelPresenter;
 
             _view.FormClosing += _view_FormClosing;
+            _view.ShowGraphClick += _view_ShowGraphClick;
 
             _modelPresenter.ModelSteped += _modelPresenter_ModelSteped;
             _modelPresenter.StatMeasured += _modelPresenter_StatMeasured;
@@ -28,18 +31,37 @@ namespace CoordControl.Presenters
 
             _view.MeasurePeriod = _model.GetMeasurePeriod();
             _view.SetMeasureHistory(_model.DelaysDirect, _model.DelaysReverse, _model.DelaysSum);
+
+
             SetNumericChars();
+        }
+
+
+        FormStatGraphics _formStatGraphics;
+        void _view_ShowGraphClick(object sender, EventArgs e)
+        {
+            RouteEnvir re = RouteEnvir.Instance;
+            _formStatGraphics = new FormStatGraphics(re.DelaysDirect, re.DelaysReverse);
+
+            Point p = System.Windows.Forms.Cursor.Position;
+            _formStatGraphics.Location = new Point(p.X - _formStatGraphics.Size.Width, p.Y);
+
+            _formStatGraphics.Show();
         }
 
         void _modelPresenter_FormClosed(object sender, EventArgs e)
         {
             _view.FormClose();
+            _formStatGraphics.Close();
         }
 
         void _view_FormClosing(object sender, EventArgs e)
         {
             _modelPresenter.ModelSteped -= _modelPresenter_ModelSteped;
             _modelPresenter.StatMeasured -= _modelPresenter_StatMeasured;
+
+            if (_formStatGraphics != null && !_formStatGraphics.IsDisposed)
+                _formStatGraphics.Close();
         }
 
         void _modelPresenter_ModelSteped(object sender, EventArgs e)
@@ -53,6 +75,10 @@ namespace CoordControl.Presenters
         {
             _view.AddMeasureHistory(_model.DelaysDirect.Last(),
                 _model.DelaysReverse.Last(), _model.DelaysSum.Last());
+
+            if (!_formStatGraphics.IsDisposed)
+                _formStatGraphics.AddPoint(
+                    _model.DelaysDirect.Last(), _model.DelaysReverse.Last(), _model.DelaysSum.Last());
 
             SetNumericChars();
         }

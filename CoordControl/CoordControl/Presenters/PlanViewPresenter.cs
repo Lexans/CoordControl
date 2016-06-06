@@ -33,6 +33,8 @@ namespace CoordControl.Presenters
 
         private void ShowDocument()
         {
+            int scaleX = 10;
+
             String str = global::CoordControl.Properties.Resources.PlanDocHeader;
             str += @"<title id='title'>"+_plan.Title+@"</title></head><body>";
             str += @"<h1>Программа координированного управления на участке магистрали по улице «"+_plan.Route.StreetName+
@@ -54,22 +56,22 @@ namespace CoordControl.Presenters
             "<tr><th>t<sub>з</sub></th><th>t<sub>ж</sub></th><th>t<sub>к</sub></th><th>t<sub>кж</sub></th></tr>" +
             "<tr><td>Главная улица</td><td align='center'>";
 
-                str += "<div class = 'light-box' id = 'graph-box' style='width:"+(_plan.Cycle * 7).ToString()+"px'>";
-                str += "<div class = 'light-box' id = 'green-box' style='width:"+(cp.P1MainInterval * 7).ToString()+"px'></div>";
-                str += "<div class = 'light-box' id = 'yellow-box' style='width:" + (cp.P1MediateInterval * 7).ToString() + "px'></div>";
-                str += "<div class = 'light-box' id = 'red-box' style='width:" + (cp.P2MainInterval * 7).ToString() + "px'></div>";
-                str += "<div class = 'light-box' id = 'yellowred-box' style='width:" + (cp.P2MediateInterval * 7).ToString() + "px'></div>";
+                str += "<div class = 'light-box' id = 'graph-box' style='width:"+(_plan.Cycle * scaleX).ToString()+"px'>";
+                str += "<div class = 'light-box' id = 'green-box' style='width:"+(cp.P1MainInterval * scaleX).ToString()+"px'></div>";
+                str += "<div class = 'light-box' id = 'yellow-box' style='width:" + (cp.P1MediateInterval * scaleX).ToString() + "px'></div>";
+                str += "<div class = 'light-box' id = 'red-box' style='width:" + (cp.P2MainInterval * scaleX).ToString() + "px'></div>";
+                str += "<div class = 'light-box' id = 'yellowred-box' style='width:" + (cp.P2MediateInterval * scaleX).ToString() + "px'></div>";
                 str += "</div></td>";
 
                 str += "<td>" + (cp.P1MainInterval).ToString() + "</td><td>" + (cp.P1MediateInterval).ToString() +
                     "</td><td>" + (cp.P2MainInterval).ToString() + "</td><td>" + (cp.P2MediateInterval).ToString() + "</td>";
 
                 str += "</tr><tr><td>Второстепенная улица</td><td align='center'>";
-                str += "<div class = 'light-box' id = 'graph-box' style='width:" + (_plan.Cycle * 7).ToString() + "px'>";
-                str += "<div class = 'light-box' id = 'red-box' style='width:" + (cp.P1MainInterval * 7).ToString() + "px'></div>";
-                str += "<div class = 'light-box' id = 'yellowred-box' style='width:" + (cp.P1MediateInterval * 7).ToString() + "px'></div>";
-                str += "<div class = 'light-box' id = 'green-box' style='width:" + (cp.P2MainInterval * 7).ToString() + "px'></div>";
-                str += "<div class = 'light-box' id = 'yellow-box' style='width:" + (cp.P2MediateInterval * 7).ToString() + "px'></div>";
+                str += "<div class = 'light-box' id = 'graph-box' style='width:" + (_plan.Cycle * scaleX).ToString() + "px'>";
+                str += "<div class = 'light-box' id = 'red-box' style='width:" + (cp.P1MainInterval * scaleX).ToString() + "px'></div>";
+                str += "<div class = 'light-box' id = 'yellowred-box' style='width:" + (cp.P1MediateInterval * scaleX).ToString() + "px'></div>";
+                str += "<div class = 'light-box' id = 'green-box' style='width:" + (cp.P2MainInterval * scaleX).ToString() + "px'></div>";
+                str += "<div class = 'light-box' id = 'yellow-box' style='width:" + (cp.P2MediateInterval * scaleX).ToString() + "px'></div>";
                 str += "</div></td>";
 
                 str += "<td>" + (cp.P2MainInterval).ToString() + "</td><td>" + (cp.P2MediateInterval).ToString() +
